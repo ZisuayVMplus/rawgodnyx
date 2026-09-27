@@ -1,0 +1,290 @@
+--[[
+    Status Notice UI
+    แสดงข้อความแจ้งเตือนสวยๆ ว่า "GitHub currently down right now"
+    วางสคริปต์นี้ใน LocalScript (StarterPlayerScripts หรือรันผ่าน executor)
+]]
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- ล้าง UI เก่าถ้ามี
+local old = playerGui:FindFirstChild("StatusNoticeUI")
+if old then old:Destroy() end
+
+-- ========== ScreenGui ==========
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "StatusNoticeUI"
+screenGui.ResetOnSpawn = false
+screenGui.IgnoreGuiInset = true
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+screenGui.DisplayOrder = 999
+screenGui.Parent = playerGui
+
+-- ========== Backdrop (เบลอ/มืดเบาๆ) ==========
+local backdrop = Instance.new("Frame")
+backdrop.Name = "Backdrop"
+backdrop.Size = UDim2.fromScale(1, 1)
+backdrop.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+backdrop.BackgroundTransparency = 1
+backdrop.BorderSizePixel = 0
+backdrop.ZIndex = 1
+backdrop.Parent = screenGui
+
+-- ========== Card หลัก ==========
+local card = Instance.new("Frame")
+card.Name = "Card"
+card.AnchorPoint = Vector2.new(0.5, 0.5)
+card.Position = UDim2.fromScale(0.5, 0.45)
+-- ใช้ scale (% ของจอ) แทน offset ตายตัว เพื่อรองรับทุกขนาดหน้าจอ/อัตราส่วน
+card.Size = UDim2.fromScale(0.86, 0.24)
+card.BackgroundColor3 = Color3.fromRGB(24, 24, 27)
+card.BorderSizePixel = 0
+card.ZIndex = 2
+card.ClipsDescendants = true
+card.Parent = screenGui
+
+-- จำกัดขนาดต่ำสุด/สูงสุด ไม่ให้เล็กเกินไปบนจอเล็ก หรือใหญ่เทอะทะบนจอใหญ่/จอกว้าง
+local cardConstraint = Instance.new("UISizeConstraint")
+cardConstraint.MinSize = Vector2.new(300, 150)
+cardConstraint.MaxSize = Vector2.new(440, 200)
+cardConstraint.Parent = card
+
+-- เริ่มต้นให้ตัวเล็กและใสสำหรับ tween เข้า (สูง 0 แต่กว้างคงที่ตาม scale)
+card.Size = UDim2.new(card.Size.X.Scale, 0, 0, 0)
+card.BackgroundTransparency = 1
+
+local cardCorner = Instance.new("UICorner")
+cardCorner.CornerRadius = UDim.new(0, 16)
+cardCorner.Parent = card
+
+local cardStroke = Instance.new("UIStroke")
+cardStroke.Color = Color3.fromRGB(63, 63, 70)
+cardStroke.Thickness = 1
+cardStroke.Transparency = 0.3
+cardStroke.Parent = card
+
+-- แถบสีด้านบน (accent bar สีแดง = down)
+local accentBar = Instance.new("Frame")
+accentBar.Name = "AccentBar"
+accentBar.Size = UDim2.new(1, 0, 0, 4)
+accentBar.Position = UDim2.fromScale(0, 0)
+accentBar.BackgroundColor3 = Color3.fromRGB(239, 68, 68)
+accentBar.BorderSizePixel = 0
+accentBar.ZIndex = 3
+accentBar.Parent = card
+
+local accentCorner = Instance.new("UICorner")
+accentCorner.CornerRadius = UDim.new(0, 16)
+accentCorner.Parent = accentBar
+
+-- ========== ไอคอนวงกลม (status dot พร้อม pulse) ==========
+local iconHolder = Instance.new("Frame")
+iconHolder.Name = "IconHolder"
+iconHolder.AnchorPoint = Vector2.new(0.5, 0)
+iconHolder.Position = UDim2.new(0.5, 0, 0.15, 0)
+iconHolder.Size = UDim2.fromScale(0.32, 0.32)
+iconHolder.BackgroundColor3 = Color3.fromRGB(239, 68, 68)
+iconHolder.BackgroundTransparency = 0.85
+iconHolder.BorderSizePixel = 0
+iconHolder.ZIndex = 3
+iconHolder.Parent = card
+
+local iconSizeConstraint = Instance.new("UISizeConstraint")
+iconSizeConstraint.MinSize = Vector2.new(44, 44)
+iconSizeConstraint.MaxSize = Vector2.new(60, 60)
+iconSizeConstraint.Parent = iconHolder
+
+local iconCorner = Instance.new("UICorner")
+iconCorner.CornerRadius = UDim.new(1, 0)
+iconCorner.Parent = iconHolder
+
+local pulseRing = Instance.new("Frame")
+pulseRing.Name = "PulseRing"
+pulseRing.AnchorPoint = Vector2.new(0.5, 0.5)
+pulseRing.Position = UDim2.fromScale(0.5, 0.5)
+pulseRing.Size = UDim2.fromScale(1, 1)
+pulseRing.BackgroundTransparency = 1
+pulseRing.ZIndex = 2
+pulseRing.Parent = iconHolder
+
+local pulseStroke = Instance.new("UIStroke")
+pulseStroke.Color = Color3.fromRGB(239, 68, 68)
+pulseStroke.Thickness = 2
+pulseStroke.Transparency = 0.2
+pulseStroke.Parent = pulseRing
+
+local pulseCorner = Instance.new("UICorner")
+pulseCorner.CornerRadius = UDim.new(1, 0)
+pulseCorner.Parent = pulseRing
+
+local exclaim = Instance.new("TextLabel")
+exclaim.Name = "Exclaim"
+exclaim.AnchorPoint = Vector2.new(0.5, 0.5)
+exclaim.Position = UDim2.fromScale(0.5, 0.5)
+exclaim.Size = UDim2.fromScale(0.55, 0.55)
+exclaim.BackgroundTransparency = 1
+exclaim.Font = Enum.Font.GothamBold
+exclaim.Text = "!"
+exclaim.TextColor3 = Color3.fromRGB(239, 68, 68)
+exclaim.TextSize = 26
+exclaim.TextScaled = true
+exclaim.ZIndex = 4
+exclaim.Parent = iconHolder
+
+local exclaimSizeConstraint = Instance.new("UITextSizeConstraint")
+exclaimSizeConstraint.MinTextSize = 18
+exclaimSizeConstraint.MaxTextSize = 28
+exclaimSizeConstraint.Parent = exclaim
+
+-- ========== หัวข้อ ==========
+local title = Instance.new("TextLabel")
+title.Name = "Title"
+title.AnchorPoint = Vector2.new(0.5, 0)
+title.Position = UDim2.new(0.5, 0, 0.56, 0)
+title.Size = UDim2.new(1, -40, 0, 26)
+title.BackgroundTransparency = 1
+title.Font = Enum.Font.GothamBold
+title.Text = "เซิฟเวอร์ล่ม | Server Down Right Now"
+title.TextColor3 = Color3.fromRGB(244, 244, 245)
+title.TextSize = 18
+title.TextXAlignment = Enum.TextXAlignment.Center
+title.TextScaled = true
+title.ZIndex = 3
+title.Parent = card
+
+local titleSizeConstraint = Instance.new("UITextSizeConstraint")
+titleSizeConstraint.MinTextSize = 14
+titleSizeConstraint.MaxTextSize = 20
+titleSizeConstraint.Parent = title
+
+-- ========== ข้อความหลัก ==========
+local message = Instance.new("TextLabel")
+message.Name = "Message"
+message.AnchorPoint = Vector2.new(0.5, 0)
+message.Position = UDim2.new(0.5, 0, 0.73, 0)
+message.Size = UDim2.new(1, -50, 0, 20)
+message.BackgroundTransparency = 1
+message.Font = Enum.Font.Gotham
+message.Text = "โปรดรอเซิฟเวอร์กลับมาปกติ | Please wait till server come back"
+message.TextColor3 = Color3.fromRGB(161, 161, 170)
+message.TextSize = 14
+message.TextXAlignment = Enum.TextXAlignment.Center
+message.TextScaled = true
+message.ZIndex = 3
+message.Parent = card
+
+local messageSizeConstraint = Instance.new("UITextSizeConstraint")
+messageSizeConstraint.MinTextSize = 11
+messageSizeConstraint.MaxTextSize = 15
+messageSizeConstraint.Parent = message
+
+-- ทำให้ทุกอย่างในการ์ดใสตอนเริ่ม เพื่อ fade เข้าไปพร้อมกัน
+local function setTransparency(obj, t)
+    if obj:IsA("TextLabel") then
+        obj.TextTransparency = t
+    elseif obj:IsA("Frame") and obj.Name ~= "AccentBar" and obj.Name ~= "IconHolder" then
+        obj.BackgroundTransparency = t
+    end
+end
+
+for _, obj in ipairs({title, message}) do
+    obj.TextTransparency = 1
+end
+accentBar.BackgroundTransparency = 1
+iconHolder.BackgroundTransparency = 1
+exclaim.TextTransparency = 1
+pulseStroke.Transparency = 1
+
+-- ========== Animation: เข้า ==========
+local cardOpenTween = TweenService:Create(card, TweenInfo.new(0.45, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+    Size = UDim2.fromScale(0.86, 0.24),
+    BackgroundTransparency = 0,
+})
+
+local backdropTween = TweenService:Create(backdrop, TweenInfo.new(0.3), {
+    BackgroundTransparency = 0.55,
+})
+
+backdropTween:Play()
+cardOpenTween:Play()
+
+task.delay(0.25, function()
+    TweenService:Create(accentBar, TweenInfo.new(0.3), {BackgroundTransparency = 0}):Play()
+    TweenService:Create(iconHolder, TweenInfo.new(0.3), {BackgroundTransparency = 0.85}):Play()
+    TweenService:Create(exclaim, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+    TweenService:Create(title, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+    TweenService:Create(message, TweenInfo.new(0.35), {TextTransparency = 0}):Play()
+    TweenService:Create(pulseStroke, TweenInfo.new(0.3), {Transparency = 0.2}):Play()
+end)
+
+-- ========== Pulse Ring Loop (สัญญาณเตือนต่อเนื่อง) ==========
+task.spawn(function()
+    while screenGui.Parent do
+        pulseRing.Size = UDim2.fromScale(1, 1)
+        pulseStroke.Transparency = 0.2
+        local grow = TweenService:Create(pulseRing, TweenInfo.new(1.2, Enum.EasingStyle.Sine), {
+            Size = UDim2.fromScale(1.6, 1.6),
+        })
+        local fade = TweenService:Create(pulseStroke, TweenInfo.new(1.2, Enum.EasingStyle.Sine), {
+            Transparency = 1,
+        })
+        grow:Play()
+        fade:Play()
+        task.wait(1.2)
+    end
+end)
+
+-- ========== ปุ่มปิด ==========
+local closeBtn = Instance.new("TextButton")
+closeBtn.Name = "CloseButton"
+closeBtn.AnchorPoint = Vector2.new(1, 0)
+closeBtn.Position = UDim2.new(1, -12, 0, 12)
+closeBtn.Size = UDim2.fromOffset(24, 24)
+closeBtn.BackgroundColor3 = Color3.fromRGB(39, 39, 42)
+closeBtn.BackgroundTransparency = 0.2
+closeBtn.BorderSizePixel = 0
+closeBtn.Font = Enum.Font.GothamBold
+closeBtn.Text = "×"
+closeBtn.TextColor3 = Color3.fromRGB(228, 228, 231)
+closeBtn.TextSize = 16
+closeBtn.AutoButtonColor = false
+closeBtn.ZIndex = 4
+closeBtn.Parent = card
+
+local closeCorner = Instance.new("UICorner")
+closeCorner.CornerRadius = UDim.new(1, 0)
+closeCorner.Parent = closeBtn
+
+closeBtn.MouseEnter:Connect(function()
+    TweenService:Create(closeBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(63, 63, 70)}):Play()
+end)
+closeBtn.MouseLeave:Connect(function()
+    TweenService:Create(closeBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(39, 39, 42)}):Play()
+end)
+
+local function closeUI()
+    local closeTween = TweenService:Create(card, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+        Size = UDim2.new(0.86, 0, 0, 0),
+        BackgroundTransparency = 1,
+    })
+    local backdropClose = TweenService:Create(backdrop, TweenInfo.new(0.3), {
+        BackgroundTransparency = 1,
+    })
+    closeTween:Play()
+    backdropClose:Play()
+    closeTween.Completed:Connect(function()
+        screenGui:Destroy()
+    end)
+end
+
+closeBtn.MouseButton1Click:Connect(closeUI)
+
+-- ปิดอัตโนมัติหลัง 8 วินาที (ปรับ/ลบได้ตามต้องการ)
+task.delay(20, function()
+    if screenGui.Parent then
+        closeUI()
+    end
+end)
