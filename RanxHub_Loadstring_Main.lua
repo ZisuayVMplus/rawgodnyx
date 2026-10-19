@@ -81,15 +81,9 @@ if not c().ACBYPASS then
                 debug.setconstant(func, 3, "___Bypass")
                 debug.setconstant(func, 4, "___Bypass")
 
-                warn([[
-██████╗  █████╗ ██╗███╗   ██╗    ██╗  ██╗██╗   ██╗██████╗ 
-██╔══██╗██╔══██╗██║████╗  ██║    ██║  ██║██║   ██║██╔══██╗
-██████╔╝███████║██║██╔██╗ ██║    ███████║██║   ██║██████╔╝
-██╔══██╗██╔══██║██║██║╚██╗██║    ██╔══██║██║   ██║██╔══██╗
-██║  ██║██║  ██║██║██║ ╚████║    ██║  ██║╚██████╔╝██████╔╝
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
+                warn([[ 
 
-                Rain Hub Success
+                Remix Hub Success acbypass
                 ]])
 
                 identifyexecutor = nil
@@ -111,30 +105,10 @@ local player = game.Players.LocalPlayer
 local Window = UI:CreateWindow({
     Title = "REMIX HUB,
     Subtitle = "x2nyx | Premium",
-    Size = UDim2.fromOffset(700, 540),
+    Size = UDim2.fromOffset(650, 500),
     Theme = "Dark",
     Accent = "Blue",
 })
-
-local CoreGui = game:GetService("CoreGui")
-local UserInputService = game:GetService("UserInputService")
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "RainxHub_Toggle"
-ScreenGui.ResetOnSpawn = false
-ScreenGui.Parent = CoreGui
-
-local ToggleBtn = Instance.new("ImageButton")
-ToggleBtn.Name = "OpenButton"
-ToggleBtn.Parent = ScreenGui
-ToggleBtn.Size = UDim2.fromOffset(40, 40)
-ToggleBtn.Position = UDim2.new(0.5, -20, 0, 10)
-ToggleBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-ToggleBtn.BackgroundTransparency = 0
-ToggleBtn.Image = "rbxassetid://97538237989336"
-ToggleBtn.Active = true
-ToggleBtn.Draggable = true
-ToggleBtn.AutoButtonColor = false
-Instance.new("UICorner", ToggleBtn).CornerRadius = UDim.new(0, 10)
 
 local uiVisible = true
 local function ToggleWindow()
@@ -870,85 +844,58 @@ end
 
 local OldSend
 
-OldSend = hookfunction(Network.send,function(...)
-	local args = {...}
+OldSend = hookfunction(Network.send, function(...)
+    local args = {...}
 
-	if args[1] == "shoot_gun" then
-		local target = GetClosestTarget()
+    if args[1] == "shoot_gun" then
+        local target = GetClosestTarget()
 
-		if target then
-			local part = target:FindFirstChild(
-				AimPart == "Body" and "HumanoidRootPart" or "Head"
-			)
+        if target then
+            local part = target:FindFirstChild(
+                AimPart == "Body" and "HumanoidRootPart" or "Head"
+            )
 
-			if part then
-				local char = LocalPlayer.Character
-				if not char then
-					return OldSend(...)
-				end
+            if part then
+                local char = LocalPlayer.Character
+                if not char then
+                    return OldSend(...)
+                end
 
-				local root = char:FindFirstChild("HumanoidRootPart")
+                local root = char:FindFirstChild("HumanoidRootPart")
+                if not root then
+                    return OldSend(...)
+                end
 
-				if not root then
-					return OldSend(...)
-				end
+                local myPos = root.Position
+                local targetPos = part.Position
 
-				local myPos = root.Position
-				local targetPos = part.Position
+                local vel = GetVelocity(target, targetPos)
+                local speed = vel.Magnitude
 
-				local vel = GetVelocity(target,targetPos)
-				local speed = vel.Magnitude
+                local predictedPos = targetPos
 
-				local predictedPos = targetPos
+                if speed <= 250 and speed >= 2 then
+                    predictedPos = targetPos + vel * 0.15
+                end
 
-				if speed <= 250 then
-					if speed >= 2 then
-						local moveDir = vel.Unit
-						predictedPos = targetPos + (moveDir * (speed * 0.15))
-					end
-				end
+                
+                args[3] = CFrame.new(myPos, predictedPos)
 
-				local ignore = {
-					LocalPlayer.Character,
-					target
-				}
+                for _, v in pairs(args[4] or {}) do
+                    for _, x in pairs(v) do
+                        x.Position = predictedPos
+                        x.Instance = part
+                    end
+                end
 
-				local behind = IsBehindWall(
-					myPos,
-					predictedPos,
-					ignore
-				)
+                CreateCurvedTracer(myPos, predictedPos)
+            end
+        end
+    end
 
-				if behind then
-					args[3] = CFrame.new(
-						math.huge,
-						math.huge,
-						math.huge
-					)
-				else
-					args[3] = CFrame.new(
-						myPos,
-						predictedPos
-					)
-				end
-
-				for _,v in pairs(args[4] or {}) do
-					for _,x in pairs(v) do
-						x.Position = predictedPos
-						x.Instance = part
-					end
-				end
-
-				CreateCurvedTracer(
-					myPos,
-					predictedPos
-				)
-			end
-		end
-	end
-
-	return OldSend(table.unpack(args))
+    return OldSend(table.unpack(args))
 end)
+
 
 GunmodsUI = GunmodsTab:AddSection(
     {
