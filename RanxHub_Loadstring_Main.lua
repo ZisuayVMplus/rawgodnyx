@@ -109,7 +109,7 @@ repeat task.wait() until c().ACBYPASS
 local player = game.Players.LocalPlayer
 
 local Window = UI:CreateWindow({
-    Title = "Ranx HUB | Premium PVP [BLOCK SPIN]",
+    Title = "REMIX HUB,
     Subtitle = "x2nyx | Premium",
     Size = UDim2.fromOffset(700, 540),
     Theme = "Dark",
@@ -177,7 +177,7 @@ local ServerUI = ServerTab:AddSection({Title = "Server Utilities"})
 
 HomeUI = HomeTab:AddSection(
     {
-        Title = "My Name is x2nyx solo Developer"
+        Title = "My Name is x2nyx Remix Team Developer"
     }
 )
 
@@ -568,25 +568,6 @@ RagdollModule.is_ragdolling.get = function(...)
 
     return result
 end
-
-GeneralUI = GeneralTab:AddSection(
-    {
-        Title = "ETT"
-    }
-)
-
-local plsraknet = Raknet or raknet
-
-
-GeneralUI:AddToggle({
-    Title = "Invisible",
-    Default = false,
-    Callback = function(state)
-        if plsraknet and plsraknet.desync then
-            plsraknet.desync(state)
-        end
-    end
-})
 
 GeneralUI = GeneralTab:AddSection(
     {
