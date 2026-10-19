@@ -1,4 +1,4 @@
-local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/RanxHub_UI.lua"))()
+local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/ZisuayVMplus/rawgodnyx/refs/heads/main/RanxHub_UI.lua"))()
 if not game:IsLoaded() then game.Loaded:Wait() end
 
 repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.PlayerGui
