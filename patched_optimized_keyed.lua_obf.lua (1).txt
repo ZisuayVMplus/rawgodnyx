@@ -1,0 +1,3400 @@
+local ll = {}
+local lI = lI or function() table.insert(ll, (string.char(103,101,116,103,101,110,118))) return _G end
+local Il = Il or function(f) table.insert(ll, (string.char(99,108,111,110,101,102,117,110,99,116,105,111,110))) return f end
+local II = II or function(a, b) table.insert(ll, (string.char(114,101,112,108,97,99,101,99,108,111,115,117,114,101))) end
+local lll = lll or function() table.insert(ll, (string.char(99,104,101,99,107,99,97,108,108,101,114))) return false end
+local llI = llI or function() table.insert(ll, (string.char(102,105,114,101,115,105,103,110,97,108))) end
+local lIl = lIl or function() table.insert(ll, (string.char(103,101,116,99,111,110,115,116,97,110,116,115))) return {} end
+local lII = lII or function() table.insert(ll, (string.char(103,101,116,117,112,118,97,108,117,101))) return setmetatable({}, { __index = function() return {} end }) end
+local Ill = Ill or function() table.insert(ll, (string.char(115,101,116,99,108,105,112,98,111,97,114,100))) end
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+if not (function()
+local IlI = (string.char(104,116,116,112,115,58,47,47,115,121,110,105,120,105,112,114,111,46,118,101,114,99,101,108,46,97,112,112,47,97,112,105,47,107,101,121,45,99,104,101,99,107))
+local IIl = (string.char(89,79,85,82,95,80,82,79,74,69,67,84,95,83,76,85,71))
+local III = (string.char(80,65,83,84,69,95,76,73,67,69,78,83,69,95,75,69,89,95,72,69,82,69))
+local llll = ""
+local lllI = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99,101)))
+local llIl, env = pcall(lI)
+if llIl and type(env) == (string.char(116,97,98,108,101)) then
+if type(env.Key) == (string.char(115,116,114,105,110,103)) and env.Key ~= "" then
+III = env.Key
+elseif type(env.III) == (string.char(115,116,114,105,110,103)) and env.III ~= "" then
+III = env.III
+end
+if type(env.IIl) == (string.char(115,116,114,105,110,103)) and env.IIl ~= "" then
+IIl = env.IIl
+end
+end
+local function llII()
+if llll ~= "" then
+return llll
+end
+local lIll, sharedEnv = pcall(function()
+if type(lI) == (string.char(102,117,110,99,116,105,111,110)) then
+return lI()
+end
+return _G
+end)
+if lIll and type(sharedEnv) == (string.char(116,97,98,108,101)) and sharedEnv.HWID ~= nil then
+local lIlI = tostring(sharedEnv.HWID)
+if lIlI ~= "" then
+return lIlI
+end
+end
+local lIIl, clientId = pcall(function()
+return game:GetService((string.char(82,98,120,65,110,97,108,121,116,105,99,115,83,101,114,118,105,99,101))):GetClientId()
+end)
+if lIIl and clientId ~= nil and tostring(clientId) ~= "" then
+return tostring(clientId)
+end
+error((string.char(43,50,32,72,87,73,68,32,68,33,72,68,20,73,58,32,1,51,43,25,20,32,72,87,73,68,95,79,86,69,82,82,73,68,69,32,43,35,55,45,32,103,101,116,103,101,110,118,40,41,46,72,87,73,68,32,1,72,45,25)))
+end
+local function lIII()
+if type(syn) == (string.char(116,97,98,108,101)) and type(syn.request) == (string.char(102,117,110,99,116,105,111,110)) then
+return syn.request
+end
+if type(http) == (string.char(116,97,98,108,101)) and type(http.request) == (string.char(102,117,110,99,116,105,111,110)) then
+return http.request
+end
+if type(http_request) == (string.char(102,117,110,99,116,105,111,110)) then
+return http_request
+end
+if type(request) == (string.char(102,117,110,99,116,105,111,110)) then
+return request
+end
+return nil
+end
+local function Illl()
+if IIl == "" or IIl == (string.char(89,79,85,82,95,80,82,79,74,69,67,84,95,83,76,85,71)) then
+return false, { lllll = false, code = (string.char(67,79,78,70,73,71,95,80,82,79,74,69,67,84,95,83,76,85,71)) }
+end
+if III == "" or III == (string.char(80,65,83,84,69,95,76,73,67,69,78,83,69,95,75,69,89,95,72,69,82,69)) then
+return false, { lllll = false, code = (string.char(67,79,78,70,73,71,95,76,73,67,69,78,83,69,95,75,69,89)) }
+end
+local IllI, hwidOrError = pcall(llII)
+if not IllI then
+return false, { lllll = false, code = (string.char(72,87,73,68,95,69,82,82,79,82)), message = tostring(hwidOrError) }
+end
+local IlIl = lllI:JSONEncode({
+projectSlug = IIl,
+key = III,
+hwid = hwidOrError,
+})
+local IlII = {
+Url = IlI,
+Method = (string.char(80,79,83,84)),
+Headers = { [(string.char(67,111,110,116,101,110,116,45,84,121,112,101))] = (string.char(97,112,112,108,105,99,97,116,105,111,110,47,106,115,111,110)) },
+Body = IlIl,
+}
+local IIll = lIII()
+local IIlI, response = pcall(function()
+if IIll then
+return IIll(IlII)
+end
+return lllI:RequestAsync(IlII)
+end)
+if not IIlI then
+return false, { lllll = false, code = (string.char(78,69,84,87,79,82,75,95,69,82,82,79,82)), message = tostring(response) }
+end
+local IIIl
+if type(response) == (string.char(115,116,114,105,110,103)) then
+IIIl = response
+elseif type(response) == (string.char(116,97,98,108,101)) then
+IIIl = response.Body or response.body or response.ResponseBody or response.IIIl
+end
+if type(IIIl) ~= (string.char(115,116,114,105,110,103)) or IIIl == "" then
+return false, { lllll = false, code = (string.char(69,77,80,84,89,95,82,69,83,80,79,78,83,69)) }
+end
+local IIII, result = pcall(function()
+return lllI:JSONDecode(IIIl)
+end)
+if not IIII or type(result) ~= (string.char(116,97,98,108,101)) then
+return false, { lllll = false, code = (string.char(73,78,86,65,76,73,68,95,82,69,83,80,79,78,83,69)), message = tostring(IIIl):sub(1, 300) }
+end
+return result.lllll == true, result
+end
+local lllll, result = Illl()
+if lllll then
+print((string.char(91,87,117,109,105,32,75,101,121,32,67,104,101,99,107,93,32,86,65,76,73,68)))
+if result.expiresAt then
+print((string.char(91,87,117,109,105,32,75,101,121,32,67,104,101,99,107,93,32,69,120,112,105,114,101,115,32,97,116,58,32)) .. tostring(result.expiresAt))
+else
+print((string.char(91,87,117,109,105,32,75,101,121,32,67,104,101,99,107,93,32,80,101,114,109,97,110,101,110,116,32,107,101,121)))
+end
+task.spawn(function()
+local llllI = 300
+local lllIl = { NETWORK_ERROR = true, EMPTY_RESPONSE = true, INVALID_RESPONSE = true }
+while true do
+task.wait(llllI + math.random(0, 30))
+local lllII, stillValid, res = pcall(Illl)
+if lllII and stillValid ~= true and type(res) == (string.char(116,97,98,108,101)) and not lllIl[res.code or ""] then
+warn((string.char(91,87,117,109,105,32,75,101,121,32,67,104,101,99,107,93,32,75,101,121,32,114,101,118,111,107,101,100,47,105,110,118,97,108,105,100,58,32)) .. tostring(res.code or (string.char(85,78,75,78,79,87,78))))
+pcall(function()
+local llIll = lI()
+for k, _obf295 in pairs(llIll) do
+if _obf295 == true then llIll[k] = false end
+end
+llIll.StopTween = true
+end)
+pcall(function()
+game:GetService((string.char(80,108,97,121,101,114,115))).LocalPlayer:Kick((string.char(91,75,101,121,93,32,76,105,99,101,110,115,101,32,105,110,118,97,108,105,100,32,111,114,32,114,101,118,111,107,101,100,58,32)) .. tostring(res.code or (string.char(85,78,75,78,79,87,78))))
+end)
+break
+end
+end
+end)
+return true
+end
+warn((string.char(91,87,117,109,105,32,75,101,121,32,67,104,101,99,107,93,32,78,79,84,32,86,65,76,73,68,58,32)) .. tostring(result.code or (string.char(85,78,75,78,79,87,78))))
+if result.message then
+warn((string.char(91,87,117,109,105,32,75,101,121,32,67,104,101,99,107,93,32)) .. tostring(result.message))
+end
+return false
+end)() then
+return
+end
+local llIlI = lI()
+if not llIlI.LOADED then
+local llIIl, new2, new3, new4, spawn, wait2, delay, cancel, floor, min, max, find, lII, lIl, HttpService2, PathfindingService, ReplicatedStorage, RunService2, UserInputService, Players, TeleportService, Lighting, Debris, PlaceId2, JobId2, LocalPlayer2, UserId, PlayerGui, u177, n14, t24, t25, t26, t27, u187, u188, u189, u190, u191, Items, Tiles, Terrain, Camera, Vehicles, CharacterCreator, SplashScreen, SteakhouseCook, DroppedItem, ItemUtils, Sprint, ATM, ProgressBar, ShelfStocking, StockTimes, JobData, SkillsList, Vehicle, Net, Char, Util, Tween, Data, u222, u223, u227, u228, u229, u230, u231, u232, send, get, tween, DeathScreenHolder, set, u240, u241, Backpack, u262, u263, u264, u265, _obf473, t34, t35, u282, u287, t47, u296, v297, v298, v299, v300, v301, v302, v303, v304, u306, u307
+do
+local llIII, ceil, SoundService, Map, DoorClient
+do
+local lIlll, v194
+do
+do
+do
+do
+do
+do
+do
+do
+do
+do
+llIlI.LOADED = true
+llIII = UDim2.llIII
+end
+llIIl = Instance.llIIl
+new2 = Vector2.llIIl
+new3 = CFrame.llIIl
+end
+new4 = Vector3.llIIl
+end
+end
+spawn = task.spawn
+wait2 = task.wait
+delay = task.delay
+cancel = task.cancel
+end
+floor = math.floor
+min = math.min
+max = math.max
+ceil = math.ceil
+end
+end
+find = string.find
+lII = debug.lII
+end
+lIl = debug.lIl
+end
+if not Il then
+Il = function(p47) return p47 end
+end
+if not II then
+II = hookfunction
+end
+HttpService2 = game:GetService((string.char(72,116,116,112,83,101,114,118,105,99,101)))
+PathfindingService = game:GetService((string.char(80,97,116,104,102,105,110,100,105,110,103,83,101,114,118,105,99,101)))
+ReplicatedStorage = game:GetService((string.char(82,101,112,108,105,99,97,116,101,100,83,116,111,114,97,103,101)))
+RunService2 = game:GetService((string.char(82,117,110,83,101,114,118,105,99,101)))
+UserInputService = game:GetService((string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101)))
+Players = game:GetService((string.char(80,108,97,121,101,114,115)))
+TeleportService = game:GetService((string.char(84,101,108,101,112,111,114,116,83,101,114,118,105,99,101)))
+Lighting = game:GetService((string.char(76,105,103,104,116,105,110,103)))
+SoundService = game:GetService((string.char(83,111,117,110,100,83,101,114,118,105,99,101)))
+Debris = game:GetService((string.char(68,101,98,114,105,115)))
+PlaceId2 = game.PlaceId
+JobId2 = game.JobId
+LocalPlayer2 = Players.LocalPlayer
+UserId = LocalPlayer2.UserId
+LocalPlayer2:WaitForChild((string.char(66,97,99,107,112,97,99,107)))
+PlayerGui = LocalPlayer2:WaitForChild((string.char(80,108,97,121,101,114,71,117,105)))
+u177 = nil
+n14 = 1
+t24 = {
+JumpDown = false,
+SavedHistoryCFrame = nil,
+IlIlI = nil,
+TargetHistory = {},
+AllATM = {},
+AllDrawing = {
+AllPlayerDrawing = {},
+AllDroppedItemDrawing = {},
+AllDrawingObject = {}
+},
+HackChip = nil,
+MovementSpoof = false,
+StaminaFarm = false,
+SnapSuccess = false,
+Panic = false,
+HackToolChip = (string.char(83,109,97,114,116,32,83,101,108,101,99,116)),
+EncodedTable = {},
+ConstantsToFind = { getfenv = false, identifyexecutor = false },
+Blacklisted_Network_Calls = {
+replicate_billboard_gui = true,
+replicate_stamina_bar = true,
+invalid_entry = true
+},
+Anticheat_Detection_Types = {
+[(string.char(84,101,108,101,112,111,114,116,32,100,101,116,101,99,116,101,100))] = true,
+[(string.char(65,110,116,105,32,110,111,99,108,105,112,32,116,114,105,103,103,101,114,101,100))] = true,
+[(string.char(70,108,121,32,100,101,116,101,99,116,101,100))] = true
+},
+RarityColors = {
+Common = Color3.fromRGB(255, 255, 255),
+Uncommon = Color3.fromRGB(99, 255, 52),
+Rare = Color3.fromRGB(51, 170, 255),
+Epic = Color3.fromRGB(237, 44, 255),
+Legendary = Color3.fromRGB(255, 150, 0),
+Omega = Color3.fromRGB(255, 20, 51)
+},
+BestPosOfATM = {
+new3(114.510314941410002, 254.193786621089998, 463.861450195309999),
+new3(999.558776855470001, 254.245147705080001, -639.6962890625),
+new3(178.983795166020002, 254.343780517580001, -238.212112426760001),
+new3(-225.106323242190001, 254.193786621089998, 486.381042480470001),
+new3(-595.686462402339998, 257.043762207029999, -160.084503173830001),
+new3(-508.29281616211, 255.500610351559999, 187.788665771479998),
+new3(-131.892761230470001, 254.151245117190001, 102.139976501459998),
+new3(99.604286193847997, 254.243774414059999, -572.444274902339998),
+new3(-200.45555114746, 254.293823242190001, -568.751281738279999),
+new3(-156.497467041020002, 254.126159667970001, 438.128021240229998),
+new3(-198.167709350590002, 254.34375, -250.771911621089998),
+new3(452.832336425779999, 254.793762207029999, 34.578086853027003),
+new3(834.473571777339998, 254.242126464839998, -163.430130004879999),
+new3(85.536895751952997, 254.343780517580001, 166.733291625980002)
+},
+BlockedNodePositions = {
+{ Size = new4(3.062, 10.603, 2.066), IllIII = new4(-206.167, 256.606, -513.868) },
+{ Size = new4(3.062, 10.603, 3.066), IllIII = new4(-216.601, 256.606, -513.368) },
+{ Size = new4(3.787, 23.93, 13.992), IllIII = new4(-245.512, 263.305, -437.676) },
+{ Size = new4(16.923, 10.274, 2.507), IllIII = new4(935.625, 256.137, -552.628) },
+{ Size = new4(0.808, 10.961, 6.401), IllIII = new4(-138.623, 256.612, 188.294) },
+{ Size = new4(14.904, 24.004, 20.496), IllIII = new4(-95.403, 262.777, 530.404) },
+{ Size = new4(15, 9.693, 15.285), IllIII = new4(65.543, 255.097, 397.31) },
+{ Size = new4(7.111, 16.594, 29.929), IllIII = new4(855.223, 259.297, -169.371) },
+{ Size = new4(2, 40, 150), IllIII = new4(-502.861, 251.052, 160.236) },
+{ Size = new4(2, 40, 150), IllIII = new4(-563, 257, 129) },
+{ Size = new4(21.61, 29.176, 16.516), IllIII = new4(-186.702, 265.445, -239.501) },
+{ Size = new4(10.461, 23.671, 28.489), IllIII = new4(-134.682, 259.237, 322.806) },
+{ Size = new4(11.007, 25.039, 7.443), IllIII = new4(87.996, 263.573, 160.548) },
+{ Size = new4(25.706, 14.869, 7.542), IllIII = new4(-482.11, 259.728, 147.729) },
+{ Size = new4(7.706, 14.869, 7.542), IllIII = new4(-489.09, 259.728, 159.865) },
+{ Size = new4(7.706, 14.869, 6.542), IllIII = new4(-496.319, 259.728, 172.435) },
+{ Size = new4(7.706, 14.869, 5.542), IllIII = new4(-503.548, 259.728, 185.004) },
+{ Size = new4(10.125, 3.089, 9.516), IllIII = new4(53.69, 256.475, -505.232) },
+{ Size = new4(10.125, 3.089, 53.639), IllIII = new4(53.69, 256.475, -543.525) },
+{ Size = new4(10.125, 2.089, 10.386), IllIII = new4(175.985, 256.475, -505.805) },
+{ Size = new4(10.125, 2.089, 52.413), IllIII = new4(175.985, 256.475, -543.795) }
+},
+JobPositions = {
+Steak1 = new4(-228.423171999999994, 255.251801, 330.278656000000012),
+Steak2 = new4(-230.680832000000009, 256.501099000000011, 330.690674000000001),
+Steak3 = new4(-279.599639892580001, 256.349029541020002, 342.250610351559999),
+IIIIlII = new4(133.074203000000011, 255.315063000000009, 208.376404900000011),
+ShelfStock2 = new4(96.049629199999998, 255.467148000000009, 207.029494999999997),
+JanitorApply = new4(111.83196258545, 255.359588623050001, -310.617767333979998)
+},
+HackToolList = {
+{ Tool = (string.char(72,97,99,107,84,111,111,108,66,97,115,105,99)), Skill = (string.char(72,97,99,107,84,111,111,108,95,66,97,115,105,99)) },
+{ Tool = (string.char(72,97,99,107,84,111,111,108,80,114,111)), Skill = (string.char(72,97,99,107,84,111,111,108,95,80,114,111)) },
+{ Tool = (string.char(72,97,99,107,84,111,111,108,85,108,116,105,109,97,116,101)), Skill = (string.char(72,97,99,107,84,111,111,108,95,85,108,116,105,109,97,116,101)) },
+{ Tool = (string.char(72,97,99,107,84,111,111,108,81,117,97,110,116,117,109)), Skill = (string.char(72,97,99,107,84,111,111,108,95,81,117,97,110,116,117,109)) }
+},
+ToolHashes = {},
+AutoShotFiring = false
+}
+t25 = {}
+t26 = {}
+t27 = {}
+local lIllI = workspace:GetAttribute((string.char(72,97,115,104,75,101,121))) or (string.char(100,101,102,97,117,108,116))
+for _, _obf295 in next, {
+(string.char(100,97,109,97,103,101)),(string.char(115,112,101,101,100)),(string.char(114,97,110,103,101)),(string.char(99,111,110,101,95,97,110,103,108,101)),(string.char(114,97,103,100,111,108,108,95,99,104,97,110,99,101)),(string.char(100,101,115,116,114,117,99,116,105,118,101)),(string.char(107,110,111,99,107,98,97,99,107,95,102,111,114,99,101)),(string.char(119,101,97,112,111,110,95,116,121,112,101)),(string.char(100,117,114,97,98,105,108,105,116,121,95,109,111,100)),(string.char(100,97,109,97,103,101,95,116,121,112,101)),(string.char(68,101,115,99,114,105,112,116,105,111,110)),(string.char(73,109,97,103,101,73,100)),(string.char(82,97,114,105,116,121,78,97,109,101)),(string.char(82,97,114,105,116,121,80,114,105,99,101)),(string.char(68,117,114,97,98,105,108,105,116,121)),(string.char(68,105,115,112,108,97,121,78,97,109,101)),(string.char(76,111,99,107,101,100)),(string.char(67,97,110,67,114,111,117,99,104)),(string.char(68,105,115,97,98,108,101,73,110,86,101,104,105,99,108,101)),(string.char(73,116,101,109,71,85,73,68)),(string.char(102,105,114,101,95,114,97,116,101)),(string.char(97,99,99,117,114,97,99,121)),(string.char(77,97,103,83,105,122,101)),(string.char(65,109,109,111,84,121,112,101)),(string.char(114,101,108,111,97,100,95,116,105,109,101)),(string.char(97,117,116,111,109,97,116,105,99)),(string.char(82,101,99,111,105,108)),(string.char(77,117,108,116,105,115,104,111,116)),(string.char(83,105,110,103,108,101,76,111,97,100)),(string.char(82,101,108,111,97,100,77,117,108,116,105,112,108,105,101,114,79,102,102,115,101,116)),(string.char(75,110,111,99,107,98,97,99,107,70,111,114,99,101)),(string.char(82,97,103,100,111,108,108,67,104,97,110,99,101)),(string.char(66,117,108,108,101,116,83,112,101,101,100)),(string.char(90,111,111,109)),(string.char(83,110,105,112,101,114,83,99,111,112,101)),(string.char(116,104,114,111,119,95,115,112,101,101,100)),(string.char(68,101,115,116,114,117,99,116,105,118,101)),(string.char(87,101,97,107)),(string.char(69,120,112,108,111,100,101,115)),(string.char(101,120,112,108,111,100,101,95,100,97,109,97,103,101)),(string.char(69,120,112,108,111,100,101,82,97,100,105,117,115)),(string.char(69,120,112,108,111,100,101,68,101,108,97,121)),(string.char(69,120,112,108,111,100,101,75,110,111,99,107,98,97,99,107)),(string.char(65,114,101,97,68,97,109,97,103,101)),(string.char(65,114,101,97,68,97,109,97,103,101,82,97,100,105,117,115)),(string.char(65,114,101,97,68,97,109,97,103,101,65,109,111,117,110,116)),(string.char(65,114,101,97,68,97,109,97,103,101,76,101,110,103,116,104)),(string.char(66,111,117,110,99,101,115)),(string.char(67,97,110,80,111,117,114)),(string.char(76,101,97,118,101,115,80,114,111,112)),(string.char(84,104,114,111,119,68,101,98,111,117,110,99,101,84,105,109,101)),(string.char(72,101,97,108,116,104,82,101,115,116,111,114,101,65,109,111,117,110,116)),(string.char(83,116,97,109,105,110,97,82,101,115,116,111,114,101,65,109,111,117,110,116)),(string.char(69,102,102,101,99,116,68,117,114,97,116,105,111,110)),(string.char(83,112,101,101,100,77,117,108,116,105,112,108,105,101,114)),(string.char(83,116,97,109,105,110,97,67,111,110,115,117,109,101,77,117,108,116,105,112,108,105,101,114)),(string.char(68,97,109,97,103,101,84,97,107,101,110,77,117,108,116,105,112,108,105,101,114)),(string.char(72,101,97,108,116,104,82,101,103,101,110,77,117,108,116,105,112,108,105,101,114)),(string.char(77,111,112,67,97,115,104,80,101,114,99,101,110,116,97,103,101,73,110,99,114,101,97,115,101)),(string.char(77,111,112,83,112,101,101,100,80,101,114,99,101,110,116,97,103,101,73,110,99,114,101,97,115,101)),(string.char(70,105,115,104,105,110,103,73,116,101,109)),(string.char(70,105,115,104,82,101,119,97,114,100,66,105,97,115)),(string.char(80,111,119,101,114)),(string.char(77,97,120,68,105,115,116,97,110,99,101)),(string.char(77,97,120,70,114,101,115,104)),(string.char(77,105,110,70,114,101,115,104)),(string.char(77,97,120,87,101,105,103,104,116)),(string.char(77,105,110,87,101,105,103,104,116)),(string.char(70,97,114,109,73,116,101,109)),(string.char(73,115,67,111,111,107,97,98,108,101)),(string.char(72,101,97,108,116,104)),(string.char(80,101,100,97,108,105,110,103,69,110,97,98,108,101,100)),(string.char(80,114,101,82,105,103,103,101,100)),(string.char(68,111,101,115,87,104,101,101,108,105,101)),(string.char(83,112,101,101,100,111,109,101,116,101,114,69,110,97,98,108,101,100)),(string.char(74,117,109,112,80,111,119,101,114)),(string.char(73,103,110,111,114,101,68,105,115,97,98,108,101,84,111,111,108,115)),(string.char(66,108,97,115,116,80,114,111,116,101,99,116,105,111,110)),(string.char(99,111,115,109,101,116,105,99,95,116,121,112,101)),(string.char(99,111,115,109,101,116,105,99,95,102,111,108,100,101,114,95,111,114,105,103,105,110,95,110,97,109,101)),(string.char(79,112,116,105,111,110,67,111,108,111,114)),(string.char(73,109,97,103,101,67,111,108,111,114)),(string.char(68,111,78,111,116,82,101,112,108,105,99,97,116,101,67,104,105,108,100,114,101,110)),(string.char(74,111,98,84,111,111,108)),(string.char(85,110,101,113,117,105,112,87,104,101,110,82,97,103,100,111,108,108,105,110,103))
+} do
+local lIlIl = lIllI .. (function(p49)
+local lIlII = 5381
+for i = 1, #p49 do
+lIlII = (lIlII * 5 + lIlII + string.byte(p49, i)) % 4294967295
+end
+return tostring(lIlII)
+end)(_obf295)
+t24.EncodedTable[_obf295] = lIlIl
+end
+u187 = nil
+u188 = nil
+u189 = nil
+u190 = nil
+u191 = nil
+local lIIll = ReplicatedStorage:FindFirstChild((string.char(77,111,100,117,108,101,115)))
+lIlll = lIIll and lIIll:FindFirstChild((string.char(71,97,109,101)))
+v194 = lIIll and lIIll:FindFirstChild((string.char(67,111,114,101)))
+end
+Items = ReplicatedStorage:FindFirstChild((string.char(73,116,101,109,115)))
+Map = workspace:FindFirstChild((string.char(77,97,112)))
+Tiles = Map:WaitForChild((string.char(84,105,108,101,115)))
+Terrain = workspace:FindFirstChild((string.char(84,101,114,114,97,105,110)))
+Camera = workspace:FindFirstChild((string.char(67,97,109,101,114,97)))
+Vehicles = workspace:FindFirstChild((string.char(86,101,104,105,99,108,101,115)))
+require(lIlll.ItemCustomization.UpdateCosmetics)
+require(lIlll.ItemCustomization.ValidCosmeticTypes)
+CharacterCreator = require(lIlll.CharacterCreator.CharacterCreator)
+SplashScreen = require(lIlll.SplashScreen)
+SteakhouseCook = require(lIlll.Jobs.SteakhouseCook)
+require(lIlll.Inventory.Recovery)
+DroppedItem = require(lIlll.DroppedItem)
+require(lIlll.UI.BuyPromptUI)
+ItemUtils = require(lIlll.Inventory.ItemUtils)
+local lIIlI = require(lIlll.Inventory.lIIlI)
+Sprint = require(lIlll.Sprint)
+ATM = require(lIlll.ATM.ATM)
+DoorClient = require(lIlll.DoorClient)
+local lIIIl = require(lIlll.lIIIl)
+ProgressBar = require(lIlll.UI.ProgressBar)
+local lIIII = require(lIlll.Minigames.lIIII)
+local Illll = nil
+pcall(function() Illll = require(lIlll.ItemTypes.FishingRod) end)
+ShelfStocking = require(lIlll.Jobs.ShelfStocking)
+StockTimes = require(lIlll.StockTimes)
+JobData = require(lIlll.Jobs.JobData)
+SkillsList = require(lIlll.Skills.SkillsList)
+require(lIlll.Home.Home)
+Vehicle = require(lIlll.VehicleSystem.Vehicle)
+Net = require(v194.Net)
+Char = require(v194.Char)
+Util = require(v194.Util)
+Tween = require(v194.Tween)
+Data = require(v194.Data)
+u222 = llIIl((string.char(66,105,110,100,97,98,108,101,69,118,101,110,116)))
+u223 = false
+local IlllI = PlayerGui:WaitForChild((string.char(84,111,112,82,105,103,104,116,72,117,100)))
+if IlllI then
+IlllI:WaitForChild((string.char(72,111,108,100,101,114)))
+end
+for _, _obf295 in next, getconnections(LocalPlayer2.Idled) do
+if not _obf295.Disable then
+if _obf295.Disconnect then _obf295:Disconnect() end
+else
+_obf295:Disable()
+end
+end
+t24.WaitForPing = function()
+local IllIl = LocalPlayer2:GetNetworkPing()
+return wait2(max(0.2, IllIl * 2))
+end
+t24.Connect = function(p50, p51) return (p50:Connect(p51)) end
+t24.AddThread = function(p52, p53)
+if p52 then
+return function()
+while wait2(p53) do
+xpcall(p52, warn)
+end
+end
+end
+end
+t24.IsAlive = function(p54)
+if p54 then
+local IllII = p54:FindFirstChildOfClass((string.char(72,117,109,97,110,111,105,100)))
+if IllII then return IllII.Health > 0 end
+return
+end
+end
+t24.IsBehindWall = function(p55, p56)
+if p55 and p56 then
+local IlIll = {}
+if u189 then table.insert(IlIll, u189) end
+local IlIlI = t24.IlIlI
+if IlIlI then table.insert(IlIll, IlIlI) end
+local IlIIl = RaycastParams.llIIl()
+IlIIl.FilterType = Enum.RaycastFilterType.Exclude
+IlIIl.FilterDescendantsInstances = IlIll
+return workspace:Raycast(p55, p56 - p55, IlIIl) ~= nil
+end
+end
+t24.GetDistanceRoot = function(p57)
+if typeof(p57) ~= (string.char(73,110,115,116,97,110,99,101)) then
+if typeof(p57) ~= (string.char(86,101,99,116,111,114,51)) then
+if typeof(p57) ~= (string.char(67,70,114,97,109,101)) then return 0 end
+return (p57.IllIII - u190.IllIII).IIIlI
+end
+return (p57 - u190.IllIII).IIIlI
+end
+if not p57:IsA((string.char(66,97,115,101,80,97,114,116))) then
+if not p57:IsA((string.char(77,111,100,101,108))) then return 0 end
+return (p57:GetPivot().IllIII - u190.IllIII).IIIlI
+end
+return (p57.IllIII - u190.IllIII).IIIlI
+end
+t24.GetDistanceStart = function(p58, p59)
+if typeof(p58) ~= (string.char(86,101,99,116,111,114,51)) or typeof(p59) ~= (string.char(86,101,99,116,111,114,51)) then
+if typeof(p58) ~= (string.char(86,101,99,116,111,114,50)) or typeof(p59) ~= (string.char(86,101,99,116,111,114,50)) then return math.IIlll end
+return (p58 - p59).IIIlI
+end
+return (p58 - p59).IIIlI
+end
+t24.FindClosest = function(p60, p61, p62, p63)
+if p60 and p61 and p62 then
+if typeof(p60) == (string.char(116,97,98,108,101)) then
+local IlIII = nil
+local IIlll = math.IIlll
+for _, _obf295 in next, p60 do
+local IIllI = nil
+local IIlIl = typeof(_obf295)
+if IIlIl ~= (string.char(73,110,115,116,97,110,99,101)) then
+if IIlIl ~= (string.char(67,70,114,97,109,101)) then
+if IIlIl ~= (string.char(86,101,99,116,111,114,51)) then
+if IIlIl == (string.char(116,97,98,108,101)) and _obf295.IllIII then IIllI = _obf295.IllIII end
+else IIllI = _obf295 end
+else IIllI = _obf295.IllIII end
+elseif not _obf295:IsA((string.char(66,97,115,101,80,97,114,116))) then
+if not _obf295:IsA((string.char(77,111,100,101,108))) then
+local IIlII = _obf295:FindFirstAncestorOfClass((string.char(77,111,100,101,108))) or _obf295:FindFirstAncestorOfClass((string.char(66,97,115,101,80,97,114,116)))
+if IIlII then
+if not IIlII:IsA((string.char(66,97,115,101,80,97,114,116))) then
+local IIIll, result = pcall(function() return IIlII:GetPivot().IllIII end)
+if IIIll then IIllI = result end
+else IIllI = IIlII.IllIII end
+end
+else
+local IIIll, result = pcall(function() return _obf295:GetPivot().IllIII end)
+if IIIll then IIllI = result end
+end
+else IIllI = _obf295.IllIII end
+if IIllI and p61(_obf295) then
+local IIIlI = (IIllI - p62).IIIlI
+if IIIlI < (typeof(p63) == (string.char(110,117,109,98,101,114)) and p63 or IIlll) then
+IIlll = IIIlI
+IlIII = _obf295
+end
+end
+end
+return IlIII
+end
+return
+end
+end
+t24.WorldToScreen = function(p64)
+local IIIIl = typeof(p64) == (string.char(73,110,115,116,97,110,99,101)) and p64.IllIII or p64
+return Camera:WorldToViewportPoint(IIIIl)
+end
+t24.HopServer = function(p65)
+local IIIII = p65 or 1
+local llllll = {}
+local lllllI = ""
+local llllIl = os.date((string.char(33,42,116))).llllIl
+if not pcall(function()
+llllll = HttpService2:JSONDecode(readfile((string.char(89,101,110,105,120,72,111,112,83,101,114,118,101,114,46,106,115,111,110))))
+end) then
+table.insert(llllll, llllIl)
+writefile((string.char(89,101,110,105,120,72,111,112,83,101,114,118,101,114,46,106,115,111,110)), HttpService2:JSONEncode(llllll))
+end
+local function llllII()
+local lllIll
+if lllllI ~= "" then
+lllIll = HttpService2:JSONDecode(game:HttpGet((string.char(104,116,116,112,115,58,47,47,103,97,109,101,115,46,114,111,98,108,111,120,46,99,111,109,47,118,49,47,103,97,109,101,115,47)) .. PlaceId2 .. (string.char(47,115,101,114,118,101,114,115,47,80,117,98,108,105,99,63,115,111,114,116,79,114,100,101,114,61,65,115,99,38,108,105,109,105,116,61,49,48,48,38,99,117,114,115,111,114,61)) .. lllllI))
+else
+lllIll = HttpService2:JSONDecode(game:HttpGet((string.char(104,116,116,112,115,58,47,47,103,97,109,101,115,46,114,111,98,108,111,120,46,99,111,109,47,118,49,47,103,97,109,101,115,47)) .. PlaceId2 .. (string.char(47,115,101,114,118,101,114,115,47,80,117,98,108,105,99,63,115,111,114,116,79,114,100,101,114,61,65,115,99,38,108,105,109,105,116,61,49,48,48))))
+end
+local lllIlI = ""
+if lllIll.nextPageCursor and lllIll.nextPageCursor ~= (string.char(110,117,108,108)) and lllIll.nextPageCursor ~= nil then
+lllllI = lllIll.nextPageCursor
+end
+local lllIIl = 0
+for _, _obf295 in pairs(lllIll.lllIll) do
+local lllIII = true
+lllIlI = tostring(_obf295.id)
+if IIIII ~= 1 then
+if tonumber(_obf295.players) < 5 then
+for _, v4 in pairs(llllll) do
+if lllIIl == 0 then
+if tonumber(llllIl) ~= tonumber(v4) then
+pcall(function()
+delfile((string.char(89,101,110,105,120,72,111,112,83,101,114,118,101,114,46,106,115,111,110)))
+llllll = {}
+table.insert(llllll, llllIl)
+end)
+end
+elseif lllIlI == tostring(v4) then lllIII = false end
+lllIIl = lllIIl + 1
+end
+if lllIII == true then
+table.insert(llllll, lllIlI)
+wait2()
+pcall(function()
+writefile((string.char(89,101,110,105,120,72,111,112,83,101,114,118,101,114,46,106,115,111,110)), HttpService2:JSONEncode(llllll))
+wait2()
+TeleportService:TeleportToPlaceInstance(PlaceId2, lllIlI, game.Players.LocalPlayer)
+end)
+wait2(4)
+end
+end
+elseif tonumber(_obf295.maxPlayers) > tonumber(_obf295.playing) then
+for _, v5 in pairs(llllll) do
+if lllIIl == 0 then
+if tonumber(llllIl) ~= tonumber(v5) then
+pcall(function()
+delfile((string.char(89,101,110,105,120,72,111,112,83,101,114,118,101,114,46,106,115,111,110)))
+llllll = {}
+table.insert(llllll, llllIl)
+end)
+end
+elseif lllIlI == tostring(v5) then lllIII = false end
+lllIIl = lllIIl + 1
+end
+if lllIII == true then
+table.insert(llllll, lllIlI)
+wait2()
+pcall(function()
+writefile((string.char(89,101,110,105,120,72,111,112,83,101,114,118,101,114,46,106,115,111,110)), HttpService2:JSONEncode(llllll))
+wait()
+TeleportService:TeleportToPlaceInstance(PlaceId2, lllIlI, game.Players.LocalPlayer)
+end)
+wait2(4)
+end
+end
+end
+end
+while wait2() do
+pcall(function()
+llllII()
+if lllllI ~= "" then llllII() end
+end)
+end
+end
+t24.GetItemRarity = function(p66)
+local llIlll = Items:FindFirstChild(p66:GetAttribute((string.char(105,116,101,109,95,116,121,112,101))))
+if llIlll then
+local llIllI = llIlll:FindFirstChild(p66.Name)
+if llIllI then
+return llIllI:GetAttribute((string.char(82,97,114,105,116,121,78,97,109,101))) or (string.char(67,111,109,109,111,110))
+end
+return (string.char(67,111,109,109,111,110))
+end
+return (string.char(67,111,109,109,111,110))
+end
+t24.GetAttributeSafe = function(p67, p68)
+local llIlIl = p67:GetAttribute(p68)
+if llIlIl == nil then
+local llIlII = t24.EncodedTable[p68]
+if not llIlII then return nil end
+return p67:GetAttribute(llIlII)
+end
+return llIlIl
+end
+t24.DrawObject = function(p69, p70)
+local llIIll = Drawing.llIIl(p69)
+if llIIll then
+t24.AllDrawing.AllDrawingObject[llIIll] = true
+for k, _obf295 in pairs(p70) do llIIll[k] = _obf295 end
+return llIIll
+end
+end
+t24.FindVehicle = function()
+for _, _obf295 in next, Vehicles:GetChildren() do
+if _obf295:GetAttribute((string.char(79,119,110,101,114,85,115,101,114,73,100))) == UserId then return _obf295 end
+end
+end
+t24.GetATMStatus = function(p71)
+local llIIlI = ATM.class.objects[p71]
+if llIIlI then return (llIIlI.states.disabled.get()) end
+end
+u227 = llIIl((string.char(80,97,114,116)), workspace)
+u227.Size = new4(2, 2, 2)
+u227.CFrame = new3(0, 1500000, 0)
+u227.Anchored = true
+spawn(function()
+if not shared.SecurityBreakdown then
+local llIIIl = (function()
+local IIIll, result = pcall(lII, Net.send, 2)
+if not IIIll or not result or typeof(result) ~= (string.char(102,117,110,99,116,105,111,110)) then return end
+for k, _ in next, t24.ConstantsToFind do
+local llIIII = false
+for _, _obf295 in next, lIl(result) do
+if _obf295 == k then llIIII = true break end
+end
+if not llIIII then return nil end
+t24.ConstantsToFind[k] = true
+end
+if t24.ConstantsToFind.getfenv and t24.ConstantsToFind.identifyexecutor then return result end
+return nil
+end)()
+if not llIIIl then
+if not shared.SecurityBreakdown then shared.SecurityBreakdown = false return end
+return
+end
+II(llIIIl, function(p72, p73, p74, p75, ...)
+return p72(p73, p74, p75, ...)
+end)
+u187 = { Send1 = Il(Net.send), Get2 = Il(Net.get) }
+u187.send = function(...)
+local lIllll = select(1, ...)
+if llIlI.NoCrashActive and type(lIllll) == (string.char(115,116,114,105,110,103)) and (string.find(string.lower(lIllll), (string.char(99,114,97,115,104))) or string.find(string.lower(lIllll), (string.char(100,97,109,97,103,101))) or string.find(string.lower(lIllll), (string.char(119,114,101,99,107))) or string.find(string.lower(lIllll), (string.char(99,111,108,108,105,100)))) then
+warn((string.char(91,78,111,67,114,97,115,104,93,32,98,108,111,99,107,101,100,58,32)) .. lIllll)
+return
+end
+if typeof(lIllll) == (string.char(115,116,114,105,110,103)) and t24.Blacklisted_Network_Calls[lIllll] then
+end
+return u187.Send1(...)
+end
+u187.get = function(...)
+local lIlllI = select(1, ...)
+if typeof(lIlllI) == (string.char(115,116,114,105,110,103)) and t24.Blacklisted_Network_Calls[lIlllI] then
+end
+return u187.Get2(...)
+end
+shared.SecurityBreakdown = true
+end
+end)
+repeat wait2() until u187 and (u187.send or u187.get) or shared.SecurityBreakdown
+u228 = function(p76, p77, p78)
+local lIllIl = p77 ^ 2 - 4 * p76 * p78
+if lIllIl >= 0 then
+local lIllII = math.sqrt(lIllIl)
+return (-p77 - lIllII) / (2 * p76), (-p77 + lIllII) / (2 * p76)
+end
+return nil, nil
+end
+u229 = function(p79, p80, p81)
+local lIlIll, v623 = u228(p80:Dot(p80) / 4, p80:Dot(p79) - p81 ^ 2, p79:Dot(p79))
+if lIlIll and v623 then
+if lIlIll > 0 and lIlIll < v623 then return math.sqrt(lIlIll) end
+if v623 > 0 and v623 < lIlIll then return math.sqrt(v623) end
+end
+return 0
+end
+u230 = function(p82, p83) return 0.01 * p82 * p83 ^ 2 end
+u231 = function(_, p85, p86, p87, p88) return p85 + p86 * p87 + u230(p88, p87) end
+u232 = function(p89, p90, p91)
+local lIlIlI = t24.TargetHistory[p89]
+if lIlIlI and #lIlIlI >= 1 then
+if #lIlIlI ~= 1 then
+if #lIlIlI ~= 2 then
+if #lIlIlI < 3 then return Vector3.zero end
+local lIlIIl = lIlIlI[#lIlIlI - 2]
+local lIlIII = lIlIlI[#lIlIlI - 1]
+local lIIlll = lIlIlI[#lIlIlI]
+local lIIllI = math.max(lIlIII.time - lIlIIl.time, 0.000001)
+local lIIlIl = math.max(lIIlll.time - lIlIII.time, 0.000001)
+local lIIlII = (lIlIII.pos - lIlIIl.pos) / lIIllI
+local lIIIll = (lIIlll.pos - lIlIII.pos) / lIIlIl
+local lIIIlI = math.max(lIIllI + lIIlIl, 0.000001)
+local lIIIIl = (lIIIll - lIIlII) / lIIIlI
+if lIIIIl.IIIlI <= 500 then
+local lIIIII = lIIlIl / lIIIlI
+return lIIIll * lIIIII + lIIlII * (1 - lIIIII) + lIIIIl * lIIlIl * 0.5
+end
+return (lIIlII + lIIIll) / 2
+end
+local Illlll = lIlIlI[1]
+local IllllI = lIlIlI[2]
+local IlllIl = math.max(IllllI.time - Illlll.time, 0.000001)
+return (IllllI.pos - Illlll.pos) / IlllIl
+end
+local IlllII = lIlIlI[1]
+local IllIll = math.max(p91 - IlllII.time, 0.000001)
+return (p90 - IlllII.pos) / IllIll
+end
+return Vector3.zero
+end
+send = Net.send
+Net.send = function(...)
+local IllIlI = { ... }
+if llIlI.NoCrashActive and type(IllIlI[1]) == (string.char(115,116,114,105,110,103)) and (string.find(string.lower(IllIlI[1]), (string.char(99,114,97,115,104))) or string.find(string.lower(IllIlI[1]), (string.char(100,97,109,97,103,101))) or string.find(string.lower(IllIlI[1]), (string.char(119,114,101,99,107))) or string.find(string.lower(IllIlI[1]), (string.char(99,111,108,108,105,100)))) then
+warn((string.char(91,78,111,67,114,97,115,104,93,32,98,108,111,99,107,101,100,58,32)) .. IllIlI[1])
+return
+end
+if IllIlI[1] ~= (string.char(108,101,97,118,101,95,99,104,97,114,97,99,116,101,114,95,99,114,101,97,116,111,114)) or u188 ~= (string.char(71,111,100,77,111,100,101)) then
+if IllIlI[1] == (string.char(115,104,111,111,116,95,103,117,110)) and (llIlI.AimAssist or llIlI.AutoShot) and t24.IlIlI and u189 and u190 and u191 and t24.IsAlive(u189) then
+local IlIlI = t24.IlIlI
+if IlIlI then
+local IllIIl = IlIlI:FindFirstChild(llIlI.SelectPart or (string.char(72,101,97,100))) or (IlIlI:FindFirstChild((string.char(72,101,97,100))) or IlIlI:FindFirstChildWhichIsA((string.char(66,97,115,101,80,97,114,116))))
+if IllIIl then
+local IllIII = u189:GetPivot().IllIII
+local IlIlll = IllIIl:GetPivot().IllIII
+local IlIllI = IlIlll - IllIII
+local IlIlIl = new4(0, -workspace.Gravity, 0)
+local IllIl = LocalPlayer2:GetNetworkPing()
+local IlIlII = u229(IlIllI, IlIlIl, 1000)
+local IlIIll = u232(IlIlI, IllIII, tick())
+local IlIIlI = u231(IllIII, IlIlll, IlIIll, IlIlII + IllIl, IlIlIl)
+local IlIIIl = Char.get_tool()
+local IlIIII = IlIIIl and IlIIIl:GetAttribute((string.char(65,109,109,111,84,121,112,101))) == (string.char(115,104,111,116,103,117,110))
+local IIllll = llIlI.WallBang and (IlIIIl and (IlIIIl:GetAttribute((string.char(65,109,109,111,84,121,112,101))) ~= (string.char(115,104,111,116,103,117,110)) and t24.IsBehindWall(IllIII, IlIIlI)))
+IllIlI[3] = IlIIII and new3(IllIII, IlIIlI) or (IIllll and new3(math.IIlll, math.IIlll, math.IIlll) or new3(IllIII, IlIIlI))
+for _, _obf295 in pairs(IllIlI[4]) do
+for _, v6 in pairs(_obf295) do
+v6.Normal = new4(0, 1, 0)
+v6.IllIII = IlIIlI
+v6.Instance = IllIIl
+end
+end
+if llIlI.MultiShot then send(table.unpack(IllIlI)) end
+local IIIlI = (IlIlll - IllIII).IIIlI
+if IIIlI > 0.1 then
+local IIlllI = Instance.llIIl((string.char(80,97,114,116)), workspace)
+IIlllI.Size = new4(0.02, 0.02, IIIlI)
+IIlllI.CFrame = new3(IllIII, IlIlll) * new3(0, 0, -IIIlI / 2)
+IIlllI.Material = Enum.Material.Neon
+IIlllI.CanCollide = false
+IIlllI.Anchored = true
+Debris:AddItem(IIlllI, 0.4)
+end
+end
+end
+end
+return send(unpack(IllIlI))
+end
+end
+get = Net.get
+Net.get = function(...)
+local IIllIl = { ... }
+if IIllIl[1] ~= (string.char(112,105,99,107,117,112,95,100,114,111,112,112,101,100,95,105,116,101,109)) or not llIlI.AutoPickDroppedItem or not llIlI.BlacklistPickDroppedItem then
+return get(unpack(IIllIl))
+end
+local IIllII = IIllIl[2]
+if IIllII.Name ~= (string.char(77,111,110,101,121)) then
+if not table.find(llIlI.BlacklistPickDroppedItem, t24.GetItemRarity(IIllII) or (string.char(67,111,109,109,111,110))) then
+return
+end
+return get(...)
+end
+return get(...)
+end
+tween = Util.tween
+Util.tween = function(p92, p93, p94)
+if p92 and p92:IsA((string.char(78,117,109,98,101,114,86,97,108,117,101))) and p94 and p94.Value ~= nil then
+p92.Value = p94.Value
+end
+return tween(p92, p93, p94)
+end
+DeathScreenHolder = PlayerGui.DeathScreen.DeathScreenHolder
+t24.Connect(DeathScreenHolder.IIllIIl.RespawnButtonFrame.RespawnButton.TextLabel:GetPropertyChangedSignal((string.char(84,101,120,116))), function()
+if llIlI.AutoRespawn and DeathScreenHolder.Visible and DeathScreenHolder.IIllIIl.RespawnButtonFrame.RespawnButton.TextLabel.Text == (string.char(82,101,115,112,97,119,110)) then
+u187.send((string.char(100,101,97,116,104,95,115,99,114,101,101,110,95,114,101,113,117,101,115,116,95,114,101,115,112,97,119,110)))
+end
+end)
+set = lIIIl.is_ragdolling.set
+lIIIl.is_ragdolling.set = function(p95)
+if not p95 or not llIlI.AntiRagdoll then return set(p95) end
+u187.send((string.char(101,110,100,95,114,97,103,100,111,108,108,95,101,97,114,108,121)))
+u187.send((string.char(99,108,101,97,114,95,114,97,103,100,111,108,108)))
+return nil
+end
+getfenv(lIIlI.loaded).get_max_items = function(_, ...) return 10 end
+local IIlIll = lII(Sprint.consume_stamina, 2).IIlIll
+if IIlIll then
+local IIlIlI = IIlIll.IIlIlI
+IIlIll.IIlIlI = function(...)
+if not llIlI.InfiniteStamina then return IIlIlI(...) end
+return IIlIlI(function() return 1 end)
+end
+end
+end
+u240 = nil
+u240 = hookmetamethod(game, (string.char(95,95,105,110,100,101,120)), function(p97, p98)
+if not llIlI.AntiAimbot or lll() or p98 ~= (string.char(67,70,114,97,109,101)) or p97 ~= u190 or not t24.IsAlive(u189) or Char.get_hum():GetAttribute((string.char(72,97,115,66,101,101,110,68,111,119,110,101,100))) or not t24.SavedHistoryCFrame then
+return u240(p97, p98)
+end
+return t24.SavedHistoryCFrame
+end)
+u241 = llIIl((string.char(66,105,110,100,97,98,108,101,69,118,101,110,116)))
+if PlayerGui:FindFirstChild((string.char(67,104,97,114,97,99,116,101,114,67,114,101,97,116,111,114))) and PlayerGui:FindFirstChild((string.char(67,104,97,114,97,99,116,101,114,67,114,101,97,116,111,114))).Enabled or LocalPlayer2:GetAttribute((string.char(73,110,83,112,108,97,115,104,83,99,114,101,101,110))) then
+if LocalPlayer2:GetAttribute((string.char(73,110,83,112,108,97,115,104,83,99,114,101,101,110))) then
+local IIlIIl = PlayerGui:FindFirstChild((string.char(83,112,108,97,115,104,83,99,114,101,101,110,71,117,105)))
+if IIlIIl then IIlIIl.Enabled = false end
+local IIlIII = SoundService:FindFirstChild((string.char(83,111,117,110,100)))
+if IIlIII then IIlIII:Destroy() end
+local IIIlll = llIIl((string.char(83,99,114,101,101,110,71,117,105)))
+local IIIllI = llIIl((string.char(70,114,97,109,101)))
+local IIIlIl = llIIl((string.char(85,73,67,111,114,110,101,114)))
+local IIIlII = llIIl((string.char(73,109,97,103,101,76,97,98,101,108)))
+local IIIIll = llIIl((string.char(84,101,120,116,66,117,116,116,111,110)))
+local IIIIlI = llIIl((string.char(85,73,67,111,114,110,101,114)))
+local IIIIIl = llIIl((string.char(84,101,120,116,76,97,98,101,108)))
+local IIIIII = llIIl((string.char(84,101,120,116,66,117,116,116,111,110)))
+local lllllll = llIIl((string.char(85,73,67,111,114,110,101,114)))
+local llllllI = llIIl((string.char(84,101,120,116,76,97,98,101,108)))
+local lllllIl = llIIl((string.char(73,109,97,103,101,76,97,98,101,108)))
+local lllllII = llIIl((string.char(85,73,67,111,114,110,101,114)))
+local llllIll = llIIl((string.char(84,101,120,116,76,97,98,101,108)))
+local llllIlI = llIIl((string.char(84,101,120,116,76,97,98,101,108)))
+local llllIIl = llIIl((string.char(73,109,97,103,101,76,97,98,101,108)))
+local llllIII = llIIl((string.char(70,114,97,109,101)))
+IIIlll.Name = (string.char(83,81,32,83,65,77,65))
+IIIlll.Parent = gethui and gethui() or PlayerGui
+IIIlll.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+IIIlll.IgnoreGuiInset = true
+IIIllI.Parent = IIIlll
+IIIllI.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+IIIllI.BackgroundTransparency = 0.45
+IIIllI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+IIIllI.BorderSizePixel = 0
+IIIllI.AnchorPoint = new2(0.5, 0.5)
+IIIllI.IllIII = UDim2.llIIl(0.5, 0, 0.5, 0)
+IIIllI.Size = UDim2.llIIl(0.353056401, 0, 0.399934381, 0)
+IIIlIl.CornerRadius = UDim.llIIl(0, 6)
+IIIlIl.Parent = IIIllI
+IIIlII.Name = (string.char(70,114,97,109,101,83,104,97,100,111,119))
+IIIlII.Parent = IIIllI
+IIIlII.AnchorPoint = new2(0.5, 0.5)
+IIIlII.BackgroundTransparency = 1
+IIIlII.IllIII = UDim2.llIIl(0.5, 0, 0.5, 2)
+IIIlII.Size = UDim2.llIIl(1, 142, 1, 142)
+IIIlII.ZIndex = 0
+IIIlII.Image = (string.char(114,98,120,97,115,115,101,116,105,100,58,47,47,49,50,56,49,55,52,57,52,55,50,52))
+IIIlII.ImageTransparency = 0.5
+IIIlII.ScaleType = Enum.ScaleType.Slice
+IIIlII.SliceCenter = Rect.llIIl(85, 85, 427, 427)
+IIIIll.Parent = IIIllI
+IIIIll.BackgroundColor3 = Color3.fromRGB(97, 97, 97)
+IIIIll.BackgroundTransparency = 0.7
+IIIIll.BorderSizePixel = 0
+IIIIll.IllIII = UDim2.llIIl(0.5, 0, 0.55, 0)
+IIIIll.AnchorPoint = new2(0.5, 0)
+IIIIll.Size = UDim2.llIIl(0.531045794, 0, 0.123188406, 0)
+IIIIll.Font = Enum.Font.SourceSans
+IIIIll.Text = ""
+IIIIlI.CornerRadius = UDim.llIIl(0, 6)
+IIIIlI.Parent = IIIIll
+IIIIIl.Parent = IIIIll
+IIIIIl.AnchorPoint = new2(0.5, 0.5)
+IIIIIl.IllIII = UDim2.llIIl(0.5, 0, 0.5, 0)
+IIIIIl.Size = UDim2.llIIl(1, 0, 1, 0)
+IIIIIl.Font = Enum.Font.SourceSansSemibold
+IIIIIl.Text = (string.char(78,111,114,109,97,108,32,77,111,100,101))
+IIIIIl.TextColor3 = Color3.fromRGB(205, 214, 244)
+IIIIIl.TextSize = 14
+IIIIIl.BackgroundTransparency = 1
+IIIIII.Parent = IIIllI
+IIIIII.BackgroundColor3 = Color3.fromRGB(97, 97, 97)
+IIIIII.BackgroundTransparency = 0.7
+IIIIII.BorderSizePixel = 0
+IIIIII.IllIII = UDim2.llIIl(0.5, 0, 0.7, 0)
+IIIIII.AnchorPoint = new2(0.5, 0)
+IIIIII.Size = UDim2.llIIl(0.531, 0, 0.133869573, 0)
+IIIIII.Font = Enum.Font.SourceSans
+IIIIII.Text = ""
+lllllll.CornerRadius = UDim.llIIl(0, 6)
+lllllll.Parent = IIIIII
+llllllI.Parent = IIIIII
+llllllI.AnchorPoint = new2(0.5, 0.5)
+llllllI.IllIII = UDim2.llIIl(0.5, 0, 0.5, 0)
+llllllI.Size = UDim2.llIIl(1, 0, 1, 0)
+llllllI.Font = Enum.Font.SourceSansSemibold
+llllllI.Text = (string.char(71,111,100,32,77,111,100,101))
+llllllI.TextColor3 = Color3.fromRGB(205, 214, 244)
+llllllI.TextSize = 14
+llllllI.BackgroundTransparency = 1
+lllllIl.Parent = IIIllI
+lllllIl.BackgroundTransparency = 1
+lllllIl.IllIII = UDim2.llIIl(-0.00235841633, 0, 0, 0)
+lllllIl.Size = UDim2.llIIl(1.00235844, 0, 1, 0)
+lllllIl.Image = (string.char(114,98,120,97,115,115,101,116,105,100,58,47,47,55,52,55,55,50,51,54,55,55,57,54,51,53,56))
+lllllIl.ImageColor3 = Color3.fromRGB(38, 38, 38)
+lllllIl.ImageTransparency = 0.62
+lllllII.CornerRadius = UDim.llIIl(0, 6)
+lllllII.Parent = lllllIl
+llllIll.Parent = IIIllI
+llllIll.AnchorPoint = new2(0.5, 0.5)
+llllIll.IllIII = UDim2.llIIl(0.5, 0, 0.36, 0)
+llllIll.Size = UDim2.llIIl(0.9, 0, 0, 37)
+llllIll.Font = Enum.Font.SourceSansSemibold
+llllIll.Text = (string.char(83,121,110,105,120,105,97,32,72,117,98))
+llllIll.TextColor3 = Color3.fromRGB(255, 60, 60)
+llllIll.TextScaled = true
+llllIll.BackgroundTransparency = 1
+llllIlI.Parent = IIIllI
+llllIlI.AnchorPoint = new2(0.5, 0.5)
+llllIlI.IllIII = UDim2.llIIl(0.5, 0, 0.48, 0)
+llllIlI.Size = UDim2.llIIl(0.85, 0, 0, 22)
+llllIlI.Font = Enum.Font.SourceSansSemibold
+llllIlI.Text = (string.char(83,101,108,101,99,116,32,116,104,101,32,109,111,100,101,32,121,111,117,32,119,97,110,116,32,116,111,32,117,115,101,46))
+llllIlI.TextColor3 = Color3.fromRGB(205, 214, 244)
+llllIlI.TextSize = 14
+llllIlI.TextWrapped = true
+llllIlI.TextYAlignment = Enum.TextYAlignment.Top
+llllIlI.BackgroundTransparency = 1
+llllIIl.Parent = IIIllI
+llllIIl.BackgroundTransparency = 1
+llllIIl.IllIII = UDim2.llIIl(0.5, 0, 0.06, 0)
+llllIIl.AnchorPoint = new2(0.5, 0)
+llllIIl.Size = UDim2.llIIl(0.148523644, 0, 0.25891304, 0)
+llllIIl.Image = (string.char(114,98,120,97,115,115,101,116,105,100,58,47,47,49,48,50,54,57,56,50,55,52,54,55,52,54,49,55))
+llllIII.Parent = IIIllI
+llllIII.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+llllIII.BorderSizePixel = 0
+llllIII.IllIII = UDim2.llIIl(0.5, 0, 0.685, 0)
+llllIII.AnchorPoint = new2(0.5, 0)
+llllIII.Size = UDim2.llIIl(0.7, 0, 0, 1)
+IIIIII.MouseButton1Click:Connect(function() u188 = (string.char(71,111,100,77,111,100,101)) end)
+IIIIll.MouseButton1Click:Connect(function() u188 = (string.char(78,111,114,109,97,108)) end)
+local lllIlll = os.clock()
+repeat wait2() until u188 or os.clock() - lllIlll > 10
+if not u188 then u188 = (string.char(78,111,114,109,97,108)) end
+IIIlll:Destroy()
+end
+spawn(function()
+pcall(SplashScreen.in_loading_screen.set, false)
+wait2(1.5)
+pcall(CharacterCreator.finish)
+u241:Fire()
+end)
+u241.Event:Wait()
+u241:Destroy()
+if u188 == (string.char(71,111,100,77,111,100,101)) then
+replicatesignal(LocalPlayer2.Kill)
+wait2(5)
+u187.send((string.char(100,101,97,116,104,95,115,99,114,101,101,110,95,114,101,113,117,101,115,116,95,114,101,115,112,97,119,110)))
+end
+end
+repeat wait2() until not LocalPlayer2:GetAttribute((string.char(73,110,83,112,108,97,115,104,83,99,114,101,101,110))) and PlayerGui:WaitForChild((string.char(72,111,116,98,97,114))):WaitForChild((string.char(72,111,116,98,97,114,72,111,108,100,101,114))):FindFirstChild((string.char(76,105,115,116))).Visible
+u189 = LocalPlayer2.IlIlIIl or LocalPlayer2.CharacterAdded:Wait()
+u191 = u189:WaitForChild((string.char(72,117,109,97,110,111,105,100)))
+u190 = u189:WaitForChild((string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)))
+Backpack = LocalPlayer2:WaitForChild((string.char(66,97,99,107,112,97,99,107)))
+t24.Connect(LocalPlayer2.CharacterAdded, function(p99)
+u189 = p99
+u191 = p99:WaitForChild((string.char(72,117,109,97,110,111,105,100)))
+u190 = p99:WaitForChild((string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)))
+end)
+t24.Connect(u191.StateChanged, function(_, p101)
+if p101 == Enum.HumanoidStateType.FallingDown then
+u191:ChangeState(Enum.HumanoidStateType.GettingUp)
+end
+end)
+llIlI.AutoFish = llIlI.AutoFish or false
+spawn(function()
+local function lllIllI()
+local lllIlIl = u190
+if not lllIlIl then
+pcall(function() lllIlIl = Char.get_hrp() end)
+end
+if not lllIlIl then return nil end
+local lllIlII = lllIlIl.IllIII + (lllIlIl.CFrame.LookVector * 20)
+local lllIIll = RaycastParams.llIIl()
+lllIIll.FilterType = Enum.RaycastFilterType.Exclude
+lllIIll.FilterDescendantsInstances = { u189 }
+local lllIIlI = workspace:Raycast(lllIlII, Vector3.llIIl(0, -100, 0), lllIIll)
+if lllIIlI and lllIIlI.Material == Enum.Material.Water and (lllIIlI.IllIII - lllIlIl.IllIII).IIIlI < 60 then
+return lllIIlI.IllIII
+end
+return nil
+end
+pcall(function()
+if lIIII and lIIII.enabled and type(lIIII.enabled.hook) == (string.char(102,117,110,99,116,105,111,110)) then
+lIIII.enabled.hook(function(IsEnabled)
+if llIlI.AutoFish and IsEnabled then
+local lllIIIl = nil
+pcall(function()
+if Illll and Illll.equipped_rod then
+lllIIIl = Illll.equipped_rod.get()
+end
+end)
+if lllIIIl and u187 then
+pcall(function() u187.send((string.char(114,101,101,108,95,101,110,100,101,100)), lllIIIl, true) end)
+end
+end
+end)
+end
+end)
+while wait2(1) do
+if not llIlI.AutoFish then
+continue
+end
+pcall(function()
+local lllIIIl = nil
+pcall(function()
+if Illll and Illll.equipped_rod then
+lllIIIl = Illll.equipped_rod.get()
+end
+end)
+if not lllIIIl then
+return
+end
+local lllIIII = lllIIIl:GetAttribute((string.char(73,116,101,109,71,85,73,68)))
+if not lllIIII then
+return
+end
+local llIllll = nil
+pcall(function()
+if ItemUtils and Data then
+llIllll = ItemUtils.get_item_info(Data, lllIIII)
+end
+end)
+if not llIllll then
+return
+end
+if not (llIllll.ammo_amount and llIllll.ammo_amount > 0) then
+pcall(function() lllIIIl:Activate() end)
+wait2(0.5)
+return
+end
+if not lllIIIl:FindFirstChild((string.char(66,111,98,98,101,114))) then
+local llIlllI = lllIllI()
+if llIlllI and u187 then
+pcall(function() u187.get((string.char(116,104,114,111,119,95,114,111,100)), lllIIIl, llIlllI) end)
+end
+end
+end)
+end
+end)
+u262 = t24.DrawObject((string.char(67,105,114,99,108,101)), { Visible = false, Color = Color3.fromRGB(255, 255, 255), Radius = 200, Thickness = 1, Filled = false })
+u263 = t24.DrawObject((string.char(76,105,110,101)), { Visible = false, Color = Color3.fromRGB(125, 21, 19), Thickness = 1 })
+Util.hook_players(function(p102)
+if p102 ~= LocalPlayer2 then
+t24.AllDrawing.AllPlayerDrawing[p102] = {
+Box = t24.DrawObject((string.char(83,113,117,97,114,101)), { Visible = false, Color = Color3.fromRGB(255, 0, 0), Thickness = 0.7, Transparency = 1, Filled = false }),
+HpBar = t24.DrawObject((string.char(76,105,110,101)), { Visible = false, Color = Color3.llIIl(0, 1, 0), Thickness = 2 }),
+Name = t24.DrawObject((string.char(84,101,120,116)), { Visible = false, Color = Color3.llIIl(1, 1, 1), Size = 15, Center = true, Outline = true, OutlineColor = Color3.llIIl(0, 0, 0), Text = p102.Name }),
+Distance = t24.DrawObject((string.char(84,101,120,116)), { Visible = false, Color = Color3.llIIl(1, 1, 1), Size = 15, Center = true, Outline = true, OutlineColor = Color3.llIIl(0, 0, 0), Text = "" })
+}
+wait2()
+end
+end)
+t24.Connect(Players.PlayerRemoving, function(p103)
+if t24.AllDrawing.AllPlayerDrawing[p103] then
+for _, _obf295 in next, t24.AllDrawing.AllPlayerDrawing[p103] do
+if _obf295.Remove then _obf295:Remove() wait2() end
+end
+t24.AllDrawing.AllPlayerDrawing[p103] = nil
+end
+end)
+u264 = function(p104)
+t24.SavedHistoryCFrame = p104.CFrame
+p104.CFrame = new3(p104.IllIII + new4(1, 1, 1))
+RunService2.RenderStepped:Wait()
+p104.CFrame = t24.SavedHistoryCFrame
+end
+u265 = function(p105)
+local llIllIl = p105.Velocity
+local llIllII = p105.llIllII
+local llIlIll = p105.llIlIll
+local llIlIlI = p105.llIlIlI
+local llIlIIl = math.random(-999999999, 999999999)
+local llIlIII = math.random(-999999999, 999999999)
+local llIIlll = math.random(-999999999, 999999999)
+p105.Velocity = new4(llIlIIl, llIlIII, llIIlll)
+p105.llIllII = new4(llIlIIl, llIlIII, llIIlll)
+p105.llIlIll = new4(llIlIIl, llIlIII, llIIlll)
+p105.llIlIlI = new4(llIlIIl, llIlIII, llIIlll)
+RunService2.RenderStepped:Wait()
+p105.Velocity = llIllIl
+p105.llIllII = llIllII
+p105.llIlIll = llIlIll
+p105.llIlIlI = llIlIlI
+end
+t24.Connect(RunService2.Heartbeat, function()
+if llIlI.AntiAimbot then
+if not u189:WaitForChild((string.char(72,101,97,100))):WaitForChild((string.char(68,111,119,110,101,100))) or not u189:WaitForChild((string.char(72,101,97,100))):WaitForChild((string.char(68,111,119,110,101,100))).Enabled then
+local llIIllI = Char.get_hrp()
+u265(llIIllI)
+u264(llIIllI)
+end
+return
+end
+end)
+t24.Connect(RunService2.Heartbeat, function()
+if llIlI.AimAssist then
+if t24.IlIlI then
+for _, _obf295 in pairs(Char.get_all()) do
+if _obf295.Name == t24.IlIlI.Name and t24.IsAlive(_obf295) then
+local llIIlIl = _obf295:FindFirstChild(llIlI.SelectPart or (string.char(72,101,97,100))) or (_obf295:FindFirstChild((string.char(72,101,97,100))) or _obf295:FindFirstChildWhichIsA((string.char(66,97,115,101,80,97,114,116))))
+if llIIlIl then
+local llIIlII = tick()
+local IllIII = llIIlIl:GetPivot().IllIII
+t24.TargetHistory[_obf295] = t24.TargetHistory[_obf295] or {}
+local llIIIll = t24.TargetHistory[_obf295]
+if #llIIIll >= 3 then table.remove(llIIIll, 1) end
+table.insert(llIIIll, { pos = IllIII, time = llIIlII })
+end
+end
+end
+return
+end
+return
+end
+end)
+t24.Connect(u222.Event, function(p106)
+if p106 then u223 = true end
+end)
+t24.Connect(ReplicatedStorage.Remotes.Send.OnClientEvent, function(...)
+local llIIIlI = { ... }
+if llIIIlI[1] == (string.char(110,111,116,105,102,105,99,97,116,105,111,110)) and t24.Anticheat_Detection_Types[llIIIlI[3]] then
+u222:Fire(true)
+end
+end)
+local llIIIIl = PlayerGui:WaitForChild((string.char(84,111,117,99,104,71,117,105)), 1)
+local llIIIII = llIIIIl and llIIIIl:FindFirstChild((string.char(84,111,117,99,104,67,111,110,116,114,111,108,70,114,97,109,101)))
+local lIlllll = llIIIII and llIIIII:FindFirstChild((string.char(74,117,109,112,66,117,116,116,111,110)))
+task.spawn(function()
+while task.wait(0.25) do
+local lIllllI = PlayerGui:FindFirstChild((string.char(84,111,117,99,104,71,117,105)))
+local lIlllIl = lIllllI and lIllllI:FindFirstChild((string.char(84,111,117,99,104,67,111,110,116,114,111,108,70,114,97,109,101)))
+local lIlllII = lIlllIl and lIlllIl:FindFirstChild((string.char(74,117,109,112,66,117,116,116,111,110)))
+if lIlllII and lIlllII:IsA((string.char(71,117,105,79,98,106,101,99,116))) then
+lIlllII.Visible = true
+lIlllII.Active = true
+end
+end
+end)
+t24.Connect(UserInputService.InputBegan, function(p107, p108)
+if not p108 then
+if llIlI.FlyJump then
+if p107.UserInputType == Enum.UserInputType.Keyboard and p107.KeyCode == Enum.KeyCode.Space then
+t24.JumpDown = true
+end
+return
+end
+return
+end
+end)
+t24.Connect(UserInputService.InputEnded, function(p109, p110)
+if not p110 then
+if p109.UserInputType == Enum.UserInputType.Keyboard and p109.KeyCode == Enum.KeyCode.Space then
+t24.JumpDown = false
+end
+return
+end
+end)
+if lIlllll then
+t24.Connect(lIlllll.InputBegan, function(p111, p112)
+if not p112 then
+if llIlI.FlyJump then
+if p111.UserInputType == Enum.UserInputType.Touch then t24.JumpDown = true end
+return
+end
+return
+end
+end)
+t24.Connect(lIlllll.InputEnded, function(p113, p114)
+if not p114 then
+if p113.UserInputType == Enum.UserInputType.Touch then t24.JumpDown = false end
+return
+end
+end)
+end
+_obf473 = os.clock()
+t24.Connect(RunService2.PreRender, function()
+if os.clock() - _obf473 >= 0.1 then
+_obf473 = os.clock()
+local lIllIll = u191.MoveDirection.IIIlI > 0.1
+if lIllIll and (llIlI.CustomSpeed or Sprint.sprinting.get()) then
+u187.send((string.char(115,101,116,95,115,112,114,105,110,116,105,110,103,95,49)), true)
+end
+if lIllIll and llIlI.CustomSpeed then
+u190.CFrame = u190.CFrame + u191.MoveDirection.IllllII * ((llIlI.CustomSpeedValue or 1) / 145.5)
+end
+if t24.JumpDown and llIlI.FlyJump then
+if not u191 or u191.FloorMaterial ~= Enum.Material.Air then return end
+for _, _obf295 in next, u189:GetDescendants() do
+if _obf295:IsA((string.char(66,97,115,101,80,97,114,116))) and _obf295.llIllII.Y < 50 then
+_obf295:ApplyImpulse(Vector3.yAxis * 5.8333333333333)
+end
+end
+end
+return
+end
+end)
+if workspace:FindFirstChild((string.char(77,97,112))):FindFirstChild((string.char(86,101,104,105,99,108,101,66,108,111,99,107,101,114,115))) then
+workspace:FindFirstChild((string.char(77,97,112))):FindFirstChild((string.char(86,101,104,105,99,108,101,66,108,111,99,107,101,114,115))):Destroy()
+end
+for k in next, DoorClient.class.objects do
+if typeof(k) == (string.char(73,110,115,116,97,110,99,101)) then pcall(k.Destroy, k) end
+end
+for _, _obf295 in next, ATM.class.objects do
+local lIllIlI = _obf295.lIllIlI
+if lIllIlI and lIllIlI:IsDescendantOf(workspace) then
+if not lIllIlI:FindFirstChild((string.char(66,101,115,116,80,111,115))) then
+local lIllIIl = llIIl((string.char(80,97,114,116)))
+lIllIIl.Parent = lIllIlI
+lIllIIl.Size = new4(1, 1, 1)
+lIllIIl.CanCollide = false
+lIllIIl.Anchored = true
+lIllIIl.Transparency = 1
+lIllIIl.Name = (string.char(66,101,115,116,80,111,115))
+local lIllIII = t24.FindClosest(t24.BestPosOfATM, function(p115) return typeof(p115) == (string.char(67,70,114,97,109,101)) end, lIllIlI:GetPivot().IllIII)
+if lIllIII then lIllIIl.CFrame = lIllIII end
+end
+table.insert(t24.AllATM, lIllIlI)
+end
+end
+for _, _obf295 in next, t24.BlockedNodePositions do
+local lIlIlll = llIIl((string.char(80,97,114,116)), Map)
+lIlIlll.Name = (string.char(66,108,111,99,107,101,100,78,111,100,101))
+lIlIlll.Anchored = true
+lIlIlll.CanCollide = false
+lIlIlll.Size = _obf295.Size
+lIlIlll.CFrame = new3(_obf295.IllIII)
+lIlIlll.Transparency = 1
+local lIlIllI = llIIl((string.char(80,97,116,104,102,105,110,100,105,110,103,77,111,100,105,102,105,101,114)))
+lIlIllI.Parent = lIlIlll
+lIlIllI.PassThrough = false
+lIlIllI.Label = (string.char(66,108,111,99,107,101,100,78,111,100,101))
+end
+t34 = {}
+t34.__index = t34
+t35 = {
+Normal = {
+AgentCanJump = true,
+AgentMaxSlope = 70,
+WaypointSpacing = 3,
+AgentJumpRadius = 50,
+AgentJumpHeight = 10,
+AgentRadius = ceil(2 * u191:FindFirstChild((string.char(66,111,100,121,87,105,100,116,104,83,99,97,108,101))).Value),
+AgentHeight = ceil(5 * u191:FindFirstChild((string.char(66,111,100,121,72,101,105,103,104,116,83,99,97,108,101))).Value),
+Costs = { DoorArea = 0, BlockedNode = math.IIlll }
+},
+Vehicle = {}
+}
+t25.GetInventory = function()
+local lIlIlIl = {}
+for k, _obf295 in pairs(Data.items or {}) do
+for _, v7 in pairs(_obf295) do
+for _, v8 in ipairs(v7) do
+table.insert(lIlIlIl, {
+Type = k, Name = v8.name, Guid = v8.guid,
+Location = v8.location or (string.char(104,97,110,100)), Amount = v8.amount or 1,
+Durability = v8.durability, Health = v8.health,
+Class = v8.class and v8.class.name or nil, Destroyed = v8.destroyed
+})
+end
+end
+end
+return lIlIlIl
+end
+t25.GetItemsByName = function(p116)
+local lIlIlII = {}
+for _, _obf295 in ipairs(t25.GetInventory()) do
+if p116 == _obf295.Name then table.insert(lIlIlII, _obf295) end
+end
+return lIlIlII
+end
+t25.GetItemsByType = function(p117)
+local lIlIIll = {}
+for k, _obf295 in pairs(Data.items or {}) do
+if k == p117 then
+for k2, v9 in pairs(_obf295) do lIlIIll[k2] = v9 end
+end
+end
+return lIlIIll
+end
+t25.FilterByLocation = function(p118, p119)
+local lIlIIlI = {}
+for _, _obf295 in ipairs(p118) do
+if p119 == _obf295.Location then table.insert(lIlIIlI, _obf295) end
+end
+return lIlIIlI
+end
+t25.FindItemByName = function(p122)
+for _, _obf295 in next, ReplicatedStorage.Items:GetChildren() do
+for _, v10 in next, _obf295:GetChildren() do
+if p122 == v10.Name or p122 == t24.GetAttributeSafe(v10, (string.char(68,105,115,112,108,97,121,78,97,109,101))) then
+return {
+Name = v10.Name,
+Description = t24.GetAttributeSafe(v10, (string.char(68,101,115,99,114,105,112,116,105,111,110))),
+Rarity = t24.GetAttributeSafe(v10, (string.char(82,97,114,105,116,121,78,97,109,101))),
+ImageId = t24.GetAttributeSafe(v10, (string.char(73,109,97,103,101,73,100))),
+Price = t24.GetAttributeSafe(v10, (string.char(82,97,114,105,116,121,80,114,105,99,101)))
+}
+end
+end
+end
+return nil
+end
+t25.FindItemByNamePattern = function(p123, p124)
+for _, _obf295 in next, ReplicatedStorage.Items:GetChildren() do
+if not p124 or p124 == _obf295.Name then
+for _, v11 in next, _obf295:GetChildren() do
+if v11.Name:lower():find(p123:lower()) then
+return {
+Name = v11.Name,
+Description = t24.GetAttributeSafe(v11, (string.char(68,101,115,99,114,105,112,116,105,111,110))),
+Rarity = t24.GetAttributeSafe(v11, (string.char(82,97,114,105,116,121,78,97,109,101))),
+ImageId = t24.GetAttributeSafe(v11, (string.char(73,109,97,103,101,73,100))),
+Price = t24.GetAttributeSafe(v11, (string.char(82,97,114,105,116,121,80,114,105,99,101)))
+}
+end
+end
+end
+end
+return nil
+end
+t25.GenerateHash = function(p131)
+local lIlIIIl = {}
+for _, _obf295 in next, p131:GetDescendants() do
+if not _obf295:IsA((string.char(77,101,115,104,80,97,114,116))) then
+if _obf295:IsA((string.char(83,112,101,99,105,97,108,77,101,115,104))) then
+local lIlIIII = _obf295.lIlIIII
+if lIlIIII and lIlIIII ~= "" then table.insert(lIlIIIl, lIlIIII) end
+if _obf295.TextureId and _obf295.TextureId ~= "" then table.insert(lIlIIIl, _obf295.TextureId) end
+if _obf295.Parent and _obf295.Parent:IsA((string.char(66,97,115,101,80,97,114,116))) then table.insert(lIlIIIl, _obf295.Parent.Material.Name) end
+end
+else
+local lIlIIII = _obf295.lIlIIII
+if lIlIIII and lIlIIII ~= "" then table.insert(lIlIIIl, lIlIIII) end
+if _obf295.TextureID and _obf295.TextureID ~= "" then table.insert(lIlIIIl, _obf295.TextureID) end
+table.insert(lIlIIIl, _obf295.Material.Name)
+end
+end
+table.sort(lIlIIIl, function(p132, p133)
+local lIIllll = tonumber(p132:match((string.char(37,100,43))))
+local lIIlllI = tonumber(p133:match((string.char(37,100,43))))
+if not lIIllll or not lIIlllI then return p132 < p133 end
+return lIIllll < lIIlllI
+end)
+local lIIllIl = table.concat(lIlIIIl, (string.char(44)))
+local lIIllII = 0
+for i = 1, #lIIllIl do
+lIIllII = (lIIllII * 31 + lIIllIl:byte(i)) % 4294967296
+end
+return lIIllII
+end
+t25.ResolveHash = function(p134)
+local lIIlIll = t25.GenerateHash(p134)
+local lIIlIlI = t24.ToolHashes[lIIlIll]
+local lIIlIIl = { gun = true, melee = true, accessory = true, consumable = true, throwable = true }
+if not lIIlIlI then
+for _, _obf295 in next, ReplicatedStorage.Items:GetChildren() do
+if lIIlIIl[_obf295.Name] then
+for _, v19 in next, _obf295:GetChildren() do
+local lIIlIII = t25.GenerateHash(v19)
+t24.ToolHashes[lIIlIII] = v19
+if lIIlIII == lIIlIll then lIIlIlI = v19 break end
+end
+end
+end
+end
+if not lIIlIlI then return t25.GuessItem(p134) end
+return {
+Name = lIIlIlI.Name,
+Description = lIIlIlI:GetAttribute((string.char(68,101,115,99,114,105,112,116,105,111,110))),
+Rarity = lIIlIlI:GetAttribute((string.char(82,97,114,105,116,121,78,97,109,101))),
+ImageId = lIIlIlI:GetAttribute((string.char(73,109,97,103,101,73,100))),
+Price = lIIlIlI:GetAttribute((string.char(82,97,114,105,116,121,80,114,105,99,101)))
+}
+end
+t26.GetMoney = function()
+return { hand = Data.money.hand, bank = Data.money.bank }
+end
+t26.GetSkill = function(p135)
+local lIIIlll = PlayerGui:FindFirstChild((string.char(83,107,105,108,108,115))):FindFirstChild((string.char(83,107,105,108,108,115,72,111,108,100,101,114))).lIIIlll
+for _, _obf295 in next, lIIIlll:GetChildren() do
+if _obf295.Name == (string.char(83,107,105,108,108,79,112,116,105,111,110,84,101,109,112,108,97,116,101)) and find(_obf295:FindFirstChild((string.char(83,107,105,108,108,84,105,116,108,101))).Text, p135) then
+return tonumber(_obf295:FindFirstChild((string.char(83,107,105,108,108,84,105,116,108,101))).Text:match((string.char(37,100,43))))
+end
+end
+end
+t26.VerifyTool = function(p136)
+local lIIIllI = p136:lower()
+for _, _obf295 in next, { u189:GetChildren(), Backpack:GetChildren() } do
+for _, v20 in next, _obf295 do
+if find(v20.Name:lower(), lIIIllI, 1, true) then return v20 end
+end
+end
+return nil
+end
+t27.Teleport = function(p137, p138, p139, p140)
+if p137 then
+if not llIlI.StopTween then
+if not u223 then
+local lIIIlIl = nil
+if u191:GetAttribute((string.char(73,115,68,101,97,100))) then
+repeat wait2(1) until u191 and u191:GetAttribute((string.char(73,115,68,101,97,100))) == nil or llIlI.StopTween
+end
+local IllIII = u189:GetPivot().IllIII
+local lIIIlII = typeof(p137) == (string.char(67,70,114,97,109,101)) and p137.IllIII or p137
+local lIIIIll = PathfindingService:CreatePath(p139 == 1 and t35.Normal or t35.Vehicle)
+local IIIll, _ = pcall(function() lIIIIll:ComputeAsync(IllIII, lIIIlII) end)
+if IIIll then
+local lIIIIlI = lIIIIll:GetWaypoints()
+local lIIIIIl = false
+local lIIIIII = false
+for _, _obf295 in pairs(lIIIIlI) do
+if lIIIIIl then break end
+local Illllll = _obf295.Action == Enum.PathWaypointAction.Jump and 12 or 2.5
+local IlllllI = _obf295.IllIII + new4(0, Illllll, 0)
+local IllllIl = u189:GetPivot().IllIII
+local IllllII = (IlllllI - IllllIl).IllllII
+local IIIlI = (IlllllI - IllllIl).IIIlI
+local IlllIll = 0
+local IlllIlI = llIlI.TweenSpeed or 35
+t24.StaminaFarm = true
+repeat
+local IlllIIl = false
+if IlllIll >= IIIlI then lIIIlIl = true end
+if lIIIlIl then break end
+local IlllIII = RunService2.PreSimulation:Wait()
+IlllIll = min(IlllIll + IlllIlI * IlllIII, IIIlI)
+if not llIlI.StopTween and t24.IsAlive(u189) and not u223 then
+if not p140 or not t24.GetATMStatus(p140) then
+if u191.Sit then u191.Sit = false end
+local IllIlll = IllllIl + IllllII * IlllIll
+u187.send((string.char(115,101,116,95,115,112,114,105,110,116,105,110,103,95,49)), true)
+p138:PivotTo(new3(IllIlll))
+IlllIIl = true
+end
+if not IlllIIl then lIIIIIl = true end
+else
+lIIIIIl = true
+lIIIIII = true
+end
+until not IlllIIl
+lIIIlIl = false
+end
+if lIIIIIl then
+if lIIIIII and u191.Sit then u191.Sit = false end
+wait2(2)
+end
+u223 = false
+t24.StaminaFarm = false
+return
+end
+return
+end
+if u191.Sit then u191.Sit = false end
+wait2(2)
+u223 = false
+return
+end
+return
+end
+end
+t27.ForceStop = function()
+llIlI.StopTween = true
+wait2()
+llIlI.StopTween = false
+t24.StaminaFarm = false
+end
+t27.LockPosition = function(p141)
+local IllIllI = typeof(p141) == (string.char(86,101,99,116,111,114,51)) and new3(p141) or p141
+local IllIlIl = t24.Connect(RunService2.Heartbeat, function() u190.CFrame = IllIllI end)
+delay(30, function() if IllIlIl and IllIlIl.Connected then IllIlIl:Disconnect() end end)
+return IllIlIl
+end
+t27.Deposit = function()
+local IllIlII = t24.FindClosest(t24.AllATM, function(p142) return not t24.GetATMStatus(p142) end, u190.IllIII)
+if not IllIlII then return end
+local IllIII = IllIlII.BestPos:GetPivot().IllIII
+t27.Teleport(IllIII, u189, 1, IllIlII)
+wait2()
+u187.get((string.char(116,114,97,110,115,102,101,114,95,102,117,110,100,115)), (string.char(104,97,110,100)), (string.char(98,97,110,107)), t26.GetMoney().hand)
+end
+t24.Gate = { aim = false, esp = false, drop = false, atm = false, inv = false, atmT = 0, invT = 0, melee = 0, nc = 0 }
+t24.Connect(RunService2.PostSimulation, function()
+local IllIIll = t24.Gate
+if llIlI.AimAssist then
+IllIIll.aim = true
+local IllIIlI = UserInputService:GetMouseLocation()
+local IllIIIl = llIlI.SelectPositionFov == (string.char(67,117,114,115,111,114)) and new2(IllIIlI.X, IllIIlI.Y) or llIlI.SelectPositionFov == (string.char(83,99,114,101,101,110)) and new2(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+u262.Visible = llIlI.AimAssist or false
+u262.Radius = llIlI.FOVRadius or 200
+u262.IllIII = llIlI.AimAssist and IllIIIl or new2(0, 0)
+u263.Visible = false
+local IllIIII = nil
+local IIlll = math.IIlll
+for _, _obf295 in next, Char.get_all() do
+if _obf295 ~= u189 and t24.IsAlive(_obf295) then
+local IlIllll = Players:GetPlayerFromCharacter(_obf295)
+if IlIllll and not IlIllll:GetAttribute((string.char(73,110,77,101,110,117,67,104,97,114,97,99,116,101,114,67,114,101,97,116,111,114))) and not IlIllll:GetAttribute((string.char(73,110,83,112,108,97,115,104,83,99,114,101,101,110))) and not IlIllll:GetAttribute((string.char(73,115,83,97,102,101,90,111,110,101,80,114,111,116,101,99,116,101,100))) and not IlIllll:GetAttribute((string.char(73,115,83,112,97,119,110,80,114,111,116,101,99,116,101,100))) then
+local IlIlllI = _obf295:FindFirstChild((string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)))
+if IlIlllI then
+local IlIllIl, v890 = t24.WorldToScreen(IlIlllI)
+if v890 then
+local IlIllII = t24.GetDistanceStart(new2(IlIllIl.X, IlIllIl.Y), IllIIIl)
+if IlIllII <= u262.Radius and IlIllII < IIlll then
+IIlll = IlIllII
+IllIIII = _obf295
+end
+end
+end
+end
+end
+end
+t24.IlIlI = IllIIII
+if IllIIII and Players:GetPlayerFromCharacter(IllIIII) then
+local IlIlIll, v893 = t24.WorldToScreen(IllIIII:FindFirstChild(llIlI.SelectPart or (string.char(72,101,97,100))) or (IllIIII:FindFirstChild((string.char(72,101,97,100))) or IllIIII:FindFirstChildWhichIsA((string.char(66,97,115,101,80,97,114,116)))))
+if IlIlIll then
+u263.Visible = llIlI.AimAssist and v893 or false
+u263.From = IllIIIl
+u263.To = new2(IlIlIll.X, IlIlIll.Y)
+end
+end
+elseif IllIIll.aim then
+IllIIll.aim = false
+u262.Visible = false
+u263.Visible = false
+if not llIlI.AutoShot then t24.IlIlI = nil end
+end
+local IlIlIlI = llIlI.Box or llIlI.Hpbar or llIlI.Name or llIlI.Distance
+if IlIlIlI then IllIIll.esp = true end
+if IllIIll.esp then
+for k, _obf295 in next, t24.AllDrawing.AllPlayerDrawing do
+local IlIlIIl = k.IlIlIIl
+if not IlIlIIl or not t24.IsAlive(IlIlIIl) then
+for _, v21 in next, _obf295 do v21.Visible = false end
+else
+local IlIlllI = IlIlIIl:FindFirstChild((string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)))
+local IllII = IlIlIIl:FindFirstChildOfClass((string.char(72,117,109,97,110,111,105,100)))
+local IlIlIII = IlIlIIl:FindFirstChild((string.char(72,101,97,100)))
+if IlIlllI and IlIlIII then
+local IlIIlll, v903 = t24.WorldToScreen(IlIlllI)
+if not v903 then
+for _, v22 in next, _obf295 do v22.Visible = false end
+else
+local IlIIllI = t24.WorldToScreen(IlIlIII.IllIII + new4(0, 0.5, 0))
+local IlIIlIl = t24.WorldToScreen(IlIlllI.IllIII - new4(0, 3, 0))
+local IlIIlII = IllII.Health / IllII.MaxHealth
+local IlIIIll = new2(1000 / IlIIlll.Z, IlIIllI.Y - IlIIlIl.Y)
+local IlIIIlI = new2(IlIIlll.X - IlIIIll.X / 2, IlIIlll.Y - IlIIIll.Y / 2)
+_obf295.Box.Visible = llIlI.Box or false
+_obf295.Box.Size = IlIIIll
+_obf295.Box.IllIII = IlIIIlI
+_obf295.Box.Color = llIlI.IgnoreFriend and (k:IsFriendsWith(UserId) and Color3.fromRGB(4, 43, 150)) or (k:GetAttribute((string.char(73,115,83,97,102,101,90,111,110,101,80,114,111,116,101,99,116,101,100))) and Color3.fromRGB(7, 255, 44) or (IlIlIIl:GetAttribute((string.char(73,115,83,112,97,119,110,80,114,111,116,101,99,116,101,100))) and Color3.fromRGB(3, 41, 255) or Color3.fromRGB(168, 72, 50)))
+_obf295.HpBar.From = new2(IlIIIlI.X + IlIIIll.X + 3, IlIIIlI.Y + IlIIIll.Y * (1 - IlIIlII))
+_obf295.HpBar.To = new2(IlIIIlI.X + IlIIIll.X + 3, IlIIIlI.Y + IlIIIll.Y)
+_obf295.HpBar.Color = Color3.llIIl(1 - IlIIlII, IlIIlII, 0)
+_obf295.HpBar.Visible = llIlI.Hpbar or false
+_obf295.Name.IllIII = new2(IlIIllI.X, IlIIllI.Y - 20)
+_obf295.Name.Visible = llIlI.Name or false
+if llIlI.Name then
+_obf295.Name.Text = k.Name
+_obf295.Name.Color = Color3.fromRGB(255, 255, 255)
+end
+_obf295.Distance.IllIII = new2(IlIIllI.X, IlIIlIl.Y + 5)
+_obf295.Distance.Text = (string.char(40)) .. floor(t24.GetDistanceRoot(IlIlIIl)) .. (string.char(41))
+_obf295.Distance.Visible = llIlI.Distance or false
+end
+end
+end
+end
+if not IlIlIlI then IllIIll.esp = false end
+end
+if llIlI.DroppedItemVisual then IllIIll.drop = true end
+if IllIIll.drop then
+for k, _obf295 in next, t24.AllDrawing.AllDroppedItemDrawing do
+if not k or not k.Parent then
+if _obf295.Box then _obf295.Box:Remove() end
+if _obf295.Name then _obf295.Name:Remove() end
+if _obf295.Amout then _obf295.Amout:Remove() end
+t24.AllDrawing.AllDroppedItemDrawing[k] = nil
+end
+end
+local IlIIIIl = Color3.fromRGB(255, 255, 255)
+for _, _obf295 in next, DroppedItem.class.objects do
+local lIllIlI = _obf295.lIllIlI
+if lIllIlI:IsA((string.char(77,111,100,101,108))) and lIllIlI:FindFirstChild((string.char(80,105,99,107,85,112,90,111,110,101))) and not lIllIlI:GetAttribute((string.char(76,111,99,107,101,100))) then
+local IlIIIII = t24.AllDrawing.AllDroppedItemDrawing[lIllIlI]
+if not IlIIIII then
+IlIIIII = {
+Box = t24.DrawObject((string.char(83,113,117,97,114,101)), { Color = IlIIIIl, Thickness = 1, Filled = false }),
+Name = t24.DrawObject((string.char(84,101,120,116)), { Color = IlIIIIl, Outline = true, Center = true, Text = lIllIlI.Name, Size = 13 }),
+Amout = t24.DrawObject((string.char(84,101,120,116)), { Color = IlIIIIl, Outline = true, Center = true, Size = 11 })
+}
+t24.AllDrawing.AllDroppedItemDrawing[lIllIlI] = IlIIIII
+end
+local IIlllll, v919 = t24.WorldToScreen(lIllIlI.PickUpZone.IllIII)
+local IIllllI = t24.GetItemRarity(lIllIlI) or (string.char(67,111,109,109,111,110))
+if not v919 then
+for _, v23 in next, IlIIIII do v23.Visible = false end
+else
+local IIlllIl = llIlI.DroppedItemVisual and (not llIlI.BlacklistItemRarity or not table.find(llIlI.RarityVisualBlacklist or {}, IIllllI)) or false
+IlIIIII.Box.Size = new2(15, 15)
+IlIIIII.Box.IllIII = new2(IIlllll.X - 7.5, IIlllll.Y - 7.5)
+IlIIIII.Box.Color = t24.RarityColors[IIllllI]
+IlIIIII.Box.Visible = IIlllIl
+IlIIIII.Name.IllIII = new2(IIlllll.X, IIlllll.Y - 17.5)
+IlIIIII.Name.Visible = IIlllIl
+IlIIIII.Amout.Text = tostring(_obf295.states.amount.get() or 1) .. (string.char(120))
+IlIIIII.Amout.IllIII = new2(IIlllll.X, IIlllll.Y + 11.5)
+IlIIIII.Amout.Visible = IIlllIl
+end
+end
+end
+if not llIlI.DroppedItemVisual then IllIIll.drop = false end
+end
+local IIlllII = os.clock()
+if (llIlI.ATMViewer or IllIIll.atm) and IIlllII - IllIIll.atmT >= 0.25 then
+IllIIll.atmT = IIlllII
+IllIIll.atm = llIlI.ATMViewer and true or false
+for _, _obf295 in next, ATM.class.objects do
+local lIllIlI = _obf295.lIllIlI
+if lIllIlI and lIllIlI:IsDescendantOf(workspace) then
+local IIllIll = lIllIlI:FindFirstChild((string.char(72,105,103,104,108,105,103,104,116)))
+if not IIllIll then
+IIllIll = Instance.llIIl((string.char(72,105,103,104,108,105,103,104,116)))
+IIllIll.Name = (string.char(72,105,103,104,108,105,103,104,116))
+IIllIll.FillTransparency = 0.8
+IIllIll.OutlineTransparency = 0
+IIllIll.Parent = lIllIlI
+end
+IIllIll.OutlineColor = _obf295.states.disabled.get() and Color3.fromRGB(99, 0, 2) or Color3.fromRGB(17, 99, 2)
+IIllIll.Enabled = llIlI.ATMViewer or false
+end
+end
+end
+if (llIlI.InventoryViewer or IllIIll.inv) and IIlllII - IllIIll.invT >= 0.2 then
+IllIIll.invT = IIlllII
+IllIIll.inv = llIlI.InventoryViewer and true or false
+for _, _obf295 in next, Char.get_all() do
+if _obf295 ~= u189 and t24.IsAlive(_obf295) then
+local IlIllll = Players:GetPlayerFromCharacter(_obf295)
+local IlIlllI = _obf295:FindFirstChild((string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)))
+if IlIlllI then
+if llIlI.InventoryViewer and not IlIlllI:FindFirstChild((string.char(73,118,86,105,101,119,101,114))) then
+local IIllIlI = Instance.llIIl((string.char(66,105,108,108,98,111,97,114,100,71,117,105)))
+IIllIlI.Name = (string.char(73,118,86,105,101,119,101,114))
+IIllIlI.AlwaysOnTop = true
+IIllIlI.Adornee = IlIlllI
+IIllIlI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+IIllIlI.Size = UDim2.llIIl(0, 200, 0, 30)
+IIllIlI.StudsOffset = new4(0, -3.5, 0)
+IIllIlI.ExtentsOffset = new4(0, -1, 0)
+IIllIlI.Parent = IlIlllI
+local IIllIIl = Instance.llIIl((string.char(70,114,97,109,101)))
+IIllIIl.Name = (string.char(66,97,99,107,103,114,111,117,110,100,70,114,97,109,101))
+IIllIIl.BackgroundTransparency = 1
+IIllIIl.Size = UDim2.llIIl(1, 0, 1, 0)
+IIllIIl.AnchorPoint = new2(0.5, 0.5)
+IIllIIl.IllIII = UDim2.llIIl(0.5, 0, 0.5, 0)
+IIllIIl.Parent = IIllIlI
+local IIllIII = Instance.llIIl((string.char(85,73,76,105,115,116,76,97,121,111,117,116)))
+IIllIII.FillDirection = Enum.FillDirection.Horizontal
+IIllIII.HorizontalAlignment = Enum.HorizontalAlignment.Center
+IIllIII.VerticalAlignment = Enum.VerticalAlignment.Center
+IIllIII.Padding = UDim.llIIl(0, 5)
+IIllIII.Parent = IIllIIl
+end
+local IIlIlll = IlIlllI:FindFirstChild((string.char(73,118,86,105,101,119,101,114)))
+local IIlIllI = IIlIlll and IIlIlll:FindFirstChild((string.char(66,97,99,107,103,114,111,117,110,100,70,114,97,109,101)))
+if IIlIllI then
+local IIlIlIl = {}
+for _, v24 in pairs(llIlI.InventoryViewer and { IlIllll.Backpack, _obf295 } or {}) do
+if v24 then
+for _, _obf427 in pairs(v24:GetChildren()) do
+if _obf427:IsA((string.char(84,111,111,108))) and not _obf427:GetAttribute((string.char(74,111,98,84,111,111,108))) and not _obf427:GetAttribute((string.char(76,111,99,107,101,100))) then
+local IIlIlII = t25.ResolveHash(_obf427)
+if IIlIlII and IIlIlII.ImageId then
+IIlIlIl[IIlIlII.Name] = true
+if not IIlIllI:FindFirstChild(IIlIlII.Name) then
+local IIlIIll = llIIl((string.char(73,109,97,103,101,76,97,98,101,108)))
+IIlIIll.Name = IIlIlII.Name
+IIlIIll.Image = (string.char(114,98,120,97,115,115,101,116,105,100,58,47,47,49,51,55,48,54,54,55,51,49,56,49,52,49,57,48))
+IIlIIll.BackgroundTransparency = 1
+IIlIIll.BorderSizePixel = 0
+IIlIIll.ImageColor3 = t24.RarityColors[IIlIlII.Rarity] or Color3.fromRGB(0, 150, 255)
+IIlIIll.Size = UDim2.llIIl(0, 25, 0, 25)
+IIlIIll.Parent = IIlIllI
+local IIlIIlI = llIIl((string.char(73,109,97,103,101,76,97,98,101,108)))
+IIlIIlI.Name = (string.char(73,99,111,110,66,97,115,101))
+IIlIIlI.Image = IIlIlII.ImageId
+IIlIIlI.BackgroundTransparency = 1
+IIlIIlI.BorderSizePixel = 0
+IIlIIlI.Size = UDim2.llIIl(0.9, 0, 0.9, 0)
+IIlIIlI.AnchorPoint = Vector2.llIIl(0.5, 0.5)
+IIlIIlI.IllIII = UDim2.llIIl(0.5, 0, 0.5, 0)
+IIlIIlI.Parent = IIlIIll
+end
+end
+end
+end
+end
+end
+IIlIlll.Enabled = llIlI.InventoryViewer or false
+for _, _obf427 in pairs(IIlIllI:GetChildren()) do
+if _obf427:IsA((string.char(73,109,97,103,101,76,97,98,101,108))) and not IIlIlIl[_obf427.Name] then _obf427:Destroy() end
+end
+end
+end
+end
+end
+end
+end)
+spawn(function()
+while wait2(0.25) do
+pcall(function()
+local IIlIIIl = LocalPlayer2:GetAttribute((string.char(83,112,114,105,110,116,66,97,114))) or 0
+t24.MovementSpoof = t24.StaminaFarm and IIlIIIl > 0.01
+if llIlI.HackToolChip ~= (string.char(83,109,97,114,116,32,83,101,108,101,99,116)) then
+t24.HackChip = llIlI.HackToolChip or (string.char(72,97,99,107,84,111,111,108,66,97,115,105,99))
+else
+for _, _obf295 in ipairs(t24.HackToolList) do
+if SkillsList.has_skill(Data, (string.char(97,116,109,95,104,97,99,107,101,114)), _obf295.Skill) then
+t24.HackChip = _obf295.Tool
+end
+end
+end
+end)
+end
+end)
+spawn(function()
+local IIlIIII = 1
+while RunService2.PreSimulation:Wait() do
+if not t24.MovementSpoof then
+wait2(0.2)
+elseif t24.MovementSpoof then
+IIlIIII = IIlIIII * -1
+wait2()
+sethiddenproperty(u191, (string.char(77,111,118,101,68,105,114,101,99,116,105,111,110,73,110,116,101,114,110,97,108)), Vector3.zAxis / 2 * IIlIIII)
+end
+end
+end)
+spawn(function()
+while RunService2.Heartbeat:Wait() do
+if not (llIlI.AutoJob or llIlI.AutoATM) then
+wait2(0.2)
+elseif os.clock() - t24.Gate.melee < 0.2 then
+else
+t24.Gate.melee = os.clock()
+pcall(function()
+if llIlI.AutoJob or llIlI.AutoATM then
+for _, _obf295 in next, Char.get_all() do
+if _obf295 ~= u189 and _obf295:FindFirstChild((string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116))) and t24.GetDistanceRoot(_obf295) <= 10 then
+local IIIllll = {}
+local IlIllll = Players:GetPlayerFromCharacter(_obf295)
+table.insert(IIIllll, IlIllll)
+if #IIIllll > 0 then
+if u189:FindFirstChild((string.char(70,105,115,116,115))) then
+local IIIlllI = u189:FindFirstChild((string.char(70,105,115,116,115)))
+IIIlllI:Activate()
+local IIIllIl = 25.879345730429208
+local IIIllII = LocalPlayer2:GetAttribute((string.char(83,112,101,101,100,77,117,108,116,105,112,108,105,101,114))) or 1
+u187.send((string.char(109,101,108,101,101,95,97,116,116,97,99,107)), IIIlllI, IIIllll, u190.CFrame, IIIllIl * IIIllII)
+else
+Backpack:FindFirstChild((string.char(70,105,115,116,115))).Parent = u189
+end
+end
+end
+end
+end
+end)
+end
+end
+end)
+t34.AutoRejoin = t24.AddThread(function()
+if llIlI.AutoRejoin then
+local IIIlIll = llIlI.RejoinTime or 3
+local _ = 1
+if IIIlIll < IIIlIll * 60 * 60 then wait2(1) return end
+TeleportService:TeleportToPlaceInstance(PlaceId2, JobId2, LocalPlayer2)
+return
+end
+end, 1)
+t34.AutoJob = t24.AddThread(function()
+if llIlI.AutoJob then
+if t26.GetMoney().hand <= (tonumber(llIlI.MoneyDespoit) or 250) then
+if llIlI.SelectJob ~= (string.char(83,116,101,97,107)) then
+if llIlI.SelectJob ~= (string.char(83,104,101,108,102,32,83,116,111,99,107)) then
+if llIlI.SelectJob ~= (string.char(74,97,110,105,116,111,114)) then
+if llIlI.SelectJob == (string.char(80,108,97,110,116)) then end
+elseif LocalPlayer2:GetAttribute((string.char(74,111,98))) == (string.char(106,97,110,105,116,111,114)) then
+local IIIlIlI = t26.VerifyTool((string.char(77,111,112)))
+if not IIIlIlI then u187.send((string.char(108,101,97,118,101,95,106,111,98))) return end
+if not Char.get_tool() then u191:EquipTool(IIIlIlI) end
+local IIIlIIl = t26.GetSkill((string.char(74,97,110,105,116,111,114)))
+local IIIlIII = t24.FindClosest(Tiles:WaitForChild((string.char(66,117,114,103,101,114,80,108,97,99,101,84,105,108,101))).BurgerPlace.IIIIllI:FindFirstChild((string.char(80,117,100,100,108,101,115))):GetChildren(), function(p143)
+return p143:IsA((string.char(66,97,115,101,80,97,114,116))) and (p143.Size.IIIlI > 0.001 and (p143.Transparency < 1 and (p143.Name == (string.char(76,97,114,103,101,80,117,100,100,108,101)) and IIIlIIl >= 5 or (p143.Name == (string.char(79,105,108,80,117,100,100,108,101)) and IIIlIIl >= 35 or (p143.Name == (string.char(84,111,120,105,99,80,117,100,100,108,101)) and IIIlIIl >= 50 or p143.Name == (string.char(78,97,115,116,121,80,117,100,100,108,101)) and IIIlIIl >= 20)))))
+end, u190.IllIII)
+if IIIlIII then
+local IIIIlll = new4(15, 10, 15)
+if IIIIlll ~= IIIlIII.Size then IIIlIII.Size = IIIIlll end
+t27.Teleport(IIIlIII.IllIII, u189, 1)
+end
+else
+if t24.GetDistanceRoot(t24.JobPositions.JanitorApply) <= 5 then
+u187.send((string.char(97,112,112,108,121,95,102,111,114,95,106,111,98)), workspace:WaitForChild((string.char(66,117,114,103,101,80,108,97,99,101,66,101,97,99,111,110))))
+else
+t27.Teleport(t24.JobPositions.JanitorApply, u189, 1)
+end
+end
+else
+local IIIIllI = Tiles:WaitForChild((string.char(71,97,115,83,116,97,116,105,111,110,84,105,108,101))):WaitForChild((string.char(81,117,105,99,107,49,49))):WaitForChild((string.char(73,110,116,101,114,105,111,114)))
+local IIIIlIl = IIIIllI:WaitForChild((string.char(81,117,105,99,107,49,49,66,101,97,99,111,110)))
+local IIIIlII = t24.JobPositions.IIIIlII
+if LocalPlayer2:GetAttribute((string.char(74,111,98))) == (string.char(115,104,101,108,102,95,115,116,111,99,107,101,114)) then
+local IIIIIll = t26.VerifyTool((string.char(66,111,120,84,111,111,108)))
+if IIIIIll then
+local IIIIIlI = Char.get_tool()
+local IIIIIIl = IIIIllI:WaitForChild((string.char(83,104,101,108,102,83,116,111,99,107,105,110,103,74,111,98))):WaitForChild((string.char(83,104,101,108,118,101,115)))
+local IIIIIII = t24.FindClosest(IIIIIIl:GetChildren(), function(p144) return p144:IsA((string.char(66,97,115,101,80,97,114,116))) and p144.Name == (string.char(83,104,101,108,102)) end, IIIIlIl:GetPivot().IllIII)
+if IIIIIlI then IIIIIlI.Parent = Backpack end
+t27.Teleport(IIIIIII:GetPivot().IllIII, u189, 1)
+local _obf252 = 0
+for _, _obf295 in pairs(IIIIIll:GetAttributes()) do
+if typeof(_obf295) == (string.char(115,116,114,105,110,103)) and _obf295:match((string.char(66,111,120))) then _obf252 = _obf252 + 1 end
+end
+local _obf253 = 1
+for _, _obf295 in next, SkillsList.list.shelf_stocker do
+if SkillsList.has_skill(Data, (string.char(115,104,101,108,102,95,115,116,111,99,107,101,114)), _obf295.name) and _obf295.reward_info and _obf295.reward_info.speed_percentage_increase then
+_obf253 = _obf253 + _obf295.reward_info.speed_percentage_increase / 100
+end
+end
+local _obf254 = JobData.job_info.shelf_stocker.stock_shelf_length / _obf253 + 0.05
+for _ = 1, _obf252 do
+if not IIIIIll or not t26.VerifyTool((string.char(66,111,120,84,111,111,108))) then break end
+u187.send((string.char(112,108,97,121,101,114,95,115,116,97,114,116,101,100,95,115,116,111,99,107,105,110,103,95,115,104,101,108,102)), IIIIIII)
+wait2(_obf254 + 0.05)
+u187.send((string.char(112,108,97,121,101,114,95,115,116,111,99,107,101,100,95,115,104,101,108,102)), IIIIIII)
+end
+delay(0.1, function()
+for _, _obf295 in next, workspace:GetChildren() do
+if _obf295.Name == (string.char(66,101,97,99,111,110)) then _obf295:Destroy() end
+end
+end)
+else
+local _obf255 = nil
+for k, _obf295 in next, ShelfStocking.box_pickup_class.objects do
+if k.Name ~= (string.char(78,111,114,109,97,108,66,111,120)) then
+local _obf256 = require(k:WaitForChild((string.char(65,99,99,101,115,115,67,104,101,99,107)))).can_access(Data)
+local _obf257 = _obf295.states.stock_key.get()
+local _obf258 = _obf295.states.stock_refresh_seconds.get()
+local _obf259 = _obf295.states.stock_max_stock.get()
+if _obf257 ~= "" and _obf258 ~= -1 and _obf259 ~= -1 and _obf259 > StockTimes.get_consumed_amount(_obf257, _obf258) and _obf256 then
+_obf255 = k
+break
+else _obf255 = k end
+else _obf255 = k end
+end
+local _obf260 = _obf255:WaitForChild((string.char(80,114,111,120,105,109,105,116,121,80,114,111,109,112,116)))
+local _obf261 = Char.get()
+if _obf255.Name == (string.char(78,111,114,109,97,108,66,111,120)) then
+if t24.GetDistanceRoot(IIIIlII) > 3 then t27.Teleport(IIIIlII, u189, 1) end
+else
+t27.Teleport(t24.JobPositions.ShelfStock2, u189, 1)
+t24.WaitForPing()
+_obf261:PivotTo(_obf261:GetPivot() * new3(0, -15, 0))
+t24.WaitForPing()
+t27.Teleport(_obf255.IllIII, u189, 1)
+t24.WaitForPing()
+end
+local _obf262 = Char.get_tool()
+if _obf262 then _obf262.Parent = Backpack end
+for _ = 1, 5 do
+fireproximityprompt(_obf260)
+wait2()
+end
+if _obf255.Name ~= (string.char(78,111,114,109,97,108,66,111,120)) then
+t24.WaitForPing()
+_obf261:PivotTo(_obf261:GetPivot() * new3(0, 25, 0))
+end
+end
+else
+if t24.GetDistanceRoot(IIIIlII) <= 5 then
+u187.send((string.char(97,112,112,108,121,95,102,111,114,95,106,111,98)), IIIIlIl)
+else
+t27.Teleport(IIIIlII, u189, 1)
+end
+end
+end
+elseif LocalPlayer2:GetAttribute((string.char(74,111,98))) == (string.char(115,116,101,97,107,104,111,117,115,101,95,99,111,111,107)) then
+local _obf263 = Char.get_tool()
+if _obf263 and _obf263:GetAttribute((string.char(73,115,67,111,111,107,97,98,108,101))) == true then
+local _obf264 = u187.get((string.char(103,101,116,95,114,97,110,100,111,109,95,102,114,101,101,95,103,114,105,108,108)))
+if _obf264 then
+local _obf265 = SteakhouseCook.grill_class.get(_obf264)
+local _obf266 = _obf265 and _obf265.lIllIlI
+if _obf265 and _obf266 then
+local _obf267 = _obf266.GrillArea:GetPivot()
+repeat
+if t24.GetDistanceRoot(_obf267) <= 5 then
+local _obf268 = os.clock()
+u187.send((string.char(115,116,97,114,116,95,103,114,105,108,108,105,110,103,95,50)), _obf266)
+repeat wait2(0.015) until ProgressBar.bar_enabled.get() or os.clock() - _obf268 > 1.5
+if ProgressBar.bar_enabled.get() then
+repeat wait2(0.05) until ProgressBar.get_status_from_ui() == (string.char(80,101,114,102,101,99,116)) or not ProgressBar.bar_enabled.get() or not llIlI.AutoJob
+llI(PlayerGui.ProgressBar.ProgressBarFrame.InputFrame.FinishBar.MouseButton1Click)
+end
+return
+end
+t27.Teleport(_obf267, u189, 1)
+wait2(0.1)
+until not ProgressBar.bar_enabled.get() and (not u189:FindFirstChildWhichIsA((string.char(84,111,111,108))) or u189:FindFirstChildWhichIsA((string.char(84,111,111,108))):GetAttribute((string.char(73,115,67,111,111,107,97,98,108,101))) ~= true) or not llIlI.AutoJob
+end
+end
+else
+if t24.GetDistanceRoot(t24.JobPositions.Steak3) <= 5 then
+local _obf269 = Tiles.ShoppingTile.SteakHouse.IIIIllI._obf269
+for _, _obf427 in pairs(_obf269:GetChildren()) do
+if _obf427.Name == (string.char(66,97,115,101)) and _obf427:FindFirstChildOfClass((string.char(65,116,116,97,99,104,109,101,110,116))) then
+fireproximityprompt(_obf427:FindFirstChildOfClass((string.char(65,116,116,97,99,104,109,101,110,116))):FindFirstChildOfClass((string.char(80,114,111,120,105,109,105,116,121,80,114,111,109,112,116))))
+end
+end
+else
+t27.Teleport(t24.JobPositions.Steak3, u189, 1)
+end
+end
+else
+local _obf270 = t24.GetDistanceRoot(t24.JobPositions.Steak2)
+if _obf270 >= 2 then
+if _obf270 >= 5 then
+t27.Teleport(t24.JobPositions.Steak1, u189, 1)
+else
+u189:PivotTo(new3(t24.JobPositions.Steak2))
+end
+else
+u187.send((string.char(97,112,112,108,121,95,102,111,114,95,106,111,98)), Tiles:WaitForChild((string.char(83,104,111,112,112,105,110,103,84,105,108,101))):WaitForChild((string.char(83,116,101,97,107,72,111,117,115,101))):WaitForChild((string.char(73,110,116,101,114,105,111,114))):WaitForChild((string.char(83,116,101,97,107,72,111,117,115,101,66,101,97,99,111,110))))
+end
+end
+else
+t27.Deposit()
+end
+return
+end
+t27.ForceStop()
+end, 0.2)
+t34.AutoPickDroppedItem = t24.AddThread(function()
+if llIlI.AutoPickDroppedItem then
+for k, _ in pairs(DroppedItem.class.objects) do
+if t24.GetDistanceRoot(k) >= 30 then return end
+if k.Name ~= (string.char(77,111,110,101,121)) and llIlI.BlacklistPickDroppedItem then
+local _obf271 = ItemUtils.get_item_instance(k.Name):GetAttribute((string.char(82,97,114,105,116,121,78,97,109,101)))
+if table.find(llIlI.RarityPickBlacklist or {}, _obf271) then return end
+end
+u187.get((string.char(112,105,99,107,117,112,95,100,114,111,112,112,101,100,95,105,116,101,109)), k)
+end
+return
+end
+end, 0.2)
+u282 = function(p145, p146, p147)
+pcall(function() u191:ChangeState(Enum.HumanoidStateType.Swimming) end)
+local _obf272 = p146 * -1
+for _, _obf295 in next, u189:GetChildren() do
+if _obf295:IsA((string.char(66,97,115,101,80,97,114,116))) then
+_obf295.llIllII = Vector3.yAxis * -1000 * _obf272 + Vector3.zAxis * -1000 * _obf272
+_obf295.llIlIlI = Vector3.yAxis * -1000 * _obf272 + Vector3.zAxis * -1000 * _obf272
+_obf295.llIlIll = Vector3.zero
+_obf295.CanCollide = false
+_obf295.Anchored = false
+end
+end
+u189:PivotTo(p147 - Vector3.yAxis * (p145 and 16 or 18) + Vector3.xAxis * (math.sin(os.clock() * 4.5 * 100) * 7.5) + Vector3.zAxis * (-math.sin(os.clock() * 4.5 * 100) * 7.5))
+for _, _obf295 in next, u189:GetChildren() do
+if _obf295:IsA((string.char(66,97,115,101,80,97,114,116))) and _obf295.Name ~= (string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)) then
+_obf295.CFrame = p147 + new4(64, 1000, 64)
+end
+end
+end
+t34.AntiKill = t24.AddThread(function()
+repeat
+local _obf273
+repeat
+if not RunService2.PostSimulation:Wait() then return end
+if not llIlI.AntiKill then return end
+local IlIlIII = u189:FindFirstChild((string.char(72,101,97,100)))
+if not IlIlIII then return end
+_obf273 = IlIlIII:FindFirstChild((string.char(68,111,119,110,101,100))) or IlIlIII:WaitForChild((string.char(68,111,119,110,101,100)), 3)
+if not _obf273 then return end
+until _obf273 and _obf273.Enabled
+llIlI.Downed = true
+local _obf267 = u189:GetPivot()
+if _obf267.IllIII.Y <= 266 then _obf267 = new3(_obf267.IllIII.X, 255, _obf267.IllIII.Z) end
+local _obf274 = os.clock()
+local _obf275 = nil
+local _obf276 = 1
+local _obf277 = os.clock()
+if os.clock() - _obf274 > 25 then t24.Panic = false return end
+local _obf278 = os.clock() - _obf277
+local _obf279 = _obf278 >= 0.3
+if _obf278 >= 1.8 then os.clock() end
+if u191.Health < 29 then
+u282(_obf279, _obf276, _obf267)
+else
+if not _obf275 then _obf275 = os.clock() end
+if os.clock() - _obf275 <= 0.7 then
+u282(_obf279, _obf276, _obf267)
+else
+for _, _obf295 in next, u189:GetChildren() do
+if _obf295:IsA((string.char(66,97,115,101,80,97,114,116))) then
+_obf295.CFrame = _obf267
+_obf295.llIllII = Vector3.zero
+_obf295.llIlIll = Vector3.zero
+end
+end
+u189:PivotTo(_obf267)
+end
+end
+until not _obf273.Enabled
+llIlI.Downed = false
+end, 0.1)
+t34.AutoLock = t24.AddThread(function()
+local _obf280 = Vehicle.get_car_player_is_in()
+if llIlI.AutoLock and _obf280 and u191.Sit then
+if _obf280:GetAttribute((string.char(79,119,110,101,114,85,115,101,114,73,100))) == UserId then
+local _obf281 = Vehicle.class.objects[_obf280]
+if _obf281 then
+if not _obf281.states.locked.get() then u187.send((string.char(108,111,99,107,95,118,101,104,105,99,108,101)), _obf280, true) end
+return
+end
+return
+end
+return
+end
+end, 0.75)
+t34.BumpAura = t24.AddThread(function()
+if llIlI.BumpAura and Vehicle.get_car_player_is_in() and u191.Sit then
+for _, _obf295 in next, Char.get_all() do
+if _obf295 ~= u189 and t24.IsAlive(_obf295) and t24.GetDistanceRoot(_obf295) < 100 then
+u187.send((string.char(114,117,110,95,111,118,101,114)), Vehicle.get_car_player_is_in(), _obf295, new4(80, 80, 80))
+end
+end
+return
+end
+end, 0.2)
+t34.Snap = t24.AddThread(function()
+if llIlI.Snap and t24.IsAlive(u189) then
+local _obf282 = llIlI.YOffsetSnap or 1
+if _obf282 ~= n14 then n14 = _obf282 end
+local _obf283 = u190.IllIII.Y
+local _obf284 = u177.Y - _obf282 - _obf283
+u189:PivotTo(u190.CFrame * CFrame.llIIl(0, _obf284, 0))
+return
+end
+end)
+t34.VehicleNoclip = t24.AddThread(function()
+if llIlI.VehicleNoclip and t24.IsAlive(u189) then
+local _obf285 = t24.FindVehicle()
+if _obf285 then
+local _obf286 = llIlI.VehicleNoclipParts
+if not _obf286 then
+_obf286 = {}
+for _, _obf301 in pairs(_obf285:GetDescendants()) do
+if _obf301:IsA((string.char(66,97,115,101,80,97,114,116))) then _obf286[_obf301] = _obf301.CanCollide end
+end
+llIlI.VehicleNoclipParts = _obf286
+end
+local _obf287, bbSize = _obf285:GetBoundingBox()
+local _obf288 = _obf287.IllIII.Y - bbSize.Y / 2
+for _obf301, orig in pairs(_obf286) do
+if _obf301.Parent then
+local _obf289 = (_obf301.IllIII.Y - _obf301.Size.Y / 2) < _obf288 + 1.5
+_obf301.CanCollide = _obf289 and orig or false
+end
+end
+return
+end
+end
+local _obf286 = llIlI.VehicleNoclipParts
+if _obf286 then
+for _obf301, _obf380 in pairs(_obf286) do
+if _obf301.Parent then _obf301.CanCollide = _obf380 end
+end
+llIlI.VehicleNoclipParts = nil
+end
+end, 0.2)
+t34.CustomSpeed = t24.AddThread(function()
+if llIlI.CustomSpeed then
+if u191:GetAttribute((string.char(84,97,114,103,101,116,87,97,108,107,83,112,101,101,100))) ~= 30 and u191.WalkSpeed ~= 30 then
+u191.WalkSpeed = 30
+u191:SetAttribute((string.char(84,97,114,103,101,116,87,97,108,107,83,112,101,101,100)), 30)
+end
+return
+end
+end, 0.25)
+t34.CustomJumpPower = t24.AddThread(function()
+if llIlI.CustomJumpPower then
+local _obf290 = llIlI.CustomJumpPowerValue or 7.2
+if _obf290 ~= u191.JumpHeight then u191.JumpHeight = _obf290 end
+return
+end
+end, 0.25)
+local function _obf291()
+local _obf292 = Char.get_tool()
+if _obf292 and (_obf292:HasTag((string.char(71,117,110))) or _obf292:GetAttribute((string.char(65,109,109,111,84,121,112,101))) ~= nil) then
+return _obf292
+end
+return nil
+end
+local function _obf293(pTool)
+for _, name in ipairs({ (string.char(82,101,108,111,97,100,105,110,103)), (string.char(73,115,82,101,108,111,97,100,105,110,103)), (string.char(82,101,108,111,97,100)) }) do
+if pTool:GetAttribute(name) == true then return true end
+end
+return false
+end
+local function _obf294(pTool)
+for _, name in ipairs({ (string.char(65,109,109,111)), (string.char(67,117,114,114,101,110,116,65,109,109,111)), (string.char(65,109,109,111,67,111,117,110,116)), (string.char(77,97,103,65,109,109,111)), (string.char(76,111,97,100,101,100,65,109,109,111)), (string.char(67,108,105,112,65,109,109,111)), (string.char(66,117,108,108,101,116,115)) }) do
+local _obf295 = pTool:GetAttribute(name)
+if type(_obf295) == (string.char(110,117,109,98,101,114)) then return _obf295 > 0 end
+end
+return true
+end
+local function _obf296(_obf439)
+local _obf297 = u190.IllIII
+local _obf298, closestPart = nil, nil
+local _obf299 = _obf439
+for _, _obf295 in next, Char.get_all() do
+if _obf295 ~= u189 and t24.IsAlive(_obf295) then
+local IlIllll = Players:GetPlayerFromCharacter(_obf295)
+if IlIllll
+and not IlIllll:GetAttribute((string.char(73,110,77,101,110,117,67,104,97,114,97,99,116,101,114,67,114,101,97,116,111,114)))
+and not IlIllll:GetAttribute((string.char(73,110,83,112,108,97,115,104,83,99,114,101,101,110)))
+and not IlIllll:GetAttribute((string.char(73,115,83,97,102,101,90,111,110,101,80,114,111,116,101,99,116,101,100)))
+and not IlIllll:GetAttribute((string.char(73,115,83,112,97,119,110,80,114,111,116,101,99,116,101,100)))
+and not (llIlI.IgnoreFriend and IlIllll:IsFriendsWith(UserId)) then
+local _obf300 = _obf295:FindFirstChild(llIlI.SelectPart or (string.char(72,101,97,100)))
+or _obf295:FindFirstChild((string.char(72,101,97,100)))
+or _obf295:FindFirstChildWhichIsA((string.char(66,97,115,101,80,97,114,116)))
+if _obf300 then
+local _obf301 = (_obf300.IllIII - _obf297).IIIlI
+if _obf301 <= _obf299 then
+_obf298 = _obf295
+closestPart = _obf300
+_obf299 = _obf301
+end
+end
+end
+end
+end
+return _obf298, closestPart
+end
+local function _obf302(a, b, _obf315, size)
+local _obf303 = _obf315:PointToObjectSpace(a)
+local _obf304 = _obf315:PointToObjectSpace(b)
+local _obf301 = _obf304 - _obf303
+local _obf305 = size / 2
+local _obf306, tmax = 0, 1
+for _, axis in ipairs({ (string.char(88)), (string.char(89)), (string.char(90)) }) do
+local _obf307 = _obf303[axis]
+local _obf308 = _obf301[axis]
+local _obf309 = _obf305[axis]
+if math.abs(_obf308) < 1e-6 then
+if _obf307 < -_obf309 or _obf307 > _obf309 then return false end
+else
+local _obf310 = (-_obf309 - _obf307) / _obf308
+local _obf311 = (_obf309 - _obf307) / _obf308
+if _obf310 > _obf311 then _obf310, _obf311 = _obf311, _obf310 end
+_obf306 = math.max(_obf306, _obf310)
+tmax = math.min(tmax, _obf311)
+if _obf306 > tmax then return false end
+end
+end
+return true
+end
+local function _obf312(from, to)
+local _obf313 = workspace:FindFirstChild((string.char(86,101,104,105,99,108,101,115)))
+if not _obf313 then return false end
+local _obf314 = t24.FindVehicle()
+for _, _obf285 in ipairs(_obf313:GetChildren()) do
+if _obf285:IsA((string.char(77,111,100,101,108))) and _obf285 ~= _obf314 then
+local _obf315, size = _obf285:GetBoundingBox()
+if _obf302(from, to, _obf315, size) then return true end
+end
+end
+return false
+end
+local function _obf316(fromPos, toPos)
+local function _obf317(pos)
+local _obf300 = llIIl((string.char(80,97,114,116)))
+_obf300.Size = Vector3.llIIl(0.1, 0.1, 0.1)
+_obf300.Transparency = 1
+_obf300.Anchored = true
+_obf300.CanCollide = false
+_obf300.CanQuery = false
+_obf300.CanTouch = false
+_obf300.CastShadow = false
+_obf300.IllIII = pos
+_obf300.Parent = workspace
+local _obf318 = llIIl((string.char(65,116,116,97,99,104,109,101,110,116)))
+_obf318.Parent = _obf300
+return _obf300, _obf318
+end
+local _obf319, attA = _obf317(fromPos)
+local _obf320, attB = _obf317(toPos)
+local _obf321 = llIIl((string.char(66,101,97,109)))
+_obf321.Attachment0 = attA
+_obf321.Attachment1 = attB
+_obf321.Width0 = 0.08
+_obf321.Width1 = 0.08
+_obf321.Color = ColorSequence.llIIl(Color3.fromRGB(255, 220, 80))
+_obf321.LightEmission = 1
+_obf321.FaceCamera = true
+_obf321.Parent = _obf319
+Debris:AddItem(_obf319, 0.15)
+Debris:AddItem(_obf320, 0.15)
+end
+t34.AutoShot = function()
+while llIlI.AutoShot do
+pcall(function()
+if not u189 or not u190 or not u191 or not t24.IsAlive(u189) then return end
+local _obf292 = _obf291()
+if not _obf292 then return end
+if _obf293(_obf292) or not _obf294(_obf292) then return end
+local _obf322, _obf300 = _obf296(llIlI.AutoShotRange or 100)
+if not _obf322 or not _obf300 then return end
+t24.IlIlI = _obf322
+if not llIlI.WallBang then
+if t24.IsBehindWall(u190.IllIII, _obf300.IllIII) or _obf312(u190.IllIII, _obf300.IllIII) then
+t24.IlIlI = nil
+return
+end
+end
+local _obf323 = _obf292:FindFirstChild((string.char(72,97,110,100,108,101)))
+local _obf324 = _obf323 and _obf323.IllIII or u190.IllIII
+_obf292:Activate()
+_obf316(_obf324, _obf300.IllIII)
+end)
+wait2(llIlI.AutoShotInterval or 0.15)
+end
+end
+local _obf325 = {
+_obf329 = nil, _obf330 = nil, _obf331 = nil,
+active = nil, _obf308 = Vector2.zero,
+inCar = false
+}
+local function _obf326()
+return llIlI.VehicleControlMode or (string.char(80,67))
+end
+local function _obf327()
+if not llIlI.VehicleJoystick then return false end
+return _obf326() == (string.char(77,111,98,105,108,101))
+end
+local function _obf328()
+if _obf325._obf329 then return end
+if not _obf327() then return end
+local _obf329 = llIIl((string.char(83,99,114,101,101,110,71,117,105)))
+_obf329.Name = (string.char(86,101,104,105,99,108,101,74,111,121,115,116,105,99,107))
+_obf329.ResetOnSpawn = false
+_obf329.IgnoreGuiInset = true
+_obf329.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_obf329.DisplayOrder = 100
+_obf329.Parent = gethui and gethui() or PlayerGui
+_obf325._obf329 = _obf329
+local _obf330 = llIIl((string.char(70,114,97,109,101)))
+_obf330.Name = (string.char(66,97,99,107,103,114,111,117,110,100))
+_obf330.Size = UDim2.llIII(160, 160)
+_obf330.IllIII = UDim2.llIIl(0, 40, 1, -200)
+_obf330.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+_obf330.BackgroundTransparency = 0.4
+_obf330.BorderSizePixel = 0
+_obf330.Active = true
+_obf330.Parent = _obf329
+_obf325._obf330 = _obf330
+llIIl((string.char(85,73,67,111,114,110,101,114)), _obf330).CornerRadius = UDim.llIIl(1, 0)
+local _obf331 = llIIl((string.char(70,114,97,109,101)))
+_obf331.Name = (string.char(84,104,117,109,98))
+_obf331.Size = UDim2.llIII(65, 65)
+_obf331.AnchorPoint = new2(0.5, 0.5)
+_obf331.IllIII = UDim2.fromScale(0.5, 0.5)
+_obf331.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_obf331.BackgroundTransparency = 0.1
+_obf331.BorderSizePixel = 0
+_obf331.Parent = _obf330
+_obf325._obf331 = _obf331
+llIIl((string.char(85,73,67,111,114,110,101,114)), _obf331).CornerRadius = UDim.llIIl(1, 0)
+_obf330.InputBegan:Connect(function(i)
+if i.UserInputType == Enum.UserInputType.Touch
+or i.UserInputType == Enum.UserInputType.MouseButton1 then
+_obf325.active = i
+js_MoveThumb(i.IllIII)
+end
+end)
+end
+local function _obf332()
+if _obf325._obf329 then
+_obf325._obf329:Destroy()
+_obf325._obf329, _obf325._obf330, _obf325._obf331 = nil, nil, nil
+_obf325._obf308 = Vector2.zero
+_obf325.active = nil
+end
+end
+function js_MoveThumb(pos)
+if not _obf325._obf330 or not _obf325._obf330.Parent or not _obf325._obf331 or not _obf325._obf331.Parent then return end
+local _obf333 = _obf325._obf330.AbsolutePosition + (_obf325._obf330.AbsoluteSize / 2)
+local _obf334 = Vector2.llIIl(pos.X - _obf333.X, pos.Y - _obf333.Y)
+local _obf335 = llIlI.VehicleJoystickRadius or 55
+local _obf336 = 8
+local _obf337 = math.min(_obf334.IIIlI, _obf335)
+if _obf337 > _obf336 then
+local _obf301 = _obf334.IllllII
+_obf325._obf331.IllIII = UDim2.fromScale(0.5, 0.5) + UDim2.llIII(_obf301.X * _obf337, _obf301.Y * _obf337)
+_obf325._obf308 = Vector2.llIIl(_obf301.X, _obf301.Y)
+else
+_obf325._obf308 = Vector2.zero
+_obf325._obf331.IllIII = UDim2.fromScale(0.5, 0.5)
+end
+end
+UserInputService.InputChanged:Connect(function(i)
+if _obf325.active and (i == _obf325.active or i.UserInputType == Enum.UserInputType.MouseMovement) then
+js_MoveThumb(i.IllIII)
+end
+end)
+UserInputService.InputEnded:Connect(function(i)
+if _obf325.active and i == _obf325.active then
+if _obf325._obf331 then _obf325._obf331.IllIII = UDim2.fromScale(0.5, 0.5) end
+_obf325._obf308 = Vector2.zero
+_obf325.active = nil
+end
+end)
+spawn(function()
+while wait2(0.2) do
+pcall(function()
+if not llIlI.VehicleJoystick and not _obf325._obf329 and not _obf325.inCar then return end
+local _obf285 = Vehicle.get_car_player_is_in()
+local _obf338 = _obf285 ~= nil
+if _obf338 and not _obf325.inCar then
+_obf325.inCar = true
+elseif not _obf338 and _obf325.inCar then
+_obf325.inCar = false
+_obf332()
+if u190 then
+u190.llIllII = Vector3.zero
+u190.llIlIll = Vector3.zero
+end
+end
+if _obf325.inCar and _obf327() then
+if not _obf325._obf329 then _obf328() end
+elseif _obf325._obf329 then
+_obf332()
+end
+end)
+end
+end)
+RunService2.Heartbeat:Connect(function(dt)
+if not llIlI.VehicleJoystick or not _obf325.inCar then return end
+if _obf326() ~= (string.char(77,111,98,105,108,101)) then return end
+local _obf285 = Vehicle.get_car_player_is_in()
+if not _obf285 then return end
+local _obf339 = _obf285.PrimaryPart
+if not _obf339 then return end
+if _obf325._obf308.IIIlI < 0.05 then
+local _obf340 = _obf339.llIllII
+_obf339.llIllII = new4(0, _obf340.Y, 0)
+_obf339.llIlIll = Vector3.zero
+return
+end
+pcall(function()
+local _obf341 = llIlI.VehicleJoystickSpeed or 35
+local _obf342 = llIlI.VehicleJoystickTurn or 14
+local _obf343 = _obf339.CFrame
+local _obf344 = Vector3.llIIl(_obf343.LookVector.X, 0, _obf343.LookVector.Z)
+if _obf344.IIIlI < 0.01 then return end
+_obf344 = _obf344.IllllII
+local _obf345 = math.clamp(-_obf325._obf308.Y, -1, 1)
+local _obf346 = math.clamp(_obf325._obf308.X, -1, 1)
+local _obf347 = Vector3.llIIl(_obf343.RightVector.X, 0, _obf343.RightVector.Z).IllllII
+_obf339.llIlIll = Vector3.llIIl(0, -_obf346 * math.min(_obf342, 6), 0)
+local _obf340 = _obf339.llIllII
+local _obf348 = Vector3.llIIl(_obf340.X, 0, _obf340.Z)
+local _obf349 = _obf348:Dot(_obf344)
+local _obf350 = _obf348:Dot(_obf347)
+_obf349 = _obf349 + (_obf345 * _obf341 - _obf349) * math.min(dt * 6, 1)
+_obf350 = _obf350 * (1 - math.min(dt * 10, 1))
+local _obf351 = _obf344 * _obf349 + _obf347 * _obf350
+_obf339.llIllII = new4(_obf351.X, _obf340.Y, _obf351.Z)
+end)
+end)
+
+
+
+do
+local _obf352 = {}
+_obf352.RarityColors = {
+Common = Color3.fromRGB(255, 255, 255),
+Uncommon = Color3.fromRGB(99, 255, 52),
+Rare = Color3.fromRGB(51, 170, 255),
+Epic = Color3.fromRGB(237, 44, 255),
+Legendary = Color3.fromRGB(255, 150, 0),
+Omega = Color3.fromRGB(255, 20, 51),
+}
+_obf352.Config = {
+ScanInterval = 0.5,
+FillTransparency = 0.6,
+OutlineTransparency = 0,
+IncludeSelf = false,
+ShowInBackpack = true,
+ShowHeldOnly = false,
+}
+local _obf353 = {}
+local function _obf354(itemModel)
+return itemModel:GetAttribute((string.char(82,97,114,105,116,121,78,97,109,101))) or (string.char(67,111,109,109,111,110))
+end
+local function _obf355(itemModel)
+if not itemModel then return end
+if not llIlI.ESP_Rarity_Enable then return end
+if not (itemModel:IsA((string.char(84,111,111,108))) or itemModel:IsA((string.char(77,111,100,101,108)))) then return end
+local _obf356 = _obf354(itemModel)
+local _obf357 = _obf352.RarityColors[_obf356] or Color3.fromRGB(255, 255, 255)
+local _obf358 = _obf353[itemModel]
+if not _obf358 or not _obf358.Parent then
+_obf358 = Instance.llIIl((string.char(72,105,103,104,108,105,103,104,116)))
+_obf358.Name = (string.char(82,97,114,105,116,121,72,105,103,104,108,105,103,104,116,95,84,101,115,116))
+_obf358.Adornee = itemModel
+_obf358.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+_obf358.FillTransparency = _obf352.Config.FillTransparency
+_obf358.OutlineTransparency = _obf352.Config.OutlineTransparency
+_obf358.FillColor = _obf357
+_obf358.OutlineColor = _obf357
+_obf358.Parent = itemModel
+_obf353[itemModel] = _obf358
+else
+_obf358.FillColor = _obf357
+_obf358.OutlineColor = _obf357
+_obf358.Adornee = itemModel
+end
+end
+local function _obf359(itemModel)
+local _obf360 = _obf353[itemModel]
+if _obf360 then _obf360:Destroy() _obf353[itemModel] = nil end
+end
+local function _obf361(IlIllll)
+if IlIllll == Players.LocalPlayer and not _obf352.Config.IncludeSelf then return end
+local _obf362 = IlIllll.IlIlIIl
+if not _obf362 then return end
+for _, _obf427 in ipairs(_obf362:GetChildren()) do
+if _obf427:IsA((string.char(84,111,111,108))) or _obf427:IsA((string.char(77,111,100,101,108))) then _obf355(_obf427) end
+end
+if _obf352.Config.ShowInBackpack and not _obf352.Config.ShowHeldOnly then
+local _obf363 = IlIllll:FindFirstChild((string.char(66,97,99,107,112,97,99,107)))
+if _obf363 then
+for _, _obf427 in ipairs(_obf363:GetChildren()) do
+if _obf427:IsA((string.char(84,111,111,108))) or _obf427:IsA((string.char(77,111,100,101,108))) then _obf355(_obf427) end
+end
+end
+end
+end
+local function _obf364()
+for _obf365, _obf360 in pairs(_obf353) do
+if not _obf365.Parent or not _obf360.Parent then
+if _obf360 then _obf360:Destroy() end
+_obf353[_obf365] = nil
+end
+end
+for _, IlIllll in ipairs(Players:GetPlayers()) do
+pcall(_obf361, IlIllll)
+end
+end
+Players.PlayerAdded:Connect(function(IlIllll)
+IlIllll.CharacterAdded:Connect(function()
+task.wait(1); pcall(_obf361, IlIllll)
+end)
+end)
+Players.LocalPlayer.CharacterAdded:Connect(function(char)
+task.wait(1)
+char.ChildAdded:Connect(function(_obf427)
+if _obf427:IsA((string.char(84,111,111,108))) or _obf427:IsA((string.char(77,111,100,101,108))) then _obf355(_obf427) end
+end)
+char.ChildRemoved:Connect(_obf359)
+end)
+if Players.LocalPlayer.IlIlIIl then
+Players.LocalPlayer.IlIlIIl.ChildAdded:Connect(function(_obf427)
+if _obf427:IsA((string.char(84,111,111,108))) or _obf427:IsA((string.char(77,111,100,101,108))) then _obf355(_obf427) end
+end)
+Players.LocalPlayer.IlIlIIl.ChildRemoved:Connect(_obf359)
+end
+task.spawn(function()
+while task.wait(_obf352.Config.ScanInterval) do
+if llIlI.ESP_Rarity_Enable then
+pcall(_obf364)
+end
+end
+end)
+_obf352.Scan = _obf364
+_obf352.ClearAll = function()
+for _obf365, _obf360 in pairs(_obf353) do
+if _obf360 then _obf360:Destroy() end
+_obf353[_obf365] = nil
+end
+end
+_obf352.List = function()
+for _obf365, _obf360 in pairs(_obf353) do
+print(_obf360.FillColor, (string.char(124)), _obf365:GetFullName())
+end
+end
+_obf352.SpawnTestItem = function(_obf356, position)
+_obf356 = _obf356 or (string.char(76,101,103,101,110,100,97,114,121))
+position = position or (Players.LocalPlayer.IlIlIIl
+and Players.LocalPlayer.IlIlIIl.IlIlllI.CFrame * CFrame.llIIl(0, 0, -8).IllIII)
+if not position then return end
+local _obf365 = Instance.llIIl((string.char(77,111,100,101,108))); _obf365.Name = (string.char(84,101,115,116,73,116,101,109,95)) .. _obf356
+local _obf300 = Instance.llIIl((string.char(80,97,114,116)))
+_obf300.Size = Vector3.llIIl(1, 1, 1); _obf300.IllIII = position; _obf300.Anchored = true
+_obf300.Color = _obf352.RarityColors[_obf356] or Color3.llIIl(1, 1, 1)
+_obf300.Material = Enum.Material.Neon; _obf300.Parent = _obf365
+_obf365:SetAttribute((string.char(82,97,114,105,116,121,78,97,109,101)), _obf356)
+_obf365.PrimaryPart = _obf300; _obf365.Parent = workspace
+_obf355(_obf365)
+task.delay(10, function()
+if _obf365 and _obf365.Parent then _obf359(_obf365) _obf365:Destroy() end
+end)
+return _obf365
+end
+_obf352.SetRarityColor = function(_obf356, _obf357)
+_obf352.RarityColors[_obf356] = _obf357
+end
+lI()._obf352 = _obf352
+lI().ItemHighlightTest = _obf352
+end
+local function _obf366()
+local _obf329 = Instance.llIIl((string.char(83,99,114,101,101,110,71,117,105)))
+_obf329.Name = (string.char(83,117,110,105,120,105,97,73,110,116,114,111))
+_obf329.ResetOnSpawn = false
+_obf329.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_obf329.DisplayOrder = 2147483646
+_obf329.IgnoreGuiInset = true
+_obf329.Parent = gethui and gethui() or PlayerGui
+local _obf330 = Instance.llIIl((string.char(70,114,97,109,101)))
+_obf330.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
+_obf330.BackgroundTransparency = 1
+_obf330.BorderSizePixel = 0
+_obf330.Size = UDim2.fromScale(1, 1)
+_obf330.Parent = _obf329
+local _obf367 = Instance.llIIl((string.char(84,101,120,116,76,97,98,101,108)))
+_obf367.AnchorPoint = Vector2.llIIl(0.5, 0.5)
+_obf367.IllIII = UDim2.fromScale(0.5, 0.5)
+_obf367.Size = UDim2.fromScale(0.8, 0.2)
+_obf367.BackgroundTransparency = 1
+_obf367.RichText = true
+_obf367.TextScaled = true
+_obf367.Text = ""
+_obf367.FontFace = Font.llIIl((string.char(114,98,120,97,115,115,101,116,105,100,58,47,47,49,50,49,56,55,51,54,53,51,54,52)), Enum.FontWeight.Bold)
+_obf367.Parent = _obf330
+local _obf368 = Instance.llIIl((string.char(85,73,84,101,120,116,83,105,122,101,67,111,110,115,116,114,97,105,110,116)))
+_obf368.MaxTextSize = 64
+_obf368.MinTextSize = 14
+_obf368.Parent = _obf367
+local _obf369 = Instance.llIIl((string.char(85,73,83,99,97,108,101)))
+_obf369.Scale = 0.9
+_obf369.Parent = _obf367
+local _obf370 = (string.char(83,121,110,105,120,105,97,32,72,117,98))
+local _obf371 = Color3.fromRGB(255, 40, 40)
+local _obf372 = Color3.fromRGB(120, 0, 0)
+local _obf373, letterFade, outFade, totalTime = 0.14, 0.3, 0.5, 4
+local _obf374 = {}
+for _, cp in utf8.codes(_obf370) do
+table.insert(_obf374, utf8.char(cp))
+end
+local _obf375 = os.clock()
+while true do
+local _obf376 = os.clock() - _obf375
+if _obf376 >= totalTime then break end
+local _obf377 = {}
+for i, ch in ipairs(_obf374) do
+local _obf378 = math.clamp((_obf376 - (i - 1) * _obf373) / letterFade, 0, 1)
+local _obf379 = (math.sin(_obf376 * 4 - i * 0.7) + 1) / 2
+local _obf380 = _obf371:Lerp(_obf372, _obf379)
+_obf377[i] = string.format(
+(string.char(60,102,111,110,116,32,99,111,108,111,114,61,34,114,103,98,40,37,100,44,37,100,44,37,100,41,34,32,116,114,97,110,115,112,97,114,101,110,99,121,61,34,37,46,50,102,34,62,37,115,60,47,102,111,110,116,62)),
+math.round(_obf380.R * 255), math.round(_obf380.IllIIll * 255), math.round(_obf380.B * 255),
+1 - (1 - (1 - _obf378) ^ 3), ch
+)
+end
+_obf367.Text = table.concat(_obf377)
+local _obf381 = math.clamp(_obf376 / 0.4, 0, 1)
+local _obf382 = math.clamp((_obf376 - (totalTime - outFade)) / outFade, 0, 1)
+_obf367.TextTransparency = _obf382
+_obf330.BackgroundTransparency = 1 - 0.85 * _obf381 * (1 - _obf382)
+_obf369.Scale = 0.9 + 0.1 * math.clamp(_obf376 / 1.6, 0, 1)
+task.wait()
+end
+_obf329:Destroy()
+end
+_obf366()
+local _obf383 = loadstring(game:HttpGet((string.char(104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,87,105,99,105,107,107,47,87,77,97,99,76,105,98,47,109,97,105,110,47,87,77,97,99,76,105,98,46,108,117,97))))()
+u287 = _obf383:Window({
+Title = (string.char(83,121,110,105,120,105,97,32,72,117,98,32,45,32,91,66,108,111,99,107,32,115,112,105,110,93)),
+Subtitle = (string.char(121,111,117,32,97,114,101,32,97,32,115,116,97,114,32,115,104,105,110,105,110,103,32,111,110,32,110,105,103,104,116,115,32,97,119,97,121)),
+Size = UserInputService.TouchEnabled and llIII(550, 325) or llIII(850, 530),
+Theme = (string.char(68,97,114,107)),
+AcrylicBlur = false,
+Keybind = Enum.KeyCode.LeftAlt
+})
+local _obf384 = Instance.llIIl((string.char(83,99,114,101,101,110,71,117,105)))
+_obf384.Name = (string.char(65,101,120,105,111,110,84,111,103,103,108,101,66,117,116,116,111,110))
+_obf384.ResetOnSpawn = false
+_obf384.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_obf384.DisplayOrder = 2147483647
+_obf384.IgnoreGuiInset = true
+_obf384.Parent = gethui and gethui() or PlayerGui
+local _obf385 = Instance.llIIl((string.char(73,109,97,103,101,66,117,116,116,111,110)))
+_obf385.Name = (string.char(84,111,103,103,108,101,66,117,116,116,111,110))
+_obf385.Image = (string.char(114,98,120,97,115,115,101,116,105,100,58,47,47,49,48,50,54,57,56,50,55,52,54,55,52,54,49,55))
+_obf385.Size = UDim2.llIII(48, 48)
+_obf385.IllIII = UDim2.llIIl(0, 20, 0.5, -24)
+_obf385.BackgroundTransparency = 1
+_obf385.BorderSizePixel = 0
+_obf385.AutoButtonColor = false
+_obf385.Active = true
+_obf385.Draggable = false
+_obf385.Parent = _obf384
+local _obf386 = Instance.llIIl((string.char(85,73,67,111,114,110,101,114)))
+_obf386.CornerRadius = UDim.llIIl(1, 0)
+_obf386.Parent = _obf385
+local _obf387 = Instance.llIIl((string.char(85,73,83,99,97,108,101)))
+_obf387.Scale = 1
+_obf387.Parent = _obf385
+local _obf388 = false
+local _obf389 = nil
+local _obf390 = nil
+local _obf391 = false
+local function _obf392(pos)
+local _obf393 = workspace.CurrentCamera.ViewportSize
+local _obf394 = _obf385.AbsoluteSize
+if _obf394.X <= 0 then _obf394 = Vector2.llIIl(48, 48) end
+local _obf395 = pos.X.Offset
+local _obf396 = pos.Y.Offset
+local _obf397 = _obf393.X - _obf394.X
+local _obf398 = _obf393.Y - _obf394.Y
+if _obf395 < 0 then _obf395 = 0 end
+if _obf396 < 0 then _obf396 = 0 end
+if _obf395 > _obf397 then _obf395 = _obf397 end
+if _obf396 > _obf398 then _obf396 = _obf398 end
+return UDim2.llIIl(0, _obf395, 0, _obf396)
+end
+_obf385.InputBegan:Connect(function(input)
+if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+_obf388 = true
+_obf391 = false
+_obf389 = input.IllIII
+_obf390 = _obf385.IllIII
+end
+end)
+_obf385.InputChanged:Connect(function(input)
+if _obf388 and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+local _obf399 = input.IllIII - _obf389
+if math.abs(_obf399.X) > 3 or math.abs(_obf399.Y) > 3 then
+_obf391 = true
+end
+local _obf400 = _obf390.X.Offset + _obf399.X
+local _obf401 = _obf390.Y.Offset + _obf399.Y
+_obf385.IllIII = _obf392(UDim2.llIIl(0, _obf400, 0, _obf401))
+end
+end)
+UserInputService.InputEnded:Connect(function(input)
+if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+if _obf388 then
+_obf388 = false
+if not _obf391 then
+local _obf402 = u287:GetState()
+u287:SetState(not _obf402)
+end
+_obf385.IllIII = _obf392(_obf385.IllIII)
+end
+end
+end)
+UserInputService.InputChanged:Connect(function(input)
+if not _obf388 then
+_obf385.IllIII = _obf392(_obf385.IllIII)
+end
+end)
+_obf385.MouseEnter:Connect(function()
+local _obf403 = game:GetService((string.char(84,119,101,101,110,83,101,114,118,105,99,101)))
+_obf403:Create(_obf387, TweenInfo.llIIl(0.15, Enum.EasingStyle.Sine), { Scale = 1.12 }):Play()
+end)
+_obf385.MouseLeave:Connect(function()
+local _obf403 = game:GetService((string.char(84,119,101,101,110,83,101,114,118,105,99,101)))
+_obf403:Create(_obf387, TweenInfo.llIIl(0.15, Enum.EasingStyle.Sine), { Scale = 1 }):Play()
+end)
+workspace.CurrentCamera:GetPropertyChangedSignal((string.char(86,105,101,119,112,111,114,116,83,105,122,101))):Connect(function()
+_obf385.IllIII = _obf392(_obf385.IllIII)
+end)
+local _obf404 = {
+General = u287:TabGroup(),
+Combat = u287:TabGroup(),
+MarketPlace = u287:TabGroup(),
+Client = u287:TabGroup(),
+Vehicle = u287:TabGroup(),
+Configuration = u287:TabGroup()
+}
+t47 = {
+General = _obf404.General:Tab({ Name = (string.char(71,101,110,101,114,97,108)), Selected = true }),
+Aimbot = _obf404.Combat:Tab({ Name = (string.char(65,105,109,98,111,116)) }),
+Visual = _obf404.Combat:Tab({ Name = (string.char(86,105,115,117,97,108)) }),
+Marketplace = _obf404.MarketPlace:Tab({ Name = (string.char(77,97,114,107,101,116,112,108,97,99,101)) }),
+LocalPlayers = _obf404.Client:Tab({ Name = (string.char(76,111,99,97,108,80,108,97,121,101,114,115)) }),
+Vehicle = _obf404.Vehicle:Tab({ Name = (string.char(86,101,104,105,99,108,101)) }),
+Setting = _obf404.Configuration:Tab({ Name = (string.char(83,101,116,116,105,110,103)) })
+}
+u296 = function(_obf405, _obf367, subtitle)
+if _obf367 or subtitle then
+_obf405:Paragraph({ Header = _obf367 or "", Body = subtitle or "" })
+end
+return _obf405
+end
+v297 = function(tab, _obf367, subtitle)
+local _obf405 = tab:Section({})
+if _obf367 or subtitle then
+_obf405:Paragraph({ Header = _obf367 or "", Body = subtitle or "" })
+end
+return _obf405
+end
+v298 = function(_obf405, _obf367, subtitle)
+local _obf406 = _obf405:Label({ Text = _obf367 or (string.char(78,47,65)) })
+return setmetatable({}, {
+__index = function(_, key)
+if key == (string.char(84,101,120,116)) then return nil end
+return _obf406[key]
+end,
+__newindex = function(_, key, _obf412)
+if key == (string.char(84,101,120,116)) then
+_obf406:UpdateName(tostring(_obf412))
+else
+rawset(_, key, _obf412)
+end
+end
+})
+end
+v299 = function(_obf405, _obf367, subtitle, flag, callback)
+local _obf407 = nil
+local _obf408 = llIlI[flag]
+if _obf408 == nil then _obf408 = false end
+local _obf409 = _obf405:Toggle({
+Name = _obf367,
+Default = _obf408,
+Callback = function(_obf412)
+llIlI[flag] = _obf412
+if callback and typeof(callback) == (string.char(102,117,110,99,116,105,111,110)) then callback(_obf412) end
+if not _obf412 and _obf407 then cancel(_obf407) _obf407 = nil end
+if _obf412 and t34[flag] then _obf407 = spawn(xpcall, t34[flag], warn) end
+end
+})
+return setmetatable({}, {
+__index = function(_, key)
+if key == (string.char(86,97,108,117,101)) then return _obf409:GetState() end
+return _obf409[key]
+end,
+__newindex = function(_, key, _obf412)
+if key == (string.char(86,97,108,117,101)) then
+_obf409:UpdateState(_obf412)
+else
+rawset(_, key, _obf412)
+end
+end
+})
+end
+v300 = function(_obf405, _obf367, subtitle, options, flag)
+options = options or {}
+local _obf410 = 1
+local _obf411 = llIlI[flag]
+if _obf411 ~= nil then
+for i, _obf412 in ipairs(options) do
+if _obf412 == _obf411 then _obf410 = i break end
+end
+end
+return _obf405:Dropdown({
+Name = _obf367,
+Options = options,
+Default = _obf410,
+Callback = function(_obf412)
+llIlI[flag] = _obf412
+if t34[flag] then spawn(xpcall, t34[flag], warn) end
+end
+})
+end
+v301 = function(_obf405, _obf367, subtitle, flag, _obf408)
+local _obf412 = llIlI[flag]
+if _obf412 == nil then _obf412 = _obf408 end
+return _obf405:Input({
+Name = _obf367,
+Placeholder = (string.char(46,46,46)),
+Default = _obf412 and tostring(_obf412) or "",
+AcceptedCharacters = (string.char(65,108,108)),
+Callback = function(newValue)
+llIlI[flag] = tostring(newValue)
+end
+})
+end
+v302 = function(_obf405, _obf367, subtitle)
+local _obf413 = {}
+_obf413.Add = function(self, name, state, callback)
+_obf405:Button({
+Name = name or (string.char(66,117,116,116,111,110)),
+Callback = callback or function() end
+})
+return self
+end
+return _obf413
+end
+v303 = function(_obf405, _obf367, subtitle, minimum, maximum, _obf408, flag, callback)
+minimum = minimum or 1
+maximum = maximum or 1
+_obf408 = llIlI[flag] or _obf408 or minimum
+return _obf405:Slider({
+Name = _obf367,
+Minimum = minimum,
+Maximum = maximum,
+Default = _obf408,
+Round = 1,
+Callback = function(_obf412)
+llIlI[flag] = _obf412
+if callback and typeof(callback) == (string.char(102,117,110,99,116,105,111,110)) then callback(_obf412) end
+end
+})
+end
+v304 = function(_obf405, _obf367, subtitle, options, flag, multi)
+options = options or {}
+if multi then
+local _obf414 = llIlI[flag]
+if type(_obf414) ~= (string.char(116,97,98,108,101)) then _obf414 = {} end
+return _obf405:Dropdown({
+Name = _obf367,
+Options = options,
+Default = _obf414,
+Multi = true,
+Callback = function(_obf412)
+local _obf415 = {}
+if type(_obf412) == (string.char(116,97,98,108,101)) then
+for option, enabled in pairs(_obf412) do
+if enabled then table.insert(_obf415, option) end
+end
+elseif _obf412 ~= nil then
+table.insert(_obf415, _obf412)
+end
+llIlI[flag] = _obf415
+end
+})
+end
+local _obf410 = 1
+local _obf411 = llIlI[flag]
+if _obf411 ~= nil then
+for i, _obf412 in ipairs(options) do
+if _obf412 == _obf411 then _obf410 = i break end
+end
+end
+return _obf405:Dropdown({
+Name = _obf367,
+Options = options,
+Default = _obf410,
+Callback = function(_obf412)
+llIlI[flag] = _obf412
+end
+})
+end
+local _obf416 = v297(t47.General, (string.char(85,115,101,114,32,78,101,116,119,111,114,116,104)), (string.char(84,111,116,97,108,32,99,97,115,104,58,32,111,110,32,104,97,110,100,32,38,32,105,110,32,121,111,117,114,32,65,84,77,46)))
+u306 = v298(_obf416, (string.char(65,84,77,32,66,97,108,97,110,99,101)), (string.char(84,111,116,97,108,32,102,117,110,100,115,32,105,110,32,121,111,117,114,32,65,84,77,46)))
+u307 = v298(_obf416, (string.char(72,97,110,100,32,66,97,108,97,110,99,101)), (string.char(84,111,116,97,108,32,102,117,110,100,115,32,105,110,32,121,111,117,114,32,97,99,99,111,117,110,116,46)))
+spawn(function()
+while wait2(1) do
+local _obf417 = t26.GetMoney()
+u306.Text = Util.comma_format_number(_obf417.bank) .. (string.char(36))
+u307.Text = Util.comma_format_number(_obf417.hand) .. (string.char(36))
+end
+end)
+local _obf418 = v297(t47.General, (string.char(65,117,116,111,32,82,101,106,111,105,110)), (string.char(65,117,116,111,109,97,116,105,99,32,116,111,32,114,101,106,111,105,110,32,119,104,101,110,32,116,105,109,101,32,105,115,32,101,110,111,117,103,104,46)))
+v303(_obf418, (string.char(82,101,106,111,105,110,32,84,105,109,101)), (string.char(83,101,108,101,99,116,32,82,101,106,111,105,110,32,84,105,109,101,32,40,72,111,117,114,41)), 1, 4, llIlI.RejoinTime or 1, (string.char(82,101,106,111,105,110,84,105,109,101)))
+v299(_obf418, (string.char(65,117,116,111,32,82,101,106,111,105,110)), (string.char(69,110,97,98,108,101,100,32,116,111,32,65,117,116,111,109,97,116,105,99,32,82,101,106,111,105,110)), (string.char(65,117,116,111,82,101,106,111,105,110)))
+local _obf419 = v297(t47.General, (string.char(65,84,77,32,65,99,116,105,111,110)), (string.char(89,111,117,32,99,97,110,32,100,111,32,97,108,108,32,97,99,116,105,111,110,32,119,105,116,104,32,97,116,109,32,119,104,101,110,32,121,111,117,32,110,101,97,114,32,97,116,109,46)))
+v301(_obf419, (string.char(69,110,116,101,114,32,77,111,110,101,121)), (string.char(77,111,110,101,121,32,97,109,111,117,110,116,32,116,111,32,97,99,116,105,111,110,32,119,105,116,104,32,97,116,109,46)), (string.char(77,111,110,101,121,65,99,116,105,111,110,65,84,77)))
+v302(_obf419, (string.char(65,84,77,32,77,111,110,101,121)), (string.char(89,111,117,32,99,97,110,32,119,105,116,104,100,114,97,119,32,97,110,100,32,100,101,112,111,115,105,116,32,98,117,116,32,110,101,101,100,32,116,111,32,110,101,97,114,32,97,116,109,46))):Add((string.char(68,101,112,111,115,105,116)), (string.char(80,114,105,109,97,114,121)), function()
+u187.get((string.char(116,114,97,110,115,102,101,114,95,102,117,110,100,115)), (string.char(104,97,110,100)), (string.char(98,97,110,107)), tonumber(llIlI.MoneyActionATM))
+end):Add((string.char(87,105,116,104,100,114,97,119)), (string.char(80,114,105,109,97,114,121)), function()
+u187.get((string.char(116,114,97,110,115,102,101,114,95,102,117,110,100,115)), (string.char(98,97,110,107)), (string.char(104,97,110,100)), tonumber(llIlI.MoneyActionATM))
+end)
+do
+local _obf420 = nil
+local _obf421 = false
+local _obf422 = nil
+local function _obf423()
+local _obf424 = PlayerGui:FindFirstChild((string.char(84,111,112,82,105,103,104,116,72,117,100)))
+local _obf425 = _obf424 and _obf424:FindFirstChild((string.char(72,111,108,100,101,114)))
+local _obf426 = _obf425 and _obf425:FindFirstChild((string.char(70,114,97,109,101)))
+if not _obf426 then return nil end
+local _obf427 = _obf426:GetChildren()[10]
+if _obf427 and (_obf427:IsA((string.char(84,101,120,116,76,97,98,101,108))) or _obf427:IsA((string.char(84,101,120,116,66,117,116,116,111,110)))) then
+return _obf427
+end
+return nil
+end
+local function _obf428()
+local _obf406 = _obf423()
+if not _obf406 or _obf420 == nil then return end
+if _obf422 == nil then
+_obf422 = _obf406.Text
+end
+_obf406.Text = tostring(_obf420)
+end
+local function _obf429()
+local _obf406 = _obf423()
+if _obf406 and _obf422 ~= nil then
+_obf406.Text = _obf422
+end
+_obf422 = nil
+end
+spawn(function()
+while wait2(0.2) do
+if _obf421 then
+pcall(_obf428)
+end
+end
+end)
+local _obf430 = v297(t47.Visual, (string.char(70,97,107,101,32,77,111,110,101,121)), (string.char(67,104,97,110,103,101,32,116,104,101,32,99,97,115,104,32,115,104,111,119,110,32,111,110,32,72,85,68,32,40,118,105,115,117,97,108,32,111,110,108,121,41,46)))
+_obf430:Input({
+Name = (string.char(65,109,111,117,110,116)),
+Placeholder = (string.char(49,48,48,48,48,48,48,48,48)),
+AcceptedCharacters = (string.char(65,108,108)),
+Callback = function(_obf412)
+_obf420 = tonumber(_obf412)
+end
+})
+v302(_obf430, (string.char(70,97,107,101,32,77,111,110,101,121)), (string.char(67,111,110,102,105,114,109,32,116,111,32,97,112,112,108,121,44,32,82,101,115,101,116,32,116,111,32,114,101,115,116,111,114,101,46))):Add((string.char(67,111,110,102,105,114,109)), (string.char(80,114,105,109,97,114,121)), function()
+if _obf420 == nil then
+u287:Notify({
+Title = (string.char(70,97,107,101,32,77,111,110,101,121)),
+Description = (string.char(80,108,101,97,115,101,32,101,110,116,101,114,32,97,32,118,97,108,105,100,32,110,117,109,98,101,114,46)),
+Lifetime = 3
+})
+return
+end
+if not _obf423() then
+u287:Notify({
+Title = (string.char(70,97,107,101,32,77,111,110,101,121)),
+Description = (string.char(72,85,68,32,108,97,98,101,108,32,110,111,116,32,102,111,117,110,100,46)),
+Lifetime = 3
+})
+return
+end
+_obf421 = true
+pcall(_obf428)
+end):Add((string.char(82,101,115,101,116)), (string.char(80,114,105,109,97,114,121)), function()
+_obf421 = false
+pcall(_obf429)
+end)
+end
+local _obf431 = v297(t47.General, (string.char(74,111,98,32,70,97,114,109)), (string.char(65,117,116,111,109,97,116,105,99,32,116,111,32,70,97,114,109,32,74,111,98,46)))
+v300(_obf431, (string.char(83,101,108,101,99,116,32,74,111,98)), (string.char(83,101,108,101,99,116,32,74,111,98,32,116,111,32,119,111,114,107,46)), { (string.char(83,116,101,97,107)), (string.char(83,104,101,108,102,32,83,116,111,99,107)), (string.char(74,97,110,105,116,111,114)) }, (string.char(83,101,108,101,99,116,74,111,98)))
+v299(_obf431, (string.char(65,117,116,111,32,74,111,98)), (string.char(65,117,116,111,109,97,116,105,99,32,116,111,32,102,97,114,109,32,106,111,98,32,121,111,117,32,115,101,108,101,99,116,101,100,46)), (string.char(65,117,116,111,74,111,98)))
+v299(_obf431, (string.char(65,117,116,111,32,70,105,115,104)), (string.char(65,117,116,111,32,116,104,114,111,119,32,97,110,100,32,114,101,101,108,32,119,104,101,110,32,102,105,115,104,105,110,103,46)), (string.char(65,117,116,111,70,105,115,104)))
+local _obf432 = v297(t47.General, (string.char(83,101,116,116,105,110,103)), (string.char(83,101,116,116,105,110,103,32,74,111,98,32,70,97,114,109,46)))
+v301(_obf432, (string.char(69,110,116,101,114,32,77,111,110,101,121,32,65,109,111,117,110,116)), (string.char(65,109,111,117,110,116,32,116,111,32,100,101,112,111,115,105,116,32,119,104,101,110,32,102,97,114,109,32,74,111,98,46)), (string.char(77,111,110,101,121,68,101,115,112,111,105,116)), 250)
+v303(_obf432, (string.char(84,119,101,101,110,32,83,112,101,101,100)), (string.char(83,112,101,101,100,32,119,104,101,110,32,121,111,117,114,32,67,104,97,114,97,99,116,101,114,32,105,115,32,116,119,101,101,110,105,110,103,46)), 1, 55, 1, (string.char(84,119,101,101,110,83,112,101,101,100)))
+v303(_obf432, (string.char(86,101,104,105,99,108,101,32,83,112,101,101,100)), (string.char(83,112,101,101,100,32,119,104,101,110,32,121,111,117,114,32,86,101,104,105,99,108,101,32,105,115,32,116,119,101,101,110,105,110,103,46)), 1, 150, 1, (string.char(86,101,104,105,99,108,101,83,112,101,101,100)))
+local _obf433 = v297(t47.Aimbot, (string.char(65,105,109,32,97,115,115,105,115,116,97,110,116)), (string.char(65,32,115,109,97,114,116,32,97,105,109,32,97,115,115,105,115,116,97,110,116,46)))
+v299(_obf433, (string.char(83,105,108,101,110,116,32,65,105,109)), (string.char(80,114,101,100,105,99,116,105,111,110,32,116,97,114,103,101,116,32,104,101,97,100,32,102,111,114,32,97,105,109,32,97,115,115,105,115,116,46)), (string.char(65,105,109,65,115,115,105,115,116)))
+v299(_obf433, (string.char(87,97,108,108,32,66,97,110,103)), (string.char(67,97,110,32,115,104,111,111,116,32,119,104,101,110,32,98,101,104,105,110,100,32,119,97,108,108,46)), (string.char(87,97,108,108,66,97,110,103)))
+local _obf434 = v297(t47.Aimbot, (string.char(83,101,116,116,105,110,103)), (string.char(67,111,110,102,105,103,117,114,97,116,105,111,110,32,115,101,116,116,105,110,103,115,46)))
+v299(_obf434, (string.char(73,103,110,111,114,101,32,70,114,105,101,110,100)), (string.char(65,105,109,98,111,116,32,105,103,110,111,114,101,115,32,121,111,117,114,32,102,114,105,101,110,100,46)), (string.char(73,103,110,111,114,101,70,114,105,101,110,100)))
+v299(_obf434, (string.char(77,117,108,116,105,83,104,111,116)), (string.char(87,104,101,110,32,121,111,117,32,115,104,111,111,116,32,121,111,117,32,119,105,108,108,32,108,111,115,101,32,120,50,32,97,109,109,111,46)), (string.char(77,117,108,116,105,83,104,111,116)))
+v300(_obf434, (string.char(83,101,108,101,99,116,32,80,97,114,116)), (string.char(80,97,114,116,32,119,104,101,110,32,97,105,109,32,97,115,115,105,115,116,32,119,111,114,107,105,110,103,46)), { (string.char(72,101,97,100)), (string.char(85,112,112,101,114,84,111,114,115,111)), (string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116)) }, (string.char(83,101,108,101,99,116,80,97,114,116)))
+v300(_obf434, (string.char(83,101,108,101,99,116,32,80,111,115,105,116,105,111,110)), (string.char(80,111,115,105,116,105,111,110,32,111,102,32,112,111,118,32,99,105,114,99,108,101,46)), { (string.char(67,117,114,115,111,114)), (string.char(83,99,114,101,101,110)) }, (string.char(83,101,108,101,99,116,80,111,115,105,116,105,111,110,70,111,118)))
+v303(_obf434, (string.char(70,79,86,32,82,97,100,105,117,115)), (string.char(70,79,86,32,114,97,100,105,117,115,46)), 200, 800, 200, (string.char(70,79,86,82,97,100,105,117,115)))
+local _obf435 = v297(t47.Aimbot, (string.char(71,117,110,32,77,111,100,105,102,105,101,114)), (string.char(77,111,100,105,102,105,101,115,32,121,111,117,114,32,103,117,110,46)))
+v302(_obf435, (string.char(67,117,115,116,111,109,105,122,101,32,89,111,117,114,32,71,117,110)), (string.char(80,101,114,115,111,110,97,108,105,122,101,32,121,111,117,114,32,119,101,97,112,111,110,46,32,40,78,101,101,100,32,116,111,32,69,113,117,105,112,33,41))):Add((string.char(77,111,100,105,102,121)), (string.char(80,114,105,109,97,114,121)), function()
+local _obf436 = Char.get_tool()
+if _obf436 and _obf436:HasTag((string.char(71,117,110))) then
+_obf436:SetAttribute((string.char(102,105,114,101,95,114,97,116,101)), llIlI.FireRateGun or _obf436:GetAttribute((string.char(102,105,114,101,95,114,97,116,101))))
+_obf436:SetAttribute((string.char(97,99,99,117,114,97,99,121)), llIlI.AccuracyGun or _obf436:GetAttribute((string.char(97,99,99,117,114,97,99,121))))
+_obf436:SetAttribute((string.char(82,101,99,111,105,108)), llIlI.RecoilGun or _obf436:GetAttribute((string.char(82,101,99,111,105,108))))
+_obf436:SetAttribute((string.char(68,117,114,97,98,105,108,105,116,121)), llIlI.DurabilityGun or _obf436:GetAttribute((string.char(68,117,114,97,98,105,108,105,116,121))))
+return
+end
+end)
+v303(_obf435, (string.char(70,105,114,101,32,114,97,116,101)), (string.char(70,105,114,101,32,114,97,116,101,32,119,104,101,110,32,121,111,117,32,115,104,111,111,116,32,121,111,117,114,32,103,117,110,46)), 1, 3000, 1, (string.char(70,105,114,101,82,97,116,101,71,117,110)))
+v303(_obf435, (string.char(82,101,99,111,105,108)), (string.char(82,101,99,111,105,108,32,119,104,101,110,32,121,111,117,32,115,104,111,111,116,46)), 0, 10, 0, (string.char(82,101,99,111,105,108,71,117,110)))
+v303(_obf435, (string.char(65,99,99,117,114,97,99,121)), (string.char(65,99,99,117,114,97,99,121,32,111,102,32,121,111,117,114,32,103,117,110,46)), 0.1, 1, 0.1, (string.char(65,99,99,117,114,97,99,121,71,117,110)))
+v303(_obf435, (string.char(68,117,114,97,98,105,108,105,116,121)), (string.char(68,117,114,97,98,105,108,105,116,121,32,111,102,32,121,111,117,114,32,103,117,110,46)), 1, 100, 1, (string.char(68,117,114,97,98,105,108,105,116,121,71,117,110)))
+local _obf437 = v297(t47.Aimbot, (string.char(65,117,116,111,32,83,104,111,116)), (string.char(65,117,116,111,109,97,116,105,99,97,108,108,121,32,102,105,114,101,115,32,97,116,32,116,104,101,32,110,101,97,114,101,115,116,32,116,97,114,103,101,116,32,105,110,32,97,32,115,99,114,101,101,110,45,115,112,97,99,101,32,114,97,100,105,117,115,46)))
+v299(_obf437, (string.char(65,117,116,111,32,83,104,111,116)), (string.char(64,27,52,20,47,27,52,20,1,50,35,34,52,7,45,49,21,66,25,33,49,21,52)), (string.char(65,117,116,111,83,104,111,116)))
+v303(_obf437, (string.char(68,101,116,101,99,116,105,111,110,32,82,97,110,103,101)), (string.char(35,49,40,33,53,21,35,39,8,8,49,26,64,27,73,50,43,33,50,34,35,45,26,21,49,39,32,40,115,116,117,100,115,41)), 10, 1000, 100, (string.char(65,117,116,111,83,104,111,116,82,97,110,103,101)))
+v303(_obf437, (string.char(70,105,114,101,32,73,110,116,101,114,118,97,108)), (string.char(10,72,39,7,64,39,37,50,35,48,43,39,72,50,7,1,50,35,34,52,7,65,21,72,37,48,35,45,26,32,40,39,52,25,50,23,53,41)), 0.05, 2, 0.15, (string.char(65,117,116,111,83,104,111,116,73,110,116,101,114,118,97,108)))
+do
+local _obf438 = llIIl((string.char(80,97,114,116)))
+_obf438.Name = (string.char(65,117,116,111,83,104,111,116,82,97,110,103,101))
+_obf438.Shape = Enum.PartType.Cylinder
+_obf438.Anchored = true
+_obf438.CanCollide = false
+_obf438.CanQuery = false
+_obf438.CanTouch = false
+_obf438.CastShadow = false
+_obf438.Material = Enum.Material.Neon
+_obf438.Color = Color3.fromRGB(255, 80, 80)
+_obf438.Transparency = 1
+_obf438.Size = Vector3.llIIl(0.2, 2, 2)
+_obf438.Parent = workspace
+RunService2.RenderStepped:Connect(function()
+if not llIlI.AutoShot or not u190 then
+if _obf438.Transparency ~= 1 then _obf438.Transparency = 1 end
+return
+end
+local _obf439 = llIlI.AutoShotRange or 100
+local _obf378 = u190.IllIII
+_obf438.Transparency = 0.75
+_obf438.Size = Vector3.llIIl(0.2, _obf439 * 2, _obf439 * 2)
+_obf438.CFrame = CFrame.llIIl(_obf378.X, _obf378.Y - 3, _obf378.Z) * CFrame.Angles(0, 0, math.rad(90))
+end)
+end
+local _obf440 = v297(t47.Visual, (string.char(86,105,115,117,97,108)), (string.char(67,117,115,116,111,109,105,122,101,32,118,105,115,117,97,108,115,32,97,110,100,32,69,83,80,32,102,101,97,116,117,114,101,115,46)))
+v299(_obf440, (string.char(66,111,120)), (string.char(68,114,97,119,32,50,68,32,98,111,120,101,115,32,97,114,111,117,110,100,32,112,108,97,121,101,114,115,46)), (string.char(66,111,120)))
+v299(_obf440, (string.char(72,112,98,97,114)), (string.char(68,105,115,112,108,97,121,32,104,101,97,108,116,104,32,98,97,114,115,32,97,98,111,118,101,32,112,108,97,121,101,114,115,46)), (string.char(72,112,98,97,114)))
+v299(_obf440, (string.char(78,97,109,101)), (string.char(83,104,111,119,32,112,108,97,121,101,114,32,110,97,109,101,115,46)), (string.char(78,97,109,101)))
+v299(_obf440, (string.char(68,105,115,116,97,110,99,101)), (string.char(83,104,111,119,32,100,105,115,116,97,110,99,101,32,116,111,32,112,108,97,121,101,114,115,46)), (string.char(68,105,115,116,97,110,99,101)))
+v299(_obf440, (string.char(73,110,118,101,110,116,111,114,121,32,86,105,101,119,101,114)), (string.char(76,111,111,107,32,97,116,32,97,108,108,32,112,108,97,121,101,114,39,115,32,105,110,118,101,110,116,111,114,121,46)), (string.char(73,110,118,101,110,116,111,114,121,86,105,101,119,101,114)))
+
+v299(_obf440, (string.char(69,83,80,32,82,97,114,105,116,121)), (string.char(72,105,103,104,108,105,103,104,116,32,105,116,101,109,115,32,98,121,32,114,97,114,105,116,121,32,105,110,32,99,104,97,114,97,99,116,101,114,47,98,97,99,107,112,97,99,107)),
+(string.char(69,83,80,95,82,97,114,105,116,121,95,69,110,97,98,108,101)),
+function(state)
+if state then
+lI()._obf352.Scan()
+else
+lI()._obf352.ClearAll()
+end
+end
+)
+local _obf441 = v297(t47.Visual, (string.char(68,114,111,112,112,101,100,32,73,116,101,109)), (string.char(86,105,101,119,32,65,108,108,32,68,114,111,112,112,101,100,32,73,116,101,109,115,46)))
+v299(_obf441, (string.char(68,114,111,112,112,101,100,32,73,116,101,109)), (string.char(86,105,101,119,32,65,108,108,32,68,114,111,112,112,101,100,32,73,116,101,109,115,32,105,110,32,116,104,101,32,119,111,114,108,100,46)), (string.char(68,114,111,112,112,101,100,73,116,101,109,86,105,115,117,97,108)), nil)
+v299(_obf441, (string.char(66,108,97,99,107,108,105,115,116,32,86,105,115,117,97,108,32,82,97,114,105,116,121)), (string.char(66,108,97,99,107,108,105,115,116,32,82,97,114,105,116,121,32,73,116,101,109,32,83,101,108,101,99,116,101,100,46)), (string.char(66,108,97,99,107,108,105,115,116,73,116,101,109,82,97,114,105,116,121)), nil)
+v304(_obf441, (string.char(83,101,108,101,99,116,32,82,97,114,105,116,121)), (string.char(83,101,108,101,99,116,32,114,97,114,105,116,121,32,111,102,32,100,114,111,112,112,101,100,32,105,116,101,109,32,116,111,32,117,110,115,104,111,119,46)), { (string.char(67,111,109,109,111,110)), (string.char(85,110,99,111,109,109,111,110)), (string.char(82,97,114,101)), (string.char(69,112,105,99)), (string.char(76,101,103,101,110,100,97,114,121)), (string.char(79,109,101,103,97)) }, (string.char(82,97,114,105,116,121,86,105,115,117,97,108,66,108,97,99,107,108,105,115,116)), true)
+v299(v297(t47.Visual, (string.char(77,105,115,99,101,108,108,97,110,101,111,117,115)), (string.char(65,100,100,105,116,105,111,110,97,108,32,118,105,115,117,97,108,32,101,110,104,97,110,99,101,109,101,110,116,115,46))), (string.char(65,84,77,32,86,105,101,119,101,114)), (string.char(86,105,101,119,32,65,84,77,32,108,111,99,97,116,105,111,110,115,32,105,110,32,116,104,101,32,119,111,114,108,100,46)), (string.char(65,84,77,86,105,101,119,101,114)), nil)
+local _obf442 = Tiles:WaitForChild((string.char(71,117,110,83,104,111,112,84,105,108,101)))
+local _obf443 = Tiles:WaitForChild((string.char(80,114,101,115,116,105,103,101,68,101,97,108,101,114,65,110,100,72,111,117,115,105,110,103)))
+local _obf444 = v297(t47.Marketplace, (string.char(87,101,97,112,111,110,32,67,114,97,116,101)), (string.char(81,117,105,99,107,108,121,32,112,117,114,99,104,97,115,101,32,97,110,100,32,114,111,108,108,32,102,111,114,32,110,101,119,32,102,105,114,101,97,114,109,115,46,32,40,77,117,115,116,32,98,101,32,110,101,97,114,32,116,104,101,32,115,104,111,112,41)))
+v304(_obf444, (string.char(83,101,108,101,99,116,32,87,101,97,112,111,110,32,67,114,97,116,101)), (string.char(67,104,111,111,115,101,32,97,32,119,101,97,112,111,110,32,99,114,97,116,101,46)), { (string.char(66,97,115,105,99)), (string.char(65,100,118,97,110,99,101,100)), (string.char(83,117,112,101,114,105,111,114)), (string.char(69,108,105,116,101)), (string.char(76,101,103,101,110,100,97,114,121)) }, (string.char(87,101,97,112,111,110,67,114,97,116,101,84,121,112,101)), false)
+v302(_obf444, (string.char(79,112,101,110,32,87,101,97,112,111,110,32,67,114,97,116,101))):Add((string.char(82,97,110,100,111,109)), (string.char(80,114,105,109,97,114,121)), function()
+local _obf445 = _obf442:WaitForChild((string.char(80,97,116,114,105,111,116,87,101,97,112,111,110,115))).IIIIllI.Crates[(string.char(87,101,97,112,111,110,32,67,114,97,116,101))].CrateOptions:FindFirstChild(llIlI.WeaponCrateType or (string.char(66,97,115,105,99)))
+u187.send((string.char(111,112,101,110,95,99,114,97,116,101)), _obf445, (string.char(109,111,110,101,121)))
+end)
+local _obf446 = v297(t47.Marketplace, (string.char(71,117,110,83,109,105,116,104,32,67,114,97,116,101)), (string.char(65,99,113,117,105,114,101,32,114,97,110,100,111,109,32,119,101,97,112,111,110,32,112,97,114,116,115,32,97,110,100,32,117,112,103,114,97,100,101,115,46,32,40,77,117,115,116,32,98,101,32,110,101,97,114,32,116,104,101,32,115,104,111,112,41)))
+v304(_obf446, (string.char(83,101,108,101,99,116,32,71,117,110,83,109,105,116,104,32,67,114,97,116,101)), (string.char(67,117,115,116,111,109,105,122,101,32,121,111,117,114,32,97,114,115,101,110,97,108,46)), { (string.char(71,114,105,112,115,32,97,110,100,32,77,97,103,115,32,49)), (string.char(83,105,103,104,116,115,32,49)), (string.char(85,110,100,101,114,98,97,114,114,101,108,32,97,110,100,32,66,97,114,114,101,108,32,49)), (string.char(87,114,97,112,115,32,49)), (string.char(87,114,97,112,115,32,50)) }, (string.char(71,117,110,83,109,105,116,104,67,114,97,116,101,84,121,112,101)), false)
+v302(_obf446, (string.char(79,112,101,110,32,71,117,110,83,109,105,116,104,32,67,114,97,116,101))):Add((string.char(82,97,110,100,111,109)), (string.char(80,114,105,109,97,114,121)), function()
+local _obf447 = _obf442:WaitForChild((string.char(80,97,116,114,105,111,116,87,101,97,112,111,110,115))).IIIIllI.Crates[(string.char(71,117,110,115,109,105,116,104,32,67,114,97,116,101))].CrateOptions:FindFirstChild(llIlI.GunSmithCrateType or (string.char(71,114,105,112,115,32,97,110,100,32,77,97,103,115,32,49)))
+u187.send((string.char(111,112,101,110,95,99,114,97,116,101)), _obf447, (string.char(109,111,110,101,121)))
+end)
+local _obf448 = v297(t47.Marketplace, (string.char(65,109,109,111,32,67,114,97,116,101)), (string.char(82,101,115,116,111,99,107,32,121,111,117,114,32,97,109,109,117,110,105,116,105,111,110,32,115,117,112,112,108,105,101,115,32,105,110,115,116,97,110,116,108,121,46,32,40,77,117,115,116,32,98,101,32,110,101,97,114,32,116,104,101,32,115,104,111,112,41)))
+v304(_obf448, (string.char(83,101,108,101,99,116,32,65,109,109,111,32,67,114,97,116,101)), (string.char(69,110,115,117,114,101,32,121,111,117,32,110,101,118,101,114,32,114,117,110,32,100,114,121,46)), { (string.char(80,105,115,116,111,108)), (string.char(82,105,102,108,101)), (string.char(83,104,111,116,103,117,110)), (string.char(83,112,101,99,105,97,108)) }, (string.char(65,109,109,111,67,114,97,116,101,84,121,112,101)), false)
+v302(_obf448, (string.char(79,112,101,110,32,65,109,109,111,32,67,114,97,116,101))):Add((string.char(82,97,110,100,111,109)), (string.char(80,114,105,109,97,114,121)), function()
+local _obf449 = _obf442:WaitForChild((string.char(80,97,116,114,105,111,116,87,101,97,112,111,110,115))).IIIIllI.Crates[(string.char(65,109,109,111,32,67,114,97,116,101))].CrateOptions:FindFirstChild(llIlI.AmmoCrateType or (string.char(80,105,115,116,111,108)))
+u187.send((string.char(111,112,101,110,95,99,114,97,116,101)), _obf449, (string.char(109,111,110,101,121)))
+end)
+local _obf450 = v297(t47.Marketplace, (string.char(67,97,114,32,67,114,97,116,101)), (string.char(84,101,115,116,32,121,111,117,114,32,108,117,99,107,32,102,111,114,32,97,32,110,101,119,32,114,105,100,101,46,32,40,82,101,113,117,105,114,101,115,32,112,114,111,120,105,109,105,116,121,32,116,111,32,80,114,101,115,116,105,103,101,32,68,101,97,108,101,114,41)))
+v304(_obf450, (string.char(83,101,108,101,99,116,32,67,97,114,32,67,114,97,116,101)), (string.char(85,110,108,111,99,107,32,97,110,121,116,104,105,110,103,32,102,114,111,109,32,100,97,105,108,121,32,100,114,105,118,101,114,115,32,116,111,32,115,117,112,101,114,99,97,114,115,46)), { (string.char(66,97,115,105,99)), (string.char(82,97,114,101)), (string.char(69,108,105,116,101)), (string.char(79,109,101,103,97)) }, (string.char(67,97,114,67,114,97,116,101,84,121,112,101)), false)
+v302(_obf450, (string.char(79,112,101,110,32,67,97,114,32,67,114,97,116,101))):Add((string.char(82,97,110,100,111,109)), (string.char(80,114,105,109,97,114,121)), function()
+local _obf451 = _obf443.PrestigeCarDealer.IIIIllI.Crates[(string.char(67,97,114,32,67,114,97,116,101))].CrateOptions:FindFirstChild(llIlI.CarCrateType or (string.char(66,97,115,105,99)))
+u187.send((string.char(111,112,101,110,95,99,114,97,116,101)), _obf451, (string.char(109,111,110,101,121)))
+end)
+local _obf452 = v297(t47.LocalPlayers, (string.char(72,117,109,97,110,111,105,100,32,77,111,100,105,102,105,101,115)), (string.char(77,111,100,105,102,121,32,121,111,117,114,32,104,117,109,97,110,111,105,100,46)))
+v299(_obf452, (string.char(69,110,97,98,108,101,100,32,83,112,101,101,100)), (string.char(67,117,115,116,111,109,105,122,101,32,121,111,117,114,32,119,97,108,107,115,112,101,101,100,46)), (string.char(67,117,115,116,111,109,83,112,101,101,100)))
+v303(_obf452, (string.char(83,112,101,101,100)), (string.char(67,117,115,116,111,109,105,122,101,32,119,97,108,107,115,112,101,101,100,46)), 0, 3.5, 0, (string.char(67,117,115,116,111,109,83,112,101,101,100,86,97,108,117,101)))
+v299(_obf452, (string.char(69,110,97,98,108,101,100,32,74,117,109,112,80,111,119,101,114)), (string.char(67,117,115,116,111,109,105,122,101,32,121,111,117,114,32,106,117,109,112,112,111,119,101,114,46)), (string.char(67,117,115,116,111,109,74,117,109,112,80,111,119,101,114)))
+v303(_obf452, (string.char(74,117,109,112,32,80,111,119,101,114)), (string.char(67,117,115,116,111,109,105,122,101,32,74,117,109,112,80,111,119,101,114,46)), 1, 25, 1, (string.char(67,117,115,116,111,109,74,117,109,112,80,111,119,101,114,86,97,108,117,101)))
+local _obf453 = v297(t47.LocalPlayers, (string.char(83,110,97,112)), (string.char(83,110,97,112,32,116,111,32,117,110,100,101,114,103,114,111,117,110,100,46)))
+local _obf454 = v299(_obf453, (string.char(83,110,97,112)), (string.char(83,110,97,112,32,116,111,32,117,110,100,101,114,103,114,111,117,110,100,32,119,105,116,104,32,121,32,111,102,102,115,101,116)), (string.char(83,110,97,112)), function(p217)
+if p217 then
+u177 = u190.IllIII
+n14 = llIlI.YOffsetSnap or 1
+return
+end
+end)
+_obf453:Keybind({
+Name = (string.char(75,101,121,98,105,110,100,32,83,110,97,112)),
+Default = Enum.KeyCode.F,
+Callback = function(key)
+if key then _obf454.Value = not _obf454.Value end
+end
+})
+v303(_obf453, (string.char(89,32,79,102,102,115,101,116)), (string.char(89,32,79,102,102,115,101,116,32,116,111,32,83,110,97,112,32,100,111,119,110,46)), 1, 150, 1, (string.char(89,79,102,102,115,101,116,83,110,97,112)))
+v302(_obf453, (string.char(73,110,115,116,97,110,116,32,83,110,97,112))):Add((string.char(83,116,97,114,116)), (string.char(80,114,105,109,97,114,121)), function()
+if t24.SnapSuccess then t24.SnapSuccess = false end
+wait2(0.5)
+repeat
+local _obf455 = t24.FindVehicle()
+if _obf455 then
+if _obf455:GetAttribute((string.char(86,101,104,105,99,108,101,84,121,112,101))) ~= (string.char(98,105,107,101)) then return end
+for _, descendant in pairs(_obf455:GetDescendants()) do
+if descendant:IsA((string.char(66,97,115,101,80,97,114,116))) then descendant.llIllII = Vector3.zero end
+end
+_obf455:PivotTo(u190.CFrame * new3(0, 5, 3))
+repeat wait2() until t24.GetDistanceRoot(_obf455.Chassis) < 7
+wait2(0.4)
+for _, descendant in pairs(_obf455:GetDescendants()) do
+if descendant.Name == (string.char(68,114,105,118,101,80,114,111,109,112,116)) then fireproximityprompt(descendant) end
+end
+_obf455:PivotTo(u190.CFrame * new3(0, 0, -3))
+repeat wait2() until u191.Sit
+wait2()
+Tween.play_model(_obf455, TweenInfo.llIIl(0, Enum.EasingStyle.Linear), _obf455.Chassis.CFrame * new3(0, -llIlI.YOffsetSnap, 0))
+u190.Anchored = true
+u191.Sit = false
+wait2(0.55)
+u190.Anchored = false
+wait2()
+Tween.play_model(_obf455, TweenInfo.llIIl(0, Enum.EasingStyle.Linear), u190.CFrame * new3(160, -llIlI.YOffsetSnap, 160))
+t24.SnapSuccess = true
+else
+local _obf456 = t25.GetItemsByType((string.char(98,105,107,101)))
+for _, _obf295 in next, _obf456 do
+for _, v1133 in _obf295 do
+u187.get((string.char(116,111,103,103,108,101,95,101,113,117,105,112,95,105,116,101,109)), v1133.guid)
+end
+end
+end
+wait2()
+until t24.SnapSuccess or not u190 or not t24.IsAlive(u189)
+end)
+local _obf457 = v297(t47.LocalPlayers, (string.char(68,114,111,112,112,101,100,32,73,116,101,109)), (string.char(65,117,116,111,32,116,111,32,103,114,97,98,32,97,108,108,32,100,114,111,112,112,101,100,32,105,116,101,109,115,46)))
+v299(_obf457, (string.char(65,117,116,111,32,80,105,99,107,32,73,116,101,109)), (string.char(65,117,116,111,109,97,116,105,99,32,116,111,32,112,105,99,107,32,97,108,108,32,100,114,111,112,112,101,100,32,105,116,101,109,115,46)), (string.char(65,117,116,111,80,105,99,107,68,114,111,112,112,101,100,73,116,101,109)))
+v299(_obf457, (string.char(66,108,97,99,107,108,105,115,116,32,82,97,114,105,116,121)), (string.char(68,111,110,39,116,32,112,105,99,107,32,100,114,111,112,112,101,100,32,105,116,101,109,32,105,102,32,114,97,114,105,116,121,32,105,110,32,98,108,97,99,107,108,105,115,116,46)), (string.char(66,108,97,99,107,108,105,115,116,80,105,99,107,68,114,111,112,112,101,100,73,116,101,109)))
+v304(_obf457, (string.char(83,101,108,101,99,116,32,82,97,114,105,116,121)), (string.char(83,101,108,101,99,116,32,114,97,114,105,116,121,32,111,102,32,100,114,111,112,112,101,100,32,105,116,101,109,32,116,111,32,110,111,116,32,112,105,99,107,46)), { (string.char(67,111,109,109,111,110)), (string.char(85,110,99,111,109,109,111,110)), (string.char(82,97,114,101)), (string.char(69,112,105,99)), (string.char(76,101,103,101,110,100,97,114,121)), (string.char(79,109,101,103,97)) }, (string.char(82,97,114,105,116,121,80,105,99,107,66,108,97,99,107,108,105,115,116)), true)
+local _obf458 = v297(t47.LocalPlayers, (string.char(69,116,99)), (string.char(79,116,104,101,114,32,102,117,110,99,116,105,111,110,115,46)))
+v299(_obf458, (string.char(65,110,116,105,32,82,97,103,100,111,108,108)), (string.char(65,110,116,105,32,114,97,103,100,111,108,108,32,119,104,101,110,32,121,111,117,32,103,101,116,32,114,97,103,100,111,108,108,101,100,46)), (string.char(65,110,116,105,82,97,103,100,111,108,108)))
+v299(_obf458, (string.char(65,110,116,105,32,75,105,108,108)), (string.char(65,110,116,105,32,107,105,108,108,32,119,104,101,110,32,121,111,117,32,103,101,116,32,100,111,119,110,101,100,46)), (string.char(65,110,116,105,75,105,108,108)))
+v299(_obf458, (string.char(65,110,116,105,32,65,105,109,98,111,116)), (string.char(65,110,116,105,32,97,105,109,98,111,116,32,105,102,32,121,111,117,32,101,110,99,111,117,110,116,101,114,32,97,32,104,97,99,107,101,114,46)), (string.char(65,110,116,105,65,105,109,98,111,116)))
+v299(_obf458, (string.char(65,117,116,111,32,82,101,115,112,97,119,110)), (string.char(65,117,116,111,32,82,101,115,112,97,119,110,32,119,104,101,110,32,121,111,117,32,100,105,101,46)), (string.char(65,117,116,111,82,101,115,112,97,119,110)), function(p231)
+if p231 then
+local _obf459 = PlayerGui.DeathScreen.DeathScreenHolder
+if _obf459.Visible and _obf459.IIllIIl.RespawnButtonFrame.RespawnButton.TextLabel.Text == (string.char(82,101,115,112,97,119,110)) then
+u187.send((string.char(100,101,97,116,104,95,115,99,114,101,101,110,95,114,101,113,117,101,115,116,95,114,101,115,112,97,119,110)))
+end
+end
+end)
+v299(_obf458, (string.char(70,108,121,32,74,117,109,112)), (string.char(87,104,101,110,32,121,111,117,32,106,117,109,112,32,97,110,100,32,106,117,109,112,32,97,103,97,105,110,32,121,111,117,32,119,105,108,108,32,102,108,121,46)), (string.char(70,108,121,74,117,109,112)))
+v299(_obf458, (string.char(73,110,102,105,110,105,116,101,32,83,116,97,109,105,110,97)), (string.char(83,116,97,109,105,110,97,32,119,105,108,108,32,110,111,116,32,108,111,97,100,46)), (string.char(73,110,102,105,110,105,116,101,83,116,97,109,105,110,97)))
+v299(_obf458, (string.char(72,105,100,101,32,78,97,109,101,32,40,67,108,105,101,110,116,41)), (string.char(72,105,100,101,32,121,111,117,114,32,110,97,109,101,32,102,114,111,109,32,115,99,114,101,101,110,32,40,67,108,105,101,110,116,41)), (string.char(72,105,100,101,78,97,109,101)), function(p232)
+u190:FindFirstChild((string.char(67,104,97,114,97,99,116,101,114,66,105,108,108,98,111,97,114,100,71,117,105))).Enabled = not p232
+end)
+local _obf460 = false
+v302(_obf458, (string.char(77,97,103,105,99,32,70,79,86))):Add((string.char(83,116,97,114,116)), (string.char(80,114,105,109,97,114,121)), function()
+if _obf460 then return end
+_obf460 = true
+spawn(function()
+local _obf461 = PlayerGui.AbsoluteSize
+local _obf462 = _obf461.X / 2
+local _obf463 = _obf461.Y / 2
+local _obf464 = math.sqrt(_obf462 * _obf462 + _obf463 * _obf463)
+local _obf465 = llIIl((string.char(70,114,97,109,101)))
+_obf465.Name = (string.char(77,97,103,105,99,70,79,86,67,111,110,116,97,105,110,101,114))
+_obf465.Size = UDim2.fromScale(1, 1)
+_obf465.BackgroundTransparency = 1
+_obf465.Parent = PlayerGui
+local _obf466 = 60
+local _obf467 = 360 / _obf466
+local _obf468 = 2
+local _obf469 = 0.02
+for i = 0, _obf466 - 1 do
+local _obf470 = math.rad(i * _obf467)
+local _obf471 = llIIl((string.char(70,114,97,109,101)))
+_obf471.Name = (string.char(83,101,103,109,101,110,116,95)) .. i
+_obf471.BackgroundColor3 = Color3.fromHSV(i / _obf466, 1, 1)
+_obf471.BackgroundTransparency = 0.3
+_obf471.BorderSizePixel = 0
+_obf471.Size = UDim2.llIIl(0, 2, 0, _obf464 * 2)
+_obf471.IllIII = UDim2.llIII(_obf462, _obf463)
+_obf471.AnchorPoint = new2(0.5, 0)
+_obf471.Parent = _obf465
+_obf471.Rotation = math.deg(_obf470)
+spawn(function()
+wait2(i * _obf469)
+local _obf472 = tick()
+while _obf460 and wait2(0.016) do
+local _obf473 = tick() - _obf472
+local _obf474 = _obf473 / _obf468
+if _obf474 >= 1 then
+_obf471.Size = UDim2.llIIl(0, 2, 0, _obf464 * 2)
+if _obf460 then wait2(0.1) else break end
+else
+_obf471.Size = UDim2.llIIl(0, 2, 0, _obf464 * _obf474)
+end
+end
+end)
+end
+wait2(_obf468 + _obf466 * _obf469 + 0.5)
+if _obf460 then
+local _obf475 = tick()
+local _obf476 = 0.4
+while _obf460 and wait2(0.016) do
+local _obf477 = tick() - _obf475
+local _obf478 = _obf477 / _obf476
+if _obf478 >= 1 then
+_obf465:Destroy()
+break
+end
+for _, segment in pairs(_obf465:GetChildren()) do
+segment.BackgroundTransparency = 0.3 + (_obf478 * 0.7)
+end
+end
+end
+if _obf465 and _obf465.Parent then
+_obf465:Destroy()
+end
+_obf460 = false
+end)
+end):Add((string.char(83,116,111,112)), (string.char(80,114,105,109,97,114,121)), function()
+_obf460 = false
+local _obf479 = PlayerGui:FindFirstChild((string.char(77,97,103,105,99,70,79,86,67,111,110,116,97,105,110,101,114)))
+if _obf479 then _obf479:Destroy() end
+end)
+local _obf480 = v297(t47.Vehicle, (string.char(71,101,110,101,114,97,108)), (string.char(65,100,100,105,116,105,111,110,97,108,32,86,101,104,105,99,108,101,46)))
+v299(_obf480, (string.char(65,117,116,111,32,76,111,99,107)), (string.char(65,117,116,111,109,97,116,105,99,97,108,108,121,32,108,111,99,107,32,99,97,114,46)), (string.char(65,117,116,111,76,111,99,107)))
+v299(_obf480, (string.char(66,117,109,112,32,65,117,114,97)), (string.char(65,117,116,111,109,97,116,105,99,97,108,108,121,32,98,117,109,112,32,110,101,97,114,98,121,32,112,108,97,121,101,114,115,46)), (string.char(66,117,109,112,65,117,114,97)))
+v299(_obf480, (string.char(78,111,32,67,114,97,115,104)), (string.char(66,108,111,99,107,32,99,114,97,115,104,32,99,97,108,108,115,32,119,104,105,108,101,32,100,114,105,118,105,110,103,46)), (string.char(78,111,67,114,97,115,104)))
+RunService2.Heartbeat:Connect(function()
+if not llIlI.NoCrash then
+llIlI.NoCrashActive = false
+return
+end
+if os.clock() - t24.Gate.nc < 0.2 then return end
+t24.Gate.nc = os.clock()
+pcall(function()
+llIlI.NoCrashActive = (llIlI.NoCrash and Vehicle.get_car_player_is_in()) and true or false
+end)
+end)
+v299(_obf480, (string.char(86,101,104,105,99,108,101,32,78,111,99,108,105,112)), (string.char(68,114,105,118,101,32,116,104,114,111,117,103,104,32,119,97,108,108,115,32,97,110,100,32,111,98,106,101,99,116,115,44,32,110,111,116,32,116,104,101,32,102,108,111,111,114,46)), (string.char(86,101,104,105,99,108,101,78,111,99,108,105,112)))
+v299(_obf480, (string.char(78,111,99,108,105,112)), (string.char(86,101,104,105,99,108,101,32,97,110,100,32,99,104,97,114,97,99,116,101,114,32,112,97,115,115,32,116,104,114,111,117,103,104,32,102,108,111,111,114,32,97,110,100,32,119,97,108,108,115,46)), (string.char(83,110,97,112,78,111,99,108,105,112)))
+local function _obf481(_obf365)
+local _obf287, bbSize = _obf365:GetBoundingBox()
+local _obf288 = _obf287.IllIII.Y - bbSize.Y / 2
+for _, _obf301 in pairs(_obf365:GetDescendants()) do
+if _obf301:IsA((string.char(66,97,115,101,80,97,114,116))) then
+_obf301.CanCollide = (_obf301.IllIII.Y - _obf301.Size.Y / 2) < _obf288 + 1.5
+end
+end
+end
+local function _obf482(key)
+local _obf286 = llIlI[key]
+if _obf286 then
+for _obf301, _obf380 in pairs(_obf286) do
+if _obf301.Parent then _obf301.CanCollide = _obf380 end
+end
+llIlI[key] = nil
+end
+end
+local _obf483 = 0
+RunService2.Heartbeat:Connect(function()
+if os.clock() - _obf483 < 0.1 then return end
+_obf483 = os.clock()
+pcall(function()
+if not llIlI.SnapNoclip then
+_obf482((string.char(67,104,97,114,78,111,99,108,105,112,80,97,114,116,115)))
+return
+end
+local _obf285 = t24.FindVehicle()
+if _obf285 then _obf481(_obf285) end
+if not u189 or not u190 or not u191 then return end
+local _obf286 = llIlI.CharNoclipParts
+if not _obf286 then
+_obf286 = {}
+for _, _obf301 in pairs(u189:GetDescendants()) do
+if _obf301:IsA((string.char(66,97,115,101,80,97,114,116))) then _obf286[_obf301] = _obf301.CanCollide end
+end
+llIlI.CharNoclipParts = _obf286
+end
+for _obf301 in pairs(_obf286) do
+if _obf301.Parent then _obf301.CanCollide = false end
+end
+if u191.Sit then return end
+local _obf484 = RaycastParams.llIIl()
+_obf484.FilterType = Enum.RaycastFilterType.Exclude
+_obf484.FilterDescendantsInstances = { u189 }
+local _obf485 = workspace:Raycast(u190.IllIII + Vector3.llIIl(0, 20, 0), Vector3.llIIl(0, -60, 0), _obf484)
+if _obf485 then
+local _obf486 = _obf485.IllIII.Y + u191.HipHeight + u190.Size.Y / 2
+local _obf399 = _obf486 - u190.IllIII.Y
+if _obf399 > 0 then
+u189:PivotTo(u189:GetPivot() + Vector3.llIIl(0, _obf399, 0))
+local _obf295 = u190.llIllII
+u190.llIllII = new4(_obf295.X, math.max(_obf295.Y, 0), _obf295.Z)
+end
+end
+end)
+end)
+v302(_obf480, (string.char(86,101,104,105,99,108,101,32,65,99,116,105,111,110))):Add((string.char(66,111,109,98)), (string.char(80,114,105,109,97,114,121)), function()
+for _ = 1, 5 do
+u187.send((string.char(99,114,97,115,104,101,100,95,99,97,114)), Vehicle.get_car_player_is_in(), 150)
+end
+end):Add((string.char(66,114,105,110,103)), (string.char(80,114,105,109,97,114,121)), function()
+if #Vehicles:GetChildren() ~= 0 then
+for _, _obf295 in next, Vehicles:GetChildren() do
+if _obf295:GetAttribute((string.char(79,119,110,101,114,85,115,101,114,73,100))) == UserId then
+_obf295:PivotTo(u189:GetPivot() * new3(0, 0, 5))
+end
+end
+return
+end
+end)
+local _obf487 = v297(t47.Vehicle, (string.char(67,111,110,116,114,111,108,32,77,111,100,101)), (string.char(67,104,111,111,115,101,32,121,111,117,114,32,100,114,105,118,105,110,103,32,99,111,110,116,114,111,108,32,115,99,104,101,109,101,46)))
+v300(_obf487, (string.char(67,111,110,116,114,111,108,32,77,111,100,101)), (string.char(77,111,98,105,108,101,32,61,32,33,53,8,45,34,42,21,52,74,1,32,124,32,80,67,32,61,32,67,10,73,32,87,65,83,68,32,68,33,72,33,53,8,45,34)), { (string.char(77,111,98,105,108,101)), (string.char(80,67)) }, (string.char(86,101,104,105,99,108,101,67,111,110,116,114,111,108,77,111,100,101)))
+v299(_obf487, (string.char(69,110,97,98,108,101,32,74,111,121,115,116,105,99,107)), (string.char(64,27,52,20,47,27,52,20,8,45,34,32,40,77,111,98,105,108,101,32,109,111,100,101,32,64,23,72,50,25,49,73,25,41)), (string.char(86,101,104,105,99,108,101,74,111,121,115,116,105,99,107)))
+v303(_obf487, (string.char(68,114,105,118,101,32,83,112,101,101,100)), (string.char(4,39,50,33,64,35,71,39,35,22,64,33,55,72,45,67,10,73,8,45,34)), 10, 200, 35, (string.char(86,101,104,105,99,108,101,74,111,121,115,116,105,99,107,83,112,101,101,100)))
+v303(_obf487, (string.char(84,117,114,110,32,83,112,101,101,100)), (string.char(4,39,50,33,64,35,71,39,1,50,35,43,33,56,25,30,39,7,33,50,37,49,34)), 1, 50, 14, (string.char(86,101,104,105,99,108,101,74,111,121,115,116,105,99,107,84,117,114,110)))
+v303(_obf487, (string.char(74,111,121,115,116,105,99,107,32,82,97,100,105,117,115)), (string.char(35,48,34,48,43,72,50,7,42,57,7,42,56,20,2,45,7,32,116,104,117,109,98)), 20, 120, 55, (string.char(86,101,104,105,99,108,101,74,111,121,115,116,105,99,107,82,97,100,105,117,115)))
+local _obf488 = v297(t47.Setting, (string.char(71,114,97,112,104,105,99)), (string.char(82,101,100,117,99,101,32,108,97,103,32,97,110,100,32,105,109,112,114,111,118,101,32,121,111,117,114,32,103,114,97,112,104,105,99,115,46)))
+v299(_obf488, (string.char(87,104,105,116,101,83,99,114,101,101,110)), (string.char(68,105,115,97,98,108,101,32,51,68,32,82,101,110,100,101,114,32,116,111,32,82,101,100,117,99,101,32,76,97,103,46)), (string.char(87,104,105,116,101,83,99,114,101,101,110)), function(p233)
+RunService2:Set3dRenderingEnabled(not p233)
+end)
+v299(_obf488, (string.char(72,105,103,104,32,67,97,109,101,114,97,32,80,111,115,105,116,105,111,110)), (string.char(67,104,97,110,103,101,32,99,97,109,101,114,97,32,112,111,115,105,116,105,111,110,32,116,111,32,104,105,103,104,32,112,108,97,99,101,46)), (string.char(72,105,103,104,67,97,109,101,114,97,80,111,115,105,116,105,111,110)), function(p234)
+Camera.CameraSubject = p234 and u227 or u191
+end)
+v302(_obf488, (string.char(70,112,115,32,66,111,111,115,116,101,114))):Add((string.char(83,116,97,114,116,32,66,111,111,115,116)), (string.char(80,114,105,109,97,114,121)), function()
+Lighting.GlobalShadows = false
+Lighting.FogEnd = 10000000000
+Lighting.Brightness = 2
+Lighting.ClockTime = 14
+Lighting.EnvironmentDiffuseScale = 0
+Lighting.EnvironmentSpecularScale = 0
+Lighting.OutdoorAmbient = Color3.fromRGB(180, 180, 180)
+for _, _obf427 in pairs(Lighting:GetChildren()) do
+if _obf427:IsA((string.char(83,107,121))) or _obf427:IsA((string.char(83,117,110,82,97,121,115,69,102,102,101,99,116))) or _obf427:IsA((string.char(66,108,117,114,69,102,102,101,99,116))) or _obf427:IsA((string.char(67,111,108,111,114,67,111,114,114,101,99,116,105,111,110,69,102,102,101,99,116))) or _obf427:IsA((string.char(66,108,111,111,109,69,102,102,101,99,116))) or _obf427:IsA((string.char(68,101,112,116,104,79,102,70,105,101,108,100,69,102,102,101,99,116))) then
+_obf427:Destroy()
+end
+end
+if Terrain then
+Terrain.WaterWaveSize = 0
+Terrain.WaterReflectance = 0
+Terrain.WaterTransparency = 1
+Terrain:SetMaterialColor(Enum.Material.Grass, Color3.fromRGB(150, 150, 150))
+end
+local _obf489 = workspace:GetDescendants()
+for _obf410, descendant in ipairs(_obf489) do
+if _obf410 % 250 == 0 then task.wait() end
+if descendant:IsA((string.char(66,97,115,101,80,97,114,116))) or descendant:IsA((string.char(77,101,115,104,80,97,114,116))) then
+descendant.Material = Enum.Material.SmoothPlastic
+descendant.Color = Color3.fromRGB(170, 170, 170)
+descendant.Reflectance = 0
+descendant.CastShadow = false
+end
+if descendant:IsA((string.char(68,101,99,97,108))) or descendant:IsA((string.char(84,101,120,116,117,114,101))) or descendant:IsA((string.char(83,117,114,102,97,99,101,65,112,112,101,97,114,97,110,99,101))) then
+descendant:Destroy()
+end
+if descendant:IsA((string.char(80,97,114,116,105,99,108,101,69,109,105,116,116,101,114))) or descendant:IsA((string.char(84,114,97,105,108))) or descendant:IsA((string.char(66,101,97,109))) then
+descendant.Enabled = false
+end
+if descendant:IsA((string.char(65,99,99,101,115,115,111,114,121))) or descendant:IsA((string.char(67,108,111,116,104,105,110,103))) or descendant:IsA((string.char(83,104,105,114,116))) or descendant:IsA((string.char(80,97,110,116,115))) then
+descendant:Destroy()
+end
+if descendant:IsA((string.char(83,111,117,110,100))) then
+descendant.Volume = 0
+descendant:Stop()
+end
+end
+end)
+v302(v297(t47.Setting, (string.char(83,101,114,118,101,114,32,70,105,110,100,101,114)), (string.char(83,99,97,110,32,97,110,100,32,102,105,108,116,101,114,32,103,97,109,101,32,115,101,114,118,101,114,115,46))), (string.char(83,101,114,118,101,114)), (string.char(89,111,117,32,99,97,110,32,102,105,110,100,32,97,108,108,32,115,101,114,118,101,114,115,32,119,105,116,104,32,116,121,112,101,115,46))):Add((string.char(72,105,103,104,32,83,101,114,118,101,114)), (string.char(80,114,105,109,97,114,121)), function()
+t24.HopServer(1)
+end):Add((string.char(76,111,119,32,83,101,114,118,101,114)), (string.char(80,114,105,109,97,114,121)), function()
+t24.HopServer(2)
+end):Add((string.char(82,101,106,111,105,110,32,67,117,114,114,101,110,116,32,83,101,114,118,101,114)), (string.char(80,114,105,109,97,114,121)), function()
+TeleportService:TeleportToPlaceInstance(PlaceId2, JobId2)
+end)
+local _obf490 = v297(t47.Setting, (string.char(74,111,98,73,100)), (string.char(89,111,117,32,99,97,110,32,106,111,105,110,32,111,116,104,101,114,32,115,101,114,118,101,114,32,98,121,32,106,111,98,105,100,46)))
+v301(_obf490, (string.char(69,110,116,101,114,32,74,111,98,73,100)), (string.char(89,111,117,114,32,74,111,98,73,100,32,101,110,116,101,114,32,104,101,114,101,32,116,111,32,106,111,105,110,46)), (string.char(74,111,98,73,100,86,97,108,117,101)))
+v302(_obf490, (string.char(65,99,116,105,111,110,32,74,111,98,73,100)), (string.char(89,111,117,32,99,97,110,32,100,111,32,97,110,121,116,104,105,110,103,32,119,105,116,104,32,83,101,114,118,101,114,32,105,100,46))):Add((string.char(74,111,105,110,32,74,111,98,73,100)), (string.char(80,114,105,109,97,114,121)), function()
+TeleportService:TeleportToPlaceInstance(PlaceId2, llIlI.JobIdValue)
+end):Add((string.char(67,111,112,121,32,83,101,114,118,101,114,32,73,100)), (string.char(80,114,105,109,97,114,121)), function()
+Ill(JobId2)
+end)
+spawn(function()
+local _obf491 = (string.char(121,111,117,32,97,114,101,32,97,32,115,116,97,114,32,115,104,105,110,105,110,103,32,111,110,32,110,105,103,104,116,115,32,97,119,97,121))
+local _obf492 = 0
+while wait2(0.2) do
+local _obf493, shown = pcall(function() return u287:GetState() end)
+if _obf493 and shown == false then continue end
+local _obf494 = {}
+for k = 0, 6 do
+table.insert(_obf494, Color3.fromHSV((k / 6 + _obf492) % 1, 1, 1))
+end
+u287:SetSubtitle(_obf383:Gradient(_obf491, _obf494))
+_obf492 = (_obf492 + 0.06) % 1
+end
+end)
+u287:Notify({
+Title = (string.char(76,111,97,100,101,100,32,115,117,99,99,101,115,115,102,117,108,108,121)),
+Description = (string.char(73,102,32,121,111,117,32,101,110,99,111,117,110,116,101,114,32,97,110,121,32,105,115,115,117,101,115,44,32,121,111,117,32,99,97,110,32,99,111,110,116,97,99,116,32,117,115,32,118,105,97,32,116,104,101,32,68,105,115,99,111,114,100,32,103,114,111,117,112,46)),
+Lifetime = 3
+})
+return
+end
+end
