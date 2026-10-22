@@ -82,14 +82,9 @@ if not c().ACBYPASS then
                 debug.setconstant(func, 4, "___Bypass")
 
                 warn([[
-██████╗  █████╗ ██╗███╗   ██╗    ██╗  ██╗██╗   ██╗██████╗ 
-██╔══██╗██╔══██╗██║████╗  ██║    ██║  ██║██║   ██║██╔══██╗
-██████╔╝███████║██║██╔██╗ ██║    ███████║██║   ██║██████╔╝
-██╔══██╗██╔══██║██║██║╚██╗██║    ██╔══██║██║   ██║██╔══██╗
-██║  ██║██║  ██║██║██║ ╚████║    ██║  ██║╚██████╔╝██████╔╝
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
+Remix​Hub loading successfully^^
 
-                Rain Hub Success
+          
                 ]])
 
                 identifyexecutor = nil
@@ -109,7 +104,7 @@ repeat task.wait() until c().ACBYPASS
 local player = game.Players.LocalPlayer
 
 local Window = UI:CreateWindow({
-    Title = "Ranx HUB | Premium PVP [BLOCK SPIN]",
+    Title = "Remix HUB | Premium PVP [BLOCK SPIN]",
     Subtitle = "x2nyx | Premium",
     Size = UDim2.fromOffset(700, 540),
     Theme = "Dark",
@@ -177,7 +172,7 @@ local ServerUI = ServerTab:AddSection({Title = "Server Utilities"})
 
 HomeUI = HomeTab:AddSection(
     {
-        Title = "My Name is x2nyx solo Developer"
+        Title = "Remix Team"
     }
 )
 
