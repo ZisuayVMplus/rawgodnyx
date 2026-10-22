@@ -103,7 +103,7 @@ repeat task.wait() until c().ACBYPASS
 local player = game.Players.LocalPlayer
 
 local Window = UI:CreateWindow({
-    Title = "REMIX HUB,
+    Title = "REMIX HUB",
     Subtitle = "x2nyx | Premium",
     Size = UDim2.fromOffset(650, 500),
     Theme = "Dark",
